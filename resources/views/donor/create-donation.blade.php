@@ -10,19 +10,56 @@
 
     <form>
         <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <label for="name" style="font-size:20px;"><b>Full Name</label></b>
+          <input type="text" class="form-control" id="name"  placeholder="Enter Full Name">
+         
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <label for="email" style="font-size:20px;"><b>Email Address</label></b>
+          <input type="email" class="form-control" id="email" placeholder="Enter Email">
+          <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+
+        <div class="form-group">
+          <label for="address" style="font-size:20px;"><b>Address</label></b>
+          <input type="text" class="form-control" id="address"  placeholder="Enter Address">
+         
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <div class="form-group">
+          <label for="phn_number" style="font-size:20px;"><b>Phone Number</label></b>
+          <input type="number" class="form-control" id="phn_number"  placeholder="Enter Phone Number">
+         
+        </div>
+
+        
+    <label for="type" style="font-size:20px;"><b>Select Crisis Type</label></b><br>
+
+    <div class="input-group mb-3">
+      
+      <div class="input-group-prepend">
+        
+        <label class="input-group-text" for="inputGroupSelect01"><b>Options</b></label>
+      </div>
+
+      <select class="custom-select" id="type" name="type">
+        <option selected>Choose...</option>
+        <option value="food">Food</option>
+        <option value="flood">Flood</option>
+        <option value="medical">Medical</option>
+        <option value="other">Others</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="amount" style="font-size:20px;"><b>Donation Amount</label></b>
+      <input type="number" class="form-control" id="amount"  placeholder="Enter Donation amount">
+     
+    </div>
+
+
+        
+        <button type="submit" class="btn btn-success">Donate</button>
       </form>
   
   

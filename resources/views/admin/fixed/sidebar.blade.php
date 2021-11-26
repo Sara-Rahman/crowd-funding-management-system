@@ -5,7 +5,7 @@
                 <div class="logo"><a href="index.html">
                         <!-- <img src="assets/images/logo.png" alt="" /> --><span>Radiant Foundation</span></a></div>
                 <li class="label">Main</li>
-                <li><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard <span
+                <li><a class="sidebar-sub-toggle" ><i class="ti-home"></i> Dashboard <span
                             {{-- class="badge badge-primary">2</span> <span --}}
                             class=""></span></a>
                     {{-- <ul>
@@ -28,7 +28,7 @@
                 <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Donor <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="/">Donor Profile</a></li>
+                        <li><a href="{{route('create.donor.profile')}}">Donor Profile</a></li>
                         <li><a href="/donation">Donation</a></li>
                     </ul>
                 </li>
@@ -38,7 +38,7 @@
                 <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Volunteer <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="/">Volunteer Profile</a></li>
+                        <li><a href="{{route('create.volunteer.profile')}}">Volunteer Profile</a></li>
                         <li><a href="/">Distribution</a></li>
                     </ul>
                 </li>

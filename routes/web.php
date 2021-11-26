@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DonorController;
+use App\Http\Controllers\VolunteerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,6 @@ Route::get('/create/crisis', [AdminController::class, 'CreateCrisis']);
 //For DonorController
 Route::get('/donation', [DonorController::class, 'Donation']);
 Route::get('/create/donation', [DonorController::class, 'CreateDonation']);
+Route::get('/create/donorprofile', [DonorController::class, 'DonorProfile'])->name('create.donor.profile');
+Route::get('/create/volunteerprofile',[VolunteerController::class, 'VolunteerProfile'])->name('create.volunteer.profile');
+// Route::get('/distribution',VolunteerController::class, 'Distribution')->name('distribution');

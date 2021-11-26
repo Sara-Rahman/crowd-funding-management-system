@@ -10,6 +10,12 @@ class DonorController extends Controller
     {
         return view('donor.donation');
     }
+
+    public function DonorProfile()
+    {
+        return view('donor.donor-profile');
+    }
+
     public function CreateDonation()
     {
         return view('donor.create-donation');

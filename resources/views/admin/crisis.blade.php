@@ -1,67 +1,41 @@
 @extends('master')
 
 @section('content')
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-  
-table, th, td {
-  border:1px solid black;
-}
 
-.button {
-  background-color: #691674;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  transition-duration: 0.4s;
-  border-radius: 8px;
-}
-.button:hover {
-  background-color: #ac4c97;
-  color: white;
-}
 
-</style>
-</head>
-<body>
-
-<h2>Crisis</h2>
-<br>
-
-<a href="{{url('/create/crisis')}}" class="button" style="text-decoration:none; color:white;">Create Crisis</a><br><br>
-{{-- <a href="#" class="button" style="text-decoration:none; color:white;">View Crisis</a> --}}
 
  <h1>Crisis List</h1><br>
 
+ <a href="{{url('/create/crisis')}}"><button type="button" class="btn btn-primary">Create Crisis</button></a><br><br>
 
-
-<table class="table" style="width:100%">
+ <table class="table table-dark">
   <thead>
     <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Crisis Name</th>
-      <th scope="col">Crisis Type</th>
-      <th scope="col">Amount</th>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
     </tr>
   </thead>
   <tbody>
-    {{-- @foreach($crisislist as $item)
     <tr>
-      <th>{{$item->id}}</th>
-      <td>{{$item->name}}</td>
-      <td>{{$item->type}}</td>
-      <td>{{$item->amount}}</td>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
     </tr>
-    @endforeach --}}
-   
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
   </tbody>
 </table>
 @endsection
