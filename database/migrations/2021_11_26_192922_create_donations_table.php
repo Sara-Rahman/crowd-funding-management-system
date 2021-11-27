@@ -15,6 +15,12 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->string('address');
+            $table->double('phn_number');
+            $table->string('type');
+            $table->double('amount');
             $table->timestamps();
         });
     }

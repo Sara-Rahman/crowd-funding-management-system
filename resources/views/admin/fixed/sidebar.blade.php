@@ -28,8 +28,8 @@
                 <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Donor <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="{{route('create.donor.profile')}}">Donor Profile</a></li>
-                        <li><a href="/donation">Donation</a></li>
+                        <li><a href="{{route('donor.profile')}}">Donor Profile</a></li>
+                        <li><a href="{{url('/donation')}}">Donation</a></li>
                     </ul>
                 </li>
 
@@ -38,7 +38,7 @@
                 <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Volunteer <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="{{route('create.volunteer.profile')}}">Volunteer Profile</a></li>
+                        <li><a href="{{route('volunteer.profile')}}">Volunteer Profile</a></li>
                         <li><a href="/">Distribution</a></li>
                     </ul>
                 </li>

@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\VolunteerController;
+use App\Models\Crisis;
+use App\Models\Donation;
+use App\Models\Volunteer;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +27,21 @@ Route::get('/', function () {
 //for AdminController
 Route::get('/crisis',[AdminController::class, 'Crisis']);
 Route::get('/create/crisis', [AdminController::class, 'CreateCrisis']);
+Route::get('/show/crisis',[AdminController::class,'ShowCrisis'])->name('show.crisis');
+Route::post('/store/crisis',[AdminController::class, 'StoreCrisis'])->name('store.crisis');
 
 
 //For DonorController
 Route::get('/donation', [DonorController::class, 'Donation']);
 Route::get('/create/donation', [DonorController::class, 'CreateDonation']);
-Route::get('/create/donorprofile', [DonorController::class, 'DonorProfile'])->name('create.donor.profile');
-Route::get('/create/volunteerprofile',[VolunteerController::class, 'VolunteerProfile'])->name('create.volunteer.profile');
+Route::post('/store/donation',[DonorController::class, 'StoreDonation'])->name('store.donation');
+Route::get('/donorprofile', [DonorController::class, 'DonorProfile'])->name('donor.profile');
+Route::get('/create/donor',[DonorController::class,'CreateDonor'])->name('create.donor');
+Route::post('store/donor',[DonorController::class,'StoreDonor'])->name('store.donor');
 // Route::get('/distribution',VolunteerController::class, 'Distribution')->name('distribution');
+
+//For VolunteerController
+Route::get('/volunteerprofile',[VolunteerController::class, 'VolunteerProfile'])->name('volunteer.profile');
+Route::get('/create/volunteer',[VolunteerController::class,'CreateVolunteer'])->name('create.volunteer');
+Route::post('/store/volunteer',[VolunteerController::class,'StoreVolunteer'])->name('store.volunteer');
+

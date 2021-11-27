@@ -3,10 +3,31 @@
 @section('content')
 <h1>Create Crisis</h1>
 <hr>
-<form>
+
+@if(session()->has('success'))
+                  <p class="alert alert-success">
+                    {{session()->get('success')}}
+                  </p>
+  @endif
+    
+
+
+@if ($errors->any())
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $error)
+                    <li>
+                      {{$error}}
+                    </li>   
+                  @endforeach
+                </ul>
+              </div>
+  @endif
+<form action={{route('store.crisis')}} method="POST">
+  @csrf
     <div class="form-group">
       <label for="name" style="font-size:20px;"><b>Crisis Name</label></b>
-      <input type="text" class="form-control" id="name"  placeholder="Enter Crisis Name">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter Crisis Name">
      
       
     </div>
@@ -41,13 +62,13 @@
 
     <div class="form-group">
       <label for="location" style="font-size:20px;"><b>Location</label></b>
-      <input type="text" class="form-control" id="location"  placeholder="Enter Location">
+      <input type="text" class="form-control" id="location"  placeholder="Enter Location" name="location">
    
     </div>
 
     <div class="form-group">
       <label for="phn_number" style="font-size:20px;"><b>Contact Number</label></b>
-      <input type="text" class="form-control" id="phn_number"  placeholder="Enter Contact Number">
+      <input type="number" class="form-control" id="phn_number"  placeholder="Enter Contact Number" name="phn_number">
    
     </div>
 
@@ -56,7 +77,7 @@
     
     <div class="form-group">
       <label for="amount" style="font-size:20px;"><b>Target Amount</label></b>
-      <input type="number" class="form-control" id="amount" placeholder="Enter Target Amount">
+      <input type="number" class="form-control" id="amount" placeholder="Enter Target Amount" name="amount">
      
       
     </div>

@@ -1,34 +1,53 @@
 @extends('master')
 
 @section('content')
-<form >
-  <div class="container">
+
+  
     <h1>Donation Form</h1>
    
     <hr>
+
+    @if(session()->has('success'))
+    <p class="alert alert-success">
+      {{session()->get('success')}}
+    </p>
+    @endif
+
+    @if ($errors->any())
+              <div class="alert alert-danger">
+                <ul>
+                  @foreach ($errors->all() as $error)
+                    <li>
+                      {{$error}}
+                    </li>   
+                  @endforeach
+                </ul>
+              </div>
+  @endif
     
 
-    <form>
+    <form action="{{route('store.donation')}}" method="POST">
+      @csrf
         <div class="form-group">
           <label for="name" style="font-size:20px;"><b>Full Name</label></b>
-          <input type="text" class="form-control" id="name"  placeholder="Enter Full Name">
+          <input type="text" class="form-control" id="name"  placeholder="Enter Full Name" name="name">
          
         </div>
         <div class="form-group">
           <label for="email" style="font-size:20px;"><b>Email Address</label></b>
-          <input type="email" class="form-control" id="email" placeholder="Enter Email">
+          <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
           <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
 
         <div class="form-group">
           <label for="address" style="font-size:20px;"><b>Address</label></b>
-          <input type="text" class="form-control" id="address"  placeholder="Enter Address">
+          <input type="text" class="form-control" id="address"  placeholder="Enter Address" name="address">
          
         </div>
 
         <div class="form-group">
           <label for="phn_number" style="font-size:20px;"><b>Phone Number</label></b>
-          <input type="number" class="form-control" id="phn_number"  placeholder="Enter Phone Number">
+          <input type="number" class="form-control" id="phn_number"  placeholder="Enter Phone Number" name="phn_number">
          
         </div>
 
@@ -43,7 +62,7 @@
       </div>
 
       <select class="custom-select" id="type" name="type">
-        <option selected>Choose...</option>
+        <option>Choose...</option>
         <option value="food">Food</option>
         <option value="flood">Flood</option>
         <option value="medical">Medical</option>
@@ -53,7 +72,7 @@
 
     <div class="form-group">
       <label for="amount" style="font-size:20px;"><b>Donation Amount</label></b>
-      <input type="number" class="form-control" id="amount"  placeholder="Enter Donation amount">
+      <input type="number" class="form-control" id="amount"  placeholder="Enter Donation amount" name="amount">
      
     </div>
 
