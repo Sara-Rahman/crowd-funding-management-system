@@ -31,6 +31,7 @@
         <td>{{$item->phn_number}}</td>
         <td>{{$item->gender}}</td>
         <td>{{$item->occupation}}</td>
+        <td><img src="{{url('/uploads/donors/'.$item->image)}}" style="border-radius: 4px;" width= "100px;" alt="donor image"> </td>
         
         
       </tr>

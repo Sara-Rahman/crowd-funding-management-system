@@ -56,6 +56,18 @@ class DonorController extends Controller
 
     public function StoreDonor(Request $req)
     {
+
+        $image_name=null;
+        //step 1: check image exist in this request.
+        if($req->hasFile('donor_image'))
+         // step 2: generate file name
+        {
+            $image_name=date('Ymdhis').'.'. $req->file('donor_image')->getClientOriginalExtension();
+             //step 3 : store into project directory
+            $req->file('donor_image')->storeAs('/donors',$image_name);
+        }
+
+       // dd($req->all());
         $req->validate([
             'name'=>'required',
             'email'=>'required',
@@ -67,6 +79,7 @@ class DonorController extends Controller
 
 
         ]);
+
         Donor::create([
 
             'name'=>$req->name,
@@ -76,6 +89,7 @@ class DonorController extends Controller
             'phn_number'=>$req->phn_number,
             'gender'=>$req->gender,
             'occupation'=>$req->occupation,
+            'image'=>$image_name,
           
 
 

@@ -22,7 +22,7 @@
   @endif
     
 
-    <form action="{{route('store.donor')}}" method="POST">
+    <form action="{{route('store.donor')}}" method="POST" enctype="multipart/form-data">
       @csrf
         <div class="form-group">
           <label for="name" style="font-size:20px;"><b>Full Name</label></b>
@@ -85,8 +85,8 @@
           </div>
 
           <div class="mb-3">
-            <label for="image" class="form-label" style="font-size:20px;"><b>Insert Image</b></label>
-            <input class="form-control" type="file" id="image" name="image">
+            <label for="donor_image" class="form-label" style="font-size:20px;"><b>Insert Image</b></label>
+            <input class="form-control" type="file" id="donor_image" name="donor_image">
           </div>
 
           {{-- <div class="form-group">
