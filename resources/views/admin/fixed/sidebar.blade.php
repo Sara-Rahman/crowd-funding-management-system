@@ -24,6 +24,8 @@
                 </li>
 
 
+
+
                
                 <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Donor <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
@@ -42,6 +44,15 @@
                         <li><a href="/">Distribution</a></li>
                     </ul>
                 </li>
+
+                <li><a class="sidebar-sub-toggle" ><i class="ti-user"></i> Crisis Category <span
+                    class="sidebar-collapse-icon ti-angle-down"></span></a>
+            <ul>
+                <li><a href="{{route('category.list')}}">Category List</a></li>
+               
+            </ul>
+        </li>
+
 
 
 

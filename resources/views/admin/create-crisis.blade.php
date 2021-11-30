@@ -33,23 +33,21 @@
     </div>
 
 
-    <label for="type" style="font-size:20px;"><b>Select Crisis Type</label></b><br>
+  
 
-    <div class="input-group mb-3">
-      
-      <div class="input-group-prepend">
-        
-        <label class="input-group-text" for="inputGroupSelect01"><b>Options</b></label>
-      </div>
+  <div class="form-group">
+    <select name="category" class="form-control">
+      <option>Select Crisis Category</option>
 
-      <select class="custom-select" id="type" name="type">
-        <option selected>Choose...</option>
-        <option value="food">Food</option>
-        <option value="flood">Flood</option>
-        <option value="medical">Medical</option>
-        <option value="other">Others</option>
-      </select>
-    </div>
+      @foreach ($categorylist as $item)
+
+
+      <option value="{{$item->id}}">{{$item->name}}</option>
+      @endforeach
+    </select>
+ 
+  </div>
+    
 
     <div class="form-group">
       <label for="name" style="font-size:20px;"><b>Crisis Description</label></b><br>

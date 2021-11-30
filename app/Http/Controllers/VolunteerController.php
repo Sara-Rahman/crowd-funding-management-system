@@ -15,11 +15,28 @@ class VolunteerController extends Controller
 
     public function CreateVolunteer()
     {
-        return view('volunteer.create-volunteer');
+        $categorylist=Volunteer::all();
+        return view('volunteer.create-volunteer',compact('categorylist'));
     }
 
     public function StoreVolunteer(Request $req)
     {
+
+       // dd($req->all());
+        //step 1: check image exist in this request.
+        $image_name=null;
+
+        if($req->hasFile('volunteer_image'))
+        {
+              // step 2: generate file name
+            $image_name=date('Yhmdis').'.'.$req->file('volunteer_image')->getClientOriginalExtension();
+
+             //step 3 : store into project directory
+
+            $req->File('volunteer_image')->storeAs('/volunteers',$image_name);
+        }
+
+
         $req->validate([
             'name'=>'required',
             'email'=>'required',
@@ -43,7 +60,8 @@ class VolunteerController extends Controller
             'occupation'=>$req->occupation,
             'education'=>$req->education,
             'phn_number'=>$req->phn_number,
-            'type'=>$req->type,
+            'category_id'=>$req->category,
+            'image'=>$image_name,
 
 
         ]);

@@ -24,7 +24,7 @@ class CreateVolunteersTable extends Migration
             $table->string('occupation');
             $table->string('education');
             $table->double('phn_number');
-            $table->string('type');
+            $table->string('category_id');
             $table->timestamps();
         });
     }

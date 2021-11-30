@@ -26,7 +26,7 @@
   @endif
     
 
-    <form action="{{route('store.volunteer')}}" method="POST">
+    <form action="{{route('store.volunteer')}}" method="POST" enctype="multipart/form-data">
       @csrf
         <div class="form-group">
           <label for="name" style="font-size:20px;"><b>Full Name</b></label>
@@ -101,8 +101,23 @@
          
         </div>
 
+
+        <div class="form-group">
+          <select name="category" class="form-control">
+            <option>Available Crises</option>
+      
+            @foreach ($categorylist as $item)
+      
+      
+            <option value="{{$item->id}}">{{$item->name}}</option>
+            @endforeach
+          </select>
+       
+        </div>
+
+
         
-    <label for="type" style="font-size:20px;"><b>Select Crisis Type</label></b><br>
+    {{-- <label for="type" style="font-size:20px;"><b>Available Crisises</label></b><br>
 
     <div class="input-group mb-3">
       
@@ -118,11 +133,11 @@
         <option value="medical">Medical</option>
         <option value="other">Others</option>
       </select>
-    </div>
+    </div> --}}
 
     <div class="mb-3">
-        <label for="image" class="form-label" style="font-size:20px;"><b>Insert Image</b></label>
-        <input class="form-control" type="file" id="image" name="image">
+        <label for="volunteer_image" class="form-label" style="font-size:20px;"><b>Insert Image</b></label>
+        <input class="form-control" type="file" id="volunteer_image" name="volunteer_image">
       </div>
 
       {{-- <div class="form-group">

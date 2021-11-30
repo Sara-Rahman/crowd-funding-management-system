@@ -4,20 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Crisis;
+use App\Models\Category;
 
 
 class AdminController extends Controller
 {
     public function Crisis()
     {
-         $crisislist=Crisis::all();
+         $crisislist=Crisis::with('category')->get();
        
         return view('admin.crisis',compact('crisislist'));
     }
+
     public function CreateCrisis()
     {
-        //$crisislist=Crisis::all();
-        return view('admin.create-crisis');
+        $categorylist = Category::all();
+        return view('admin.create-crisis',compact('categorylist'));
     }
 
     public function StoreCrisis(Request $request)
@@ -26,7 +28,7 @@ class AdminController extends Controller
         //dd($request->all());
         $request->validate([
             'name'=>'required',
-            'type'=>'required',
+            
             'amount'=>'required',
             'details'=>'required',
             'location'=>'required',
@@ -36,7 +38,7 @@ class AdminController extends Controller
         ]);
         Crisis::create([
             'name'=>$request->name,
-            'type'=>$request->type,
+            'category_id'=>$request->category,
             'details'=>$request->details,
             'location'=>$request->location,
             'phn_number'=>$request->phn_number,
@@ -49,10 +51,15 @@ class AdminController extends Controller
         return redirect()->back()->with('success','Crisis has been created successfully.');
     }
 
-    // public function ShowCrisis()
-    // {
-       
-    //     return view('admin.crisis',compact('crisislist'));
-    // }
+    public function CreateCategory()
+    {
+        $categorylist=Category::all();
+        return view('admin.category-create',compact('categorylist'));
+    }
 
+    public function CategoryList()
+    {
+        return view('admin.category-list');
+    }
 }
+

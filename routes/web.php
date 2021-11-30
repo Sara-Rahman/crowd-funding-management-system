@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\VolunteerController;
 use App\Models\Crisis;
 use App\Models\Donation;
 use App\Models\Volunteer;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +47,8 @@ Route::get('/volunteerprofile',[VolunteerController::class, 'VolunteerProfile'])
 Route::get('/create/volunteer',[VolunteerController::class,'CreateVolunteer'])->name('create.volunteer');
 Route::post('/store/volunteer',[VolunteerController::class,'StoreVolunteer'])->name('store.volunteer');
 
+
+//For CategoryController
+Route::get('/create/category',[CategoryController::class,'CreateCategory'])->name('create.category');
+Route::get('/category/list',[CategoryController::class,'CategoryList'])->name('category.list');
+Route::post('/store/category',[CategoryController::class,'StoreCategory'])->name('store.category');

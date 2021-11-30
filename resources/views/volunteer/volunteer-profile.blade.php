@@ -22,6 +22,7 @@
         <th scope="col">Educational Background</th>
         <th scope="col">Phone Number</th>
         <th scope="col">Crisis Type</th>
+        <th scope="col">Image</th>
       </tr>
     </thead>
     <tbody>
@@ -37,7 +38,9 @@
         <td>{{$item->occupation}}</td>
         <td>{{$item->education}}</td>
         <td>{{$item->phn_number}}</td>
-        <td>{{$item->type}}</td>
+        <td>{{$item->category->name}}</td> 
+        <td><img src="{{url('/uploads/volunteers/'.$item->image)}}" style="border-radius:4px" width="100px" alt="volunteer image"></td>
+
         
         
       </tr>

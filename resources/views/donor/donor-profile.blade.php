@@ -18,6 +18,8 @@
         <th scope="col">Phone Number</th>
         <th scope="col">Gender</th>
         <th scope="col">Occupation</th>
+        <th scope="col">Image</th>
+
       </tr>
     </thead>
     <tbody>
