@@ -102,38 +102,11 @@
         </div>
 
 
-        <div class="form-group">
-          <select name="category" class="form-control">
-            <option>Available Crises</option>
-      
-            @foreach ($categorylist as $item)
-      
-      
-            <option value="{{$item->id}}">{{$item->name}}</option>
-            @endforeach
-          </select>
        
-        </div>
 
 
         
-    {{-- <label for="type" style="font-size:20px;"><b>Available Crisises</label></b><br>
-
-    <div class="input-group mb-3">
-      
-      <div class="input-group-prepend">
-        
-        <label class="input-group-text" for="inputGroupSelect01">Options</label>
-      </div>
-
-      <select class="custom-select" id="type" name="type">
-        <option selected>Choose...</option>
-        <option value="food">Food</option>
-        <option value="flood">Flood</option>
-        <option value="medical">Medical</option>
-        <option value="other">Others</option>
-      </select>
-    </div> --}}
+   
 
     <div class="mb-3">
         <label for="volunteer_image" class="form-label" style="font-size:20px;"><b>Insert Image</b></label>

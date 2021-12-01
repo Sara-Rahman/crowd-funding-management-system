@@ -51,11 +51,11 @@ class AdminController extends Controller
         return redirect()->back()->with('success','Crisis has been created successfully.');
     }
 
-    public function CreateCategory()
-    {
-        $categorylist=Category::all();
-        return view('admin.category-create',compact('categorylist'));
-    }
+    // public function CreateCategory()
+    // {
+    //     $categorylist=Category::all();
+    //     return view('admin.category-create',compact('categorylist'));
+    // }
 
     public function CategoryList()
     {

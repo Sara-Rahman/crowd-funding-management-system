@@ -44,7 +44,7 @@ class VolunteerController extends Controller
             'age'=>'required',
             'occupation'=>'required',
             'phn_number'=>'required',
-            'type'=>'required',
+            
 
 
         ]);
@@ -60,7 +60,6 @@ class VolunteerController extends Controller
             'occupation'=>$req->occupation,
             'education'=>$req->education,
             'phn_number'=>$req->phn_number,
-            'category_id'=>$req->category,
             'image'=>$image_name,
 
 

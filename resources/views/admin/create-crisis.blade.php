@@ -36,6 +36,7 @@
   
 
   <div class="form-group">
+    <label for="category" style="font-size:20px;"><b>Select Crisis Category</label></b>
     <select name="category" class="form-control">
       <option>Select Crisis Category</option>
 
