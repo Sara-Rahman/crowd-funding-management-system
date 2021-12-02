@@ -1,9 +1,20 @@
-@extends('master')
+@extends('website.master')
 
 @section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+</head>
+<body>
   
-    <h1>Donation Form</h1>
+  <div class="container">
+    <h1><b>Donation Form</b></h1>
    
     <hr>
 
@@ -24,7 +35,7 @@
                 </ul>
               </div>
   @endif
-    
+     
 
     <form action="{{route('store.donation')}}" method="POST">
       @csrf
@@ -58,7 +69,7 @@
       
       <div class="input-group-prepend">
         
-        <label class="input-group-text" for="inputGroupSelect01"><b>Options</b></label>
+        {{-- <label class="input-group-text" for="inputGroupSelect01"><b>Options</b></label> --}}
       </div>
 
       <select class="custom-select" id="type" name="type">
@@ -76,12 +87,24 @@
      
     </div>
 
+  
 
-        
-        <button type="submit" class="btn btn-success">Donate</button>
-      </form>
+
+    
+     
+    <button type="submit" class="button btn-submit">Submit</button>
+     
+    </div>
+   
+</form>   
+<br> 
+</body>
+</html>
+
+
   
   
-</form> 
+ 
+     
 @endsection
   

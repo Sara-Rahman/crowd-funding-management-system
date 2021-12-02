@@ -31,18 +31,7 @@
                                                     </div>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img"
-                                                        src="assets/images/avatar/3.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mariam</div>
-                                                        <div class="notification-text">likes a photo of you</div>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                          
                                             <li>
                                                 <a href="#">
                                                     <img class="pull-left m-r-10 avatar-img"
@@ -88,33 +77,9 @@
                                         </a>
                                     </div>
                                     <div class="dropdown-content-body">
-                                        <ul>
-                                            <li class="notification-unread">
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img"
-                                                        src="assets/images/avatar/1.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Michael Qin</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="notification-unread">
-                                                <a href="#">
-                                                    <img class="pull-left m-r-10 avatar-img"
-                                                        src="assets/images/avatar/2.jpg" alt="" />
-                                                    <div class="notification-content">
-                                                        <small class="notification-timestamp pull-right">02:34
-                                                            PM</small>
-                                                        <div class="notification-heading">Mr. John</div>
-                                                        <div class="notification-text">Hi Teddy, Just wanted to let you
-                                                            ...</div>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                        
+                                           
+                                           
                                             <li>
                                                 <a href="#">
                                                     <img class="pull-left m-r-10 avatar-img"
@@ -156,8 +121,11 @@
                                 </span>
                                 <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
                                     <div class="dropdown-content-heading">
-                                        <span class="text-left">Upgrade Now</span>
-                                        <p class="trial-day">30 Days Trail</p>
+                                       
+                                        {{-- div class empty --}}
+
+
+
                                     </div>
                                     <div class="dropdown-content-body">
                                         <ul>

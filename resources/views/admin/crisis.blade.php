@@ -6,7 +6,7 @@
 
  <h1>Crisis List</h1><br>
 
- <a href="{{url('/create/crisis')}}"><button type="button" class="btn btn-primary">Create Crisis</button></a><br><br>
+ <a href="{{route('create.crisis')}}"><button type="button" class="btn btn-primary">Create Crisis</button></a><br><br>
 
  <table class="table table-light" style="width:80%">
   <thead>
@@ -18,6 +18,7 @@
       <th scope="col">Location</th>
       <th scope="col">Contact Number</th>
       <th scope="col">Target Amount</th>
+      <th scope="col">Raised Amount</th>
     </tr>
   </thead>
   <tbody>
@@ -31,6 +32,7 @@
       <td>{{$item->location}}</td>
       <td>{{$item->phn_number}}</td>
       <td>{{$item->amount}}</td>
+     
      
       
     </tr>

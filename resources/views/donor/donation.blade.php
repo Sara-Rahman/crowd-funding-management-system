@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>Create Donation</h1>
-<a href="{{url('/create/donation')}}"><button class="btn btn-primary">Create Donation</button></a>
+<a href="{{route('create.donation')}}"><button class="btn btn-primary">Create Donation</button></a>
 
 <table class="table table-light" style="width:80%">
     <thead>

@@ -21,6 +21,7 @@ class CreateCrisesTable extends Migration
             $table->string('location');
             $table->double('phn_number');
             $table->double('amount');
+           
             $table->timestamps();
         });
     }

@@ -43,6 +43,7 @@ class AdminController extends Controller
             'location'=>$request->location,
             'phn_number'=>$request->phn_number,
             'amount'=>$request->amount,
+           
 
 
 
@@ -51,15 +52,12 @@ class AdminController extends Controller
         return redirect()->back()->with('success','Crisis has been created successfully.');
     }
 
-    // public function CreateCategory()
-    // {
-    //     $categorylist=Category::all();
-    //     return view('admin.category-create',compact('categorylist'));
-    // }
+    
 
-    public function CategoryList()
-    {
-        return view('admin.category-list');
-    }
+    // public function CategoryList()
+    // {
+    //     return view('admin.category-list');
+    // }
 }
+
 

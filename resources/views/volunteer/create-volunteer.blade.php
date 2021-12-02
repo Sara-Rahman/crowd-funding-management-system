@@ -1,9 +1,10 @@
-@extends('master')
+@extends('website.master')
 
 @section('content')
 
-  
-    <h1>Volunteer Registration Form</h1>
+
+
+    <h1><b>Volunteer Registration Form</b></h1>
    
     <hr>
 
@@ -121,12 +122,18 @@
 
 
            
-      <button type="submit" class="btn btn-success">Register</button>
+      <button type="submit" class="button btn-success">Register</button><br>
+
+      <br>
       
       <div class="form-group">
-          <p><b>Already have an account? </b><a href="#"><button type="submit" class="btn btn-info">Sign In</button></a>.</p>
+          <b>Already have an account? </b><a href="{{route('login.admin')}}"><button type="submit" class="button btn-info">Sign In</button></a>
         </div>
   
-</form> 
+</form> <br>
+  </div>
+
+
+  
 @endsection
   
