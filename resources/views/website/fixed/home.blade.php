@@ -13,7 +13,7 @@
                             <p>Fish isn't thing there a god whales fruit gathering the second so
                                 third beginning open multiply in land multiply Saw saw lesser tree
                                 fom image his made heaven.</p>
-                                <a href="{{route('create.donation')}}" class="btn_2">Start Donation</a>
+                                <a href="{{route('create.donation')}}" class="btn_2" style="text-decoration: none">Start Donation</a>
                             </div>
                         </div>
                     </div>
@@ -158,6 +158,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
+
                                             @foreach($crisislist as $key=>$item)
                                             <div class="col-sm-6 col-lg-4 col-xl-4">
 
@@ -254,7 +255,7 @@
                                                             <div class="intro_video_iner text-center">
                                                                 <h2>Forget what you can get and
                                                                     see what you can give</h2>
-                                                                    <a href="{{route('create.volunteer')}}" class="btn_2">Become a Volunteer</a>
+                                                                    <a href="{{route('create.volunteer')}}" class="btn_2" style="text-decoration: none">Become a Volunteer</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -393,7 +394,7 @@
                                                 </section>
                                                 
                                                 
-                                                <section class="client_part padding_bottom">
+                                                {{-- <section class="client_part padding_bottom">
                                                     <div class="container">
                                                         <div class="row justify-content-center">
                                                             <div class="col-xl-8">
@@ -426,5 +427,5 @@
                                                         </div>
                                                     </div> 
                                                 </section>
-                                                
+                                                 --}}
                                                 @endsection

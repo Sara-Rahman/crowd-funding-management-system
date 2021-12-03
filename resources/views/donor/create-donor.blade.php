@@ -1,6 +1,6 @@
-@extends('master')
+@extends('website.master')
 @section('content')
-    <h1>Donor Registration Form</h1>
+    <h1><b>Donor Registration Form</b></h1>
     <hr>
 
     @if(session()->has('success'))

@@ -14,9 +14,11 @@ class HomeController extends Controller
         return view('website.fixed.home');
     }
 
-    public function AdminLogin()
+
+
+    public function CreateDonor()
     {
-        return view('admin.admin-login');
+        return view('donor.create-donor');
     }
 
     public function CreateDonation()

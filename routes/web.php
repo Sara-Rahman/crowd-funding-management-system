@@ -32,16 +32,21 @@ use App\Models\Category;
 //     return view('website.fixed.home');
 // })->name('website');
 
+//website route
 Route::get('/',[HomeController::class,'ShowCrisis']);
-
 
 // Route::get('/',[HomeController::class,'Home']);
 
-Route::get('/admin/login',[HomeController::class,'AdminLogin'])->name('login.admin');
 
+
+//Donor
 Route::get('/create/donation', [HomeController::class, 'CreateDonation'])->name('create.donation');
+Route::get('/create/donor',[HomeController::class,'CreateDonor'])->name('create.donor');
 
+//volunteer
 Route::get('/create/volunteer',[VolunteerController::class,'CreateVolunteer'])->name('create.volunteer');
+
+
 
 
 
@@ -69,7 +74,7 @@ Route::post('/store/crisis',[AdminController::class, 'StoreCrisis'])->name('stor
 Route::get('/donation', [DonorController::class, 'Donation'])->name('donation');
 Route::post('/store/donation',[DonorController::class, 'StoreDonation'])->name('store.donation');
 Route::get('/donorprofile', [DonorController::class, 'DonorProfile'])->name('donor.profile');
-Route::get('/create/donor',[DonorController::class,'CreateDonor'])->name('create.donor');
+// Route::get('/create/donor',[DonorController::class,'CreateDonor'])->name('create.donor');
 Route::post('store/donor',[DonorController::class,'StoreDonor'])->name('store.donor');
 // Route::get('/distribution',VolunteerController::class, 'Distribution')->name('distribution');
 

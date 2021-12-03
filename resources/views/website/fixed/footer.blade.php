@@ -38,12 +38,11 @@
     <div class="col-xl-3 col-sm-6 col-md-4">
     <div class="single-footer-widget footer_2">
     <h4>Contact us</h4>
-    <p>4361 Morningview Lane Artland , Pall Street
-    Latimer, IA 50452 / 23654</p>
+    <p>Mirpur-1, Dhaka</p>
     <div class="contact_info">
-    <p><span class="ti-mobile"></span> +2 36 265 (8060)</p>
+    <p><span class="ti-mobile"></span> +880174593477</p>
     <p><span class="ti-email"></span><a href="https://preview.colorlib.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cea7a0a8a18eada1a2a1bca2a7ace0ada1a3">[email&#160;protected]</a> </p>
-    <p><span class="ti-world"></span>ariclawyerfirm.com </p>
+    <p><span class="ti-world"></span>sara_dev.com </p>
     </div>
     </div>
     </div>
@@ -56,7 +55,7 @@
     <div class="row">
     <div class="col-lg-12">
     <p class="footer-text m-0">
-    Copyright &copy;<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+    Copyright &copy;<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | Radiant Foundation<i class="ti-heart" aria-hidden="true"></i> by <a href="https://github.com/Sara-Rahman" target="_blank">Shahida Rahman Sara</a>
     </p>
     </div>
     </div>
