@@ -11,7 +11,7 @@ class DonorController extends Controller
     public function Donation()
     {
         $donationlist=Donation::all();
-        return view('donor.donation',compact('donationlist'));
+        return view('admin.donor.donation',compact('donationlist'));
     }
 
     public function StoreDonation(Request $req)
@@ -46,12 +46,12 @@ class DonorController extends Controller
     public function DonorProfile()
     {
         $donorlist = Donor::all();
-        return view('donor.donor-profile',compact('donorlist'));
+        return view('admin.donor.donor-profile',compact('donorlist'));
     }
 
     public function CreateDonor()
     {
-        return view('donor.create-donor');
+        return view('admin.donor.create-donor');
     }
 
     public function StoreDonor(Request $req)
@@ -102,7 +102,7 @@ class DonorController extends Controller
 
     public function CreateDonation()
     {
-        return view('donor.create-donation');
+        return view('admin.donor.create-donation');
     }
    
 }

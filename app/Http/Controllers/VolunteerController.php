@@ -10,13 +10,13 @@ class VolunteerController extends Controller
     public function VolunteerProfile()
     {
         $volunteerlist=Volunteer::all();
-        return view('volunteer.volunteer-profile',compact('volunteerlist'));
+        return view('admin.volunteer.volunteer-profile',compact('volunteerlist'));
     }
 
     public function CreateVolunteer()
     {
         $categorylist=Volunteer::all();
-        return view('volunteer.create-volunteer',compact('categorylist'));
+        return view('admin.volunteer.create-volunteer',compact('categorylist'));
     }
 
     public function StoreVolunteer(Request $req)

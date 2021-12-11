@@ -127,7 +127,7 @@
       <br>
       
       <div class="form-group">
-          <b>Already have an account? </b><a href="{{route('login.admin')}}"><button type="submit" class="button btn-info">Sign In</button></a>
+          <b>Already have an account? </b><a href="#"><button type="submit" class="button btn-info">Sign In</button></a>
         </div>
   
 </form> <br>

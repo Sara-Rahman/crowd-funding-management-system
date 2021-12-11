@@ -18,7 +18,7 @@
                 <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
-                        <li><a href="{{route('crisis')}}">Crisis</a></li>
+                        <li><a href="{{route('cause')}}">Causes</a></li>
                         {{-- <li><a href="/crisis">Crisis</a></li> --}}
                         <li><a href="/">Report</a></li>
                     </ul>

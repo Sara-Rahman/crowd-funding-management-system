@@ -4,39 +4,42 @@ namespace App\Http\Controllers\website;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Crisis;
+//use App\Models\Crisis;
 use App\Models\Volunteer;
+use App\Models\Cause;
 
 class HomeController extends Controller
 {
     public function Home()
     {
-        return view('website.fixed.home');
+        $crisislist=Cause::all();
+        $volunteerlist=Volunteer::all();
+        return view('website.fixed.home',compact('crisislist','volunteerlist'));
     }
 
 
 
     public function CreateDonor()
     {
-        return view('donor.create-donor');
+        return view('admin.donor.create-donor');
     }
 
     public function CreateDonation()
     {
-        return view('donor.create-donation');
+        return view('admin.donor.create-donation');
 
     }
 
     public function CreateVolunteer()
     {
-        return view('volunteer.create-volunteer');
+        return view('admin.volunteer.create-volunteer');
     }
 
-    public function ShowCrisis()
-    {
-        $crisislist=Crisis::all();
-        $volunteerlist=Volunteer::all();
-        return view('website.fixed.home',compact('crisislist','volunteerlist'));
-    }
+    // public function ShowCrisis()
+    // {
+    //     $crisislist=Crisis::all();
+    //     $volunteerlist=Volunteer::all();
+    //     return view('website.fixed.home',compact('crisislist','volunteerlist'));
+    // }
     
 }

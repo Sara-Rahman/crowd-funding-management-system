@@ -159,21 +159,18 @@
                                         </div>
                                         <div class="row">
 
-                                            @foreach($crisislist as $key=>$item)
-                                            <div class="col-sm-6 col-lg-4 col-xl-4">
+                                            {{-- CAUSES --}}
 
-                                                
-                                                
-                                                
-                                                
+                                            @foreach($crisislist as $key=>$item)
+                                            <div class="col-sm-6 col-lg-4 col-xl-4">                                                
                                                 <div class="single-home-passion">
                                                    
                                                     <div class="card">
                                                         
-                                                        <img src="{{url('Frontend/img/passion/xpassion_1.png.pagespeed.ic.bm_OTCxKdr.png')}}" class="card-img-top" alt="blog">
+                                                        <img src="{{url('uploads/causes/'.$item->image)}}" class="card-img-top" alt="blog">
                                                         <div class="card-body">
                                                             <a href="passion.html">
-                                                                <h5 class="card-title">Food Crisis </h5>
+                                                                <h5 class="card-title">{{$item->name}}</h5>
                                                                 </a>
                                                                 <div class="skill">
                                                                     <div class="skill-bar skill11 wow slideInLeft animated">
@@ -181,8 +178,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <ul>
-                                                                    <li><img src="{{url('Frontend/img/icon/passion_1.svg')}}" alt=""> Name: {{$item->name}}</li>
-                                                                    <li><img src="{{url('Frontend/img/icon/passion_2.svg')}}" alt="">Target Amount: {{$item->amount}}</li>
+                                                                    <li><img src="{{url('Frontend/img/icon/passion_1.svg')}}" alt=""> Goal: {{$item->amount}}</li>
+                                                                    <li><img src="{{url('Frontend/img/icon/passion_2.svg')}}" alt="">Raised Amount: {{$item->raised_amount}}</li>
                                                                 </ul>
                                                                 <a href="#" class="btn_3">read more</a>
                                                             </div>

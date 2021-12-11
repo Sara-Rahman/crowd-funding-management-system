@@ -3,27 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Crisis;
+//use App\Models\Crisis;
 use App\Models\Category;
+use App\Models\Cause;
 
 
 class AdminController extends Controller
 {
-    public function Crisis()
+    public function Cause()
     {
-         $crisislist=Crisis::with('category')->get();
+         $crisislist=Cause::with('category')->get();
        
-        return view('admin.crisis',compact('crisislist'));
+        return view('admin.cause',compact('crisislist'));
     }
 
-    public function CreateCrisis()
+    public function CreateCause()
     {
         $categorylist = Category::all();
-        return view('admin.create-crisis',compact('categorylist'));
+        return view('admin.create-cause',compact('categorylist'));
     }
 
-    public function StoreCrisis(Request $request)
+    public function StoreCause(Request $request)
     {
+        $image_name=null;
+        if($request->hasFile('cause_image'))
+        {
+            $image_name=date('Ymdhis').'.'.$request->file('cause_image')->getClientOriginalExtension();
+            $request->file('cause_image')->storeAs('/causes',$image_name);
+        }
+
        
         //dd($request->all());
         $request->validate([
@@ -36,20 +44,22 @@ class AdminController extends Controller
 
 
         ]);
-        Crisis::create([
+        Cause::create([
             'name'=>$request->name,
             'category_id'=>$request->category,
             'details'=>$request->details,
             'location'=>$request->location,
             'phn_number'=>$request->phn_number,
             'amount'=>$request->amount,
+            'raised_amount'=>$request->raised_amount,
+            'image'=>$image_name,
            
 
 
 
 
         ]);
-        return redirect()->back()->with('success','Crisis has been created successfully.');
+        return redirect()->back()->with('success','Cause has been created successfully.');
     }
 
     

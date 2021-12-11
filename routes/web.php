@@ -6,7 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonorController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\website\HomeController;
-use App\Models\Crisis;
+use App\Models\Cause;
 use App\Models\Donation;
 use App\Models\Volunteer;
 use App\Models\Category;
@@ -33,9 +33,9 @@ use App\Models\Category;
 // })->name('website');
 
 //website route
-Route::get('/',[HomeController::class,'ShowCrisis']);
+//Route::get('/',[HomeController::class,'ShowCrisis']);
 
-// Route::get('/',[HomeController::class,'Home']);
+ Route::get('/',[HomeController::class,'Home']);
 
 
 
@@ -64,10 +64,10 @@ Route::group(['prefix'=>'admin'],function (){
 
 
 //for AdminController
-Route::get('/crisis',[AdminController::class, 'Crisis'])->name('crisis');
-Route::get('/create/crisis', [AdminController::class, 'CreateCrisis'])->name('create.crisis');
-Route::get('/show/crisis',[AdminController::class,'ShowCrisis'])->name('show.crisis');
-Route::post('/store/crisis',[AdminController::class, 'StoreCrisis'])->name('store.crisis');
+Route::get('/cause',[AdminController::class, 'Cause'])->name('cause');
+Route::get('/create/cause', [AdminController::class, 'CreateCause'])->name('create.cause');
+Route::get('/show/cause',[AdminController::class,'ShowCause'])->name('show.cause');
+Route::post('/store/cause',[AdminController::class, 'StoreCause'])->name('store.cause');
 
 
 //For DonorController
@@ -80,7 +80,7 @@ Route::post('store/donor',[DonorController::class,'StoreDonor'])->name('store.do
 
 //For VolunteerController
 Route::get('/volunteerprofile',[VolunteerController::class, 'VolunteerProfile'])->name('volunteer.profile');
-Route::get('/create/volunteer',[VolunteerController::class,'CreateVolunteer'])->name('create.volunteer');
+// Route::get('/create/volunteer',[VolunteerController::class,'CreateVolunteer'])->name('create.volunteer');
 Route::post('/store/volunteer',[VolunteerController::class,'StoreVolunteer'])->name('store.volunteer');
 
 
