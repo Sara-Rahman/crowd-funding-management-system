@@ -5,6 +5,13 @@
 
 
  <h1>Voluteer Register</h1><br>
+ <hr>
+ 
+ @if(session()->has('success'))
+                  <p class="alert alert-success">
+                    {{session()->get('success')}}
+                  </p>
+  @endif
 
  <a href="{{route('create.volunteer')}}"><button type="button" class="btn btn-primary">Create Volunteer</button></a><br><br>
 
@@ -22,6 +29,7 @@
         <th scope="col">Educational Background</th>
         <th scope="col">Phone Number</th>
         <th scope="col">Image</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -39,6 +47,10 @@
         <td>{{$item->phn_number}}</td>
        
         <td><img src="{{url('/uploads/volunteers/'.$item->image)}}" style="border-radius:4px" width="100px" alt="volunteer image"></td>
+        <td>
+          <a class="btn btn-primary" href="{{route('view.volunteer',$item->id)}}">View</a><br><br>
+          <a class="btn btn-danger" href="{{route('delete.volunteer',$item->id)}}">Delete</a>
+        </td>
 
         
         

@@ -37,11 +37,12 @@ use App\Models\Category;
 
  Route::get('/',[HomeController::class,'Home']);
 
-
+//HomeController
 
 //Donor
 Route::get('/create/donation', [HomeController::class, 'CreateDonation'])->name('create.donation');
 Route::get('/create/donor',[HomeController::class,'CreateDonor'])->name('create.donor');
+Route::get('/cause/details',[HomeController::class,'CauseDetails'])->name('cause.details');
 
 //volunteer
 Route::get('/create/volunteer',[VolunteerController::class,'CreateVolunteer'])->name('create.volunteer');
@@ -63,11 +64,13 @@ Route::group(['prefix'=>'admin'],function (){
 
 
 
-//for AdminController
+//for AdminController(Cause)
 Route::get('/cause',[AdminController::class, 'Cause'])->name('cause');
 Route::get('/create/cause', [AdminController::class, 'CreateCause'])->name('create.cause');
 Route::get('/show/cause',[AdminController::class,'ShowCause'])->name('show.cause');
 Route::post('/store/cause',[AdminController::class, 'StoreCause'])->name('store.cause');
+Route::get('/cause/view/details/{cause_id}',[AdminController::class,'CauseView'])->name('view.cause');
+Route::get('/cause/delete/{cause_id}',[AdminController::class,'CauseDelete'])->name('delete.cause');
 
 
 //For DonorController
@@ -77,11 +80,17 @@ Route::get('/donorprofile', [DonorController::class, 'DonorProfile'])->name('don
 // Route::get('/create/donor',[DonorController::class,'CreateDonor'])->name('create.donor');
 Route::post('store/donor',[DonorController::class,'StoreDonor'])->name('store.donor');
 // Route::get('/distribution',VolunteerController::class, 'Distribution')->name('distribution');
+Route::get('/view/donation/{donation_id}',[DonorController::class,'DonationView'])->name('view.donation');
+Route::get('/delete/donation/{donation_id}',[DonorController::class,'DonationDelete'])->name('delete.donation');
+Route::get('/view/donorprofile/{donor_id}',[DonorController::class,'DonorView'])->name('view.donorprofile');
+Route::get('/delete/donorprofile/{donor_id}',[DonorController::class,'DonorDelete'])->name('delete.donorprofile');
 
 //For VolunteerController
 Route::get('/volunteerprofile',[VolunteerController::class, 'VolunteerProfile'])->name('volunteer.profile');
 // Route::get('/create/volunteer',[VolunteerController::class,'CreateVolunteer'])->name('create.volunteer');
 Route::post('/store/volunteer',[VolunteerController::class,'StoreVolunteer'])->name('store.volunteer');
+Route::get('/view/volunteerprofile/{volunteer_id}',[VolunteerController::class,'VolunteerView'])->name('view.volunteer');
+Route::get('/delete/volunteerprofile/{volunteer_id}',[VolunteerController::class,'VolunteerDelete'])->name('delete.volunteer');
 
 
 //For CategoryController

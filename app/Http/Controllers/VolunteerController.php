@@ -66,6 +66,17 @@ class VolunteerController extends Controller
         ]);
         return redirect()->back()->with('success','Volunteer has registered successfully.');
     }
+    public function VolunteerView($volunteer_id)
+    {
+        $volunteer=Volunteer::find($volunteer_id);
+        return view('admin.volunteer.volunteer-profile-view',compact('volunteer'));
+
+    }
+    public function VolunteerDelete($volunteer_id)
+    {
+        Volunteer::find($volunteer_id)->delete();
+        return redirect()->back()->with('success','Volunteer profile has been deleted.');
+    }
 
     // public function Distribution()
     // {

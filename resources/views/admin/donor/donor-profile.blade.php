@@ -4,7 +4,13 @@
 
 
 
- <h1>Donor Register</h1><br>
+ <h1>Donor Register</h1>
+ <hr>
+ @if(session()->has('success'))
+                  <p class="alert alert-success">
+                    {{session()->get('success')}}
+                  </p>
+  @endif
 
  <a href="{{route('create.donor')}}"><button type="button" class="btn btn-primary">Create Donor</button></a><br><br>
  <table class="table table-light" style="width:80%">
@@ -19,6 +25,7 @@
         <th scope="col">Gender</th>
         <th scope="col">Occupation</th>
         <th scope="col">Image</th>
+        <th scope="col">Action</th>
 
       </tr>
     </thead>
@@ -34,7 +41,10 @@
         <td>{{$item->gender}}</td>
         <td>{{$item->occupation}}</td>
         <td><img src="{{url('/uploads/donors/'.$item->image)}}" style="border-radius: 4px;" width= "100px;" alt="donor image"> </td>
-        
+        <td>
+          <a class="btn btn-primary" href="{{route('view.donation',$item->id)}}">View</a><br><br>
+        <a class="btn btn-danger" href="{{route('delete.donorprofile',$item->id)}}">Delete</a>
+        </td>
         
       </tr>
       @endforeach

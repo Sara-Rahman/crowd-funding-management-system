@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 //use App\Models\Crisis;
 use App\Models\Volunteer;
 use App\Models\Cause;
+use App\Models\Category;
+use App\Models\Donation;
 
 class HomeController extends Controller
 {
@@ -26,7 +28,8 @@ class HomeController extends Controller
 
     public function CreateDonation()
     {
-        return view('admin.donor.create-donation');
+        $categorylist = Category::all();
+        return view('admin.donor.create-donation',compact('categorylist'));
 
     }
 
@@ -41,5 +44,11 @@ class HomeController extends Controller
     //     $volunteerlist=Volunteer::all();
     //     return view('website.fixed.home',compact('crisislist','volunteerlist'));
     // }
+
+    public function CauseDetails()
+    {
+        $crisislist = Cause::all();
+        return view('admin.cause_details',compact('crisislist'));
+    }
     
 }

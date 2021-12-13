@@ -61,6 +61,18 @@ class AdminController extends Controller
         ]);
         return redirect()->back()->with('success','Cause has been created successfully.');
     }
+    public function CauseView($cause_id)
+    {
+        $cause=Cause::find($cause_id);
+        return view('admin.cause_view_details',compact('cause'));
+    
+    }
+
+    public function CauseDelete($cause_id)
+    {
+        Cause::find($cause_id)->delete();
+        return redirect()->back()->with('success',"Cause has been deleted.");
+    }
 
     
 

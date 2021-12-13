@@ -19,7 +19,7 @@ class CreateDonationsTable extends Migration
             $table->string('email');
             $table->string('address');
             $table->double('phn_number');
-            $table->string('type');
+            $table->string('category_id');
             $table->double('amount');
             $table->timestamps();
         });

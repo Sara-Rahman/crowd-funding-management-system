@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Donation;
 use App\Models\Donor;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class DonorController extends Controller
 {
     public function Donation()
     {
-        $donationlist=Donation::all();
+        $donationlist=Donation::with('category')->get();
         return view('admin.donor.donation',compact('donationlist'));
     }
 
@@ -21,7 +22,7 @@ class DonorController extends Controller
             'name'=>'required',
             'email'=>'required',
             'phn_number'=>'required',
-            'type'=>'required',
+            'category'=>'required',
             'amount'=>'required',
 
 
@@ -34,7 +35,7 @@ class DonorController extends Controller
             'email'=>$req->email,
             'address'=>$req->address,
             'phn_number'=>$req->phn_number,
-            'type'=>$req->type,
+            'category_id'=>$req->category,
             'amount'=>$req->amount,
 
 
@@ -51,7 +52,8 @@ class DonorController extends Controller
 
     public function CreateDonor()
     {
-        return view('admin.donor.create-donor');
+        $categorylist = Category::all();
+        return view('admin.donor.create-donor',compact('categorylist'));
     }
 
     public function StoreDonor(Request $req)
@@ -103,6 +105,30 @@ class DonorController extends Controller
     public function CreateDonation()
     {
         return view('admin.donor.create-donation');
+    }
+    public function DonationView($donation_id)
+    {
+          $donation= Donation::find($donation_id);
+          return view('admin.donor.donation_view',compact('donation'));
+
+
+    }
+    public function DonationDelete($donation_id)
+    {
+        Donation::find($donation_id)->delete();
+        return redirect()->back()->with('success','Donation info has been deleted');
+
+    }
+    public function DonorView($donor_id)
+    {
+        $donor=Donation::find($donor_id);
+        return view('admin.donor.donor-profile-view',compact('donor'));
+
+    }
+    public function DonorDelete($donor_id)
+    {
+        Donation::find($donor_id)->delete();
+        return redirect()->back()->with('success','Donor profile has been deleted');
     }
    
 }
