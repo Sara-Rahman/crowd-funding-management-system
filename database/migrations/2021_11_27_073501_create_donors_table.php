@@ -22,6 +22,7 @@ class CreateDonorsTable extends Migration
             $table->string('phn_number');
             $table->string('gender');
             $table->string('occupation');
+            $table->string('password');
 
             $table->timestamps();
         });

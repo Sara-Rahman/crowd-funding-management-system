@@ -45,10 +45,13 @@ class HomeController extends Controller
     //     return view('website.fixed.home',compact('crisislist','volunteerlist'));
     // }
 
-    public function CauseDetails()
+    public function CauseDetails($cause_id)
     {
-        $crisislist = Cause::all();
-        return view('admin.cause_details',compact('crisislist'));
+        $cause=Cause::find($cause_id);
+        // return view('admin.cause_details',compact('cause'));
+        return view('website.pages.cause_details',compact('cause'));
+        // $crisislist = Cause::all();
+        // return view('admin.cause_details',compact('crisislist'));
     }
     
 }

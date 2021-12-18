@@ -50,54 +50,55 @@ class DonorController extends Controller
         return view('admin.donor.donor-profile',compact('donorlist'));
     }
 
-    public function CreateDonor()
-    {
-        $categorylist = Category::all();
-        return view('admin.donor.create-donor',compact('categorylist'));
-    }
+    // public function CreateDonor()
+    // {
+    //     $categorylist = Category::all();
+    //     return view('admin.donor.create-donor',compact('categorylist'));
+    // }
 
-    public function StoreDonor(Request $req)
-    {
+    // public function StoreDonor(Request $req)
+    // {
 
-        $image_name=null;
-        //step 1: check image exist in this request.
-        if($req->hasFile('donor_image'))
-         // step 2: generate file name
-        {
-            $image_name=date('Ymdhis').'.'. $req->file('donor_image')->getClientOriginalExtension();
-             //step 3 : store into project directory
-            $req->file('donor_image')->storeAs('/donors',$image_name);
-        }
+    //     $image_name=null;
+    //     //step 1: check image exist in this request.
+    //     if($req->hasFile('donor_image'))
+    //      // step 2: generate file name
+    //     {
+    //         $image_name=date('Ymdhis').'.'. $req->file('donor_image')->getClientOriginalExtension();
+    //          //step 3 : store into project directory
+    //         $req->file('donor_image')->storeAs('/donors',$image_name);
+    //     }
 
-       // dd($req->all());
-        $req->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'address'=>'required',
-            'city'=>'required',
-            'occupation'=>'required',
-            'phn_number'=>'required',
+    //    // dd($req->all());
+    //     $req->validate([
+    //         'name'=>'required',
+    //         'email'=>'required',
+    //         'address'=>'required',
+    //         'city'=>'required',
+    //         'occupation'=>'required',
+    //         'phn_number'=>'required',
            
 
 
-        ]);
+    //     ]);
 
-        Donor::create([
+    //     Donor::create([
 
-            'name'=>$req->name,
-            'email'=>$req->email, 
-            'address'=>$req->address,
-            'city'=>$req->city,    
-            'phn_number'=>$req->phn_number,
-            'gender'=>$req->gender,
-            'occupation'=>$req->occupation,
-            'image'=>$image_name,
+    //         'name'=>$req->name,
+    //         'email'=>$req->email, 
+    //         'address'=>$req->address,
+    //         'city'=>$req->city,    
+    //         'phn_number'=>$req->phn_number,
+    //         'gender'=>$req->gender,
+    //         'occupation'=>$req->occupation,
+    //         'password'=>bcrypt($req->password),
+    //         'image'=>$image_name,
           
 
 
-        ]);
-        return redirect()->back()->with('success','Donor has registered successfully.');
-    }
+    //     ]);
+    //     return redirect()->back()->with('success','Donor has registered successfully.');
+    // }
 
         
     
@@ -121,13 +122,13 @@ class DonorController extends Controller
     }
     public function DonorView($donor_id)
     {
-        $donor=Donation::find($donor_id);
+        $donor=Donor::find($donor_id);
         return view('admin.donor.donor-profile-view',compact('donor'));
 
     }
     public function DonorDelete($donor_id)
     {
-        Donation::find($donor_id)->delete();
+        Donor::find($donor_id)->delete();
         return redirect()->back()->with('success','Donor profile has been deleted');
     }
    

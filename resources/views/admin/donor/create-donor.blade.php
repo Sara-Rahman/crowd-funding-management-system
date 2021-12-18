@@ -83,6 +83,11 @@
             <input type="text" class="form-control" id="occupation"  placeholder="Enter Occupation" name="occupation">
            
           </div>
+          <div class="form-group">
+            <label for="occupation" style="font-size:20px;"><b>Password</label></b>
+            <input type="password" name="password" class="form-control" id="occupation"  placeholder="Enter Occupation" name="occupation">
+           
+          </div>
 
           <div class="mb-3">
             <label for="donor_image" class="form-label" style="font-size:20px;"><b>Insert Image</b></label>
@@ -99,10 +104,10 @@
         
         <button type="submit" class="btn btn-success">Register</button>
       
-        <div class="form-group">
+        {{-- <div class="form-group">
             <p><b>Already have an account? </b><a href="#"><button type="submit" class="btn btn-info">Sign In</button></a>.</p>
           </div>
-  
+   --}}
   
 </form> 
 @endsection

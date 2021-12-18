@@ -73,6 +73,10 @@ class AdminController extends Controller
         Cause::find($cause_id)->delete();
         return redirect()->back()->with('success',"Cause has been deleted.");
     }
+    public function Payment()
+    {
+        return view('admin.payment');
+    }
 
     
 

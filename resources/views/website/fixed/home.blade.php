@@ -181,7 +181,7 @@
                                                                     <li><img src="{{url('Frontend/img/icon/passion_1.svg')}}" alt=""> Goal: {{$item->amount}}</li>
                                                                     <li><img src="{{url('Frontend/img/icon/passion_2.svg')}}" alt="">Raised Amount: {{$item->raised_amount}}</li>
                                                                 </ul>
-                                                                <a href="{{route('cause.details')}}" class="btn_3">read more</a>
+                                                                <a href="{{route('cause.details',$item->id)}}" class="btn_3">read more</a>
                                                             </div>
                                                         </div>
                                                     </div>

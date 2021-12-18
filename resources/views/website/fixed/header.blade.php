@@ -9,8 +9,12 @@
                 </button>
                 <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav align-items-center">
+
+                        @if(session()->has('error'))
+    <p class="alert alert-danger">{{session()->get('error')}}</p>
+@endif
                         <li class="nav-item">
-                            <a class="nav-link" href="index-2.html">Home</a>
+                            <a class="nav-link" href="{{route('website')}}">Home</a>
                         </li>
 
                         <li class="nav-item">
@@ -39,12 +43,63 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
-                        <li class="d-none d-lg-block">
-                            <a class="btn_1" href="{{route('create.donor')}}" style="text-decoration: none">Register/Login</a>
-                        </li>
+                        @if(auth()->user())
+                        <!-- Button trigger modal -->
+    
+                            <a href="{{route('donor.logout')}}" class="btn btn-success">{{auth()->user()->name}} | Logout</a>
+    
+                            @else
+                            <li class="d-none d-lg-block">
+                                <a class="btn_1" href="{{route('create.donor')}}" style="text-decoration: none">Register</a>
+                            </li><br><br>
+    
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#donorlogin">
+                                    Login
+                                </button>
+                            @endif
+                        {{-- <li class="d-none d-lg-block">
+                            <a class="btn_1" href="{{route('create.donor')}}" style="text-decoration: none">Register</a>
+                        </li><br><br> --}}
+                        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#donorlogin">
+                            Login
+                        </button> --}}
                     </ul>
                 </div>
             </nav>
         </div>
+    </div>
+</div>
+
+
+<!-- Login Modal -->
+<div class="modal fade" id="donorlogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form action="{{route('donor.login')}}" method="post">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Donor Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="">Enter Email:</label>
+                        <input name="email" type="email" class="form-control" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Enter Password:</label>
+                        <input name="password" type="password" class="form-control" placeholder="Enter password">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

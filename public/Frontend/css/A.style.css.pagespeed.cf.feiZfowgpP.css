@@ -2466,7 +2466,8 @@ input:-internal-autofill-selected {
 
 .footer-area {
     background-color: #0d101d;
-    padding: 100px 0 20px
+    padding: 100px 0 20px;
+    margin-top: 340px;
 }
 
 @media (max-width:991px) {

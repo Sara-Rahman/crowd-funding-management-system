@@ -33,6 +33,7 @@
                     <ul>
                         <li><a href="{{route('donor.profile')}}">Donor Profile</a></li>
                         <li><a href="{{route('donation')}}">Donation</a></li>
+                        <li><a href="{{route('payment')}}">Payment</a></li>
                     </ul>
                 </li>
 

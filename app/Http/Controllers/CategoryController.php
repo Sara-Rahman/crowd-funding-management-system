@@ -33,6 +33,7 @@ class CategoryController extends Controller
         Category::create([
 
             'name'=>$req->name,
+            
             'details'=>$req->details,
 
         ]);
