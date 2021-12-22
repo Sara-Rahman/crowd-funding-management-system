@@ -122,17 +122,12 @@
 
 
            
-      <button type="submit" class="button btn-success">Register</button><br>
+      <button type="submit" class="button btn-success">Register</button>
 
-      <br>
       
-      <div class="form-group">
-          <b>Already have an account? </b><a href="#"><button type="submit" class="button btn-info">Sign In</button></a>
-        </div>
   
-</form> <br>
-  </div>
-
+</form> 
+  
 
   
 @endsection

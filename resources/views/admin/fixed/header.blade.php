@@ -150,17 +150,17 @@
                                             </li>
 
                                             <li>
-                                                <a href="#">
+                                                <a href="">
                                                     <i class="ti-lock"></i>
                                                     <span>Lock Screen</span>
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a href="#">
+                                            {{-- <li>
+                                                <a href="">
                                                     <i class="ti-power-off"></i>
-                                                    <span>Logout</span>
+                                                    <button>Logout</button>
                                                 </a>
-                                            </li>
+                                            </li> --}}
                                         </ul>
                                     </div>
                                 </div>

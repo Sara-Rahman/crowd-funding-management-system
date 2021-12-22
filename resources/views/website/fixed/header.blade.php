@@ -10,15 +10,13 @@
                 <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav align-items-center">
 
-                        @if(session()->has('error'))
-    <p class="alert alert-danger">{{session()->get('error')}}</p>
-@endif
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('website')}}">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="Causes.html">Causes</a>
+                            <a class="nav-link" href="#">Causes</a>
                         </li>
                         
                         
@@ -43,10 +41,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
+
                         @if(auth()->user())
                         <!-- Button trigger modal -->
-    
-                            <a href="{{route('donor.logout')}}" class="btn btn-success">{{auth()->user()->name}} | Logout</a>
+                        <a class="btn_1" href="{{route('details.donation')}}" style="text-decoration: none">Donations of {{auth()->user()->name}}</a>
+
+                        <a href="{{route('donor.logout')}}" class="btn btn-success">{{auth()->user()->name}} | Logout</a>
     
                             @else
                             <li class="d-none d-lg-block">
@@ -57,17 +57,18 @@
                                     Login
                                 </button>
                             @endif
-                        {{-- <li class="d-none d-lg-block">
-                            <a class="btn_1" href="{{route('create.donor')}}" style="text-decoration: none">Register</a>
-                        </li><br><br> --}}
-                        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#donorlogin">
-                            Login
-                        </button> --}}
+                       
                     </ul>
                 </div>
             </nav>
         </div>
     </div>
+    @if(session()->has('error'))
+    <p class="alert alert-danger">{{session()->get('error')}}</p>
+@endif
+@if(session()->has('message'))
+    <p class="alert alert-success">{{session()->get('message')}}</p>
+@endif
 </div>
 
 

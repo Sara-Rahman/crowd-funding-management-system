@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Volunteer;
+use App\Models\Cause;
 
 class VolunteerController extends Controller
 {
@@ -78,8 +79,10 @@ class VolunteerController extends Controller
         return redirect()->back()->with('success','Volunteer profile has been deleted.');
     }
 
-    // public function Distribution()
-    // {
-    //     return view('volunteer.distribution');
-    // }
+    public function Distribution()
+    {
+        $crisislist=Cause::with('category')->get();
+        $volunteerlist=Volunteer::all();
+        return view('admin.volunteer.distribution',compact('crisislist','volunteerlist'));
+    }
 }

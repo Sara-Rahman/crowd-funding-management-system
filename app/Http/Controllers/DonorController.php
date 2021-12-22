@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Donation;
+use App\Models\User;
 use App\Models\Donor;
 use App\Models\Category;
+use App\Models\Donation;
 use Illuminate\Http\Request;
 
 class DonorController extends Controller
@@ -44,11 +45,11 @@ class DonorController extends Controller
        return redirect()->back()->with('success','Thanks For Your Donation.');
     }
 
-    public function DonorProfile()
-    {
-        $donorlist = Donor::all();
-        return view('admin.donor.donor-profile',compact('donorlist'));
-    }
+    // public function DonorProfile()
+    // {
+    //     $userlist = User::all();
+    //     return view('admin.donor.donor-profile',compact('userlist'));
+    // }
 
     // public function CreateDonor()
     // {
@@ -120,16 +121,16 @@ class DonorController extends Controller
         return redirect()->back()->with('success','Donation info has been deleted');
 
     }
-    public function DonorView($donor_id)
-    {
-        $donor=Donor::find($donor_id);
-        return view('admin.donor.donor-profile-view',compact('donor'));
+    // public function DonorView($donor_id)
+    // {
+    //     $donor=Donor::find($donor_id);
+    //     return view('admin.donor.donor-profile-view',compact('donor'));
 
-    }
-    public function DonorDelete($donor_id)
-    {
-        Donor::find($donor_id)->delete();
-        return redirect()->back()->with('success','Donor profile has been deleted');
-    }
+    // }
+    // public function DonorDelete($donor_id)
+    // {
+    //     Donor::find($donor_id)->delete();
+    //     return redirect()->back()->with('success','Donor profile has been deleted');
+    // }
    
 }

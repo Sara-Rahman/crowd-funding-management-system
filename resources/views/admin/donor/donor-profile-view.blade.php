@@ -13,6 +13,6 @@
     <p><b>Occupation: {{$donor->occupation}}</b></p>
     <p><b>Donation Amount: {{$donor->amount}}<b></p>
         <p>
-        <td><img src="{{url('/uploads/donors/'.$item->image)}}" style="border-radius:4px" width="100px" alt="cause image"></td>
+        <td><img src="{{url('/uploads/donors/'.$donor->image)}}" style="border-radius:4px" width="100px" alt="cause image"></td>
         </p>
 @endsection

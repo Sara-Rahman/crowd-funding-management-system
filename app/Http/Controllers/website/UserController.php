@@ -59,6 +59,13 @@ class UserController extends Controller
         return redirect()->back()->with('success','Donor has registered successfully.');
     }
 
+    public function DonorProfile()
+    {
+        $userlist = User::all();
+        return view('admin.donor.donor-profile',compact('userlist'));
+    }
+
+
     
     public function DonorLogin(Request $request)
     {
@@ -83,7 +90,19 @@ class UserController extends Controller
     public function DonorLogout()
     {
         Auth::logout();
-        return redirect()->route('website')->with('message','Logging out.');
+        return redirect()->route('website')->with('message','Logged out.');
+    }
+
+    public function DonorView($donor_id)
+    {
+        $donor=User::find($donor_id);
+        return view('admin.donor.donor-profile-view',compact('donor'));
+
+    }
+    public function DonorDelete($donor_id)
+    {
+        User::find($donor_id)->delete();
+        return redirect()->back()->with('success','Donor profile has been deleted');
     }
 
 }

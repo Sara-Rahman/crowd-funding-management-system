@@ -77,6 +77,10 @@ class AdminController extends Controller
     {
         return view('admin.payment');
     }
+    public function CreatePayment()
+    {
+        return view('admin.create-payment');
+    }
 
     
 

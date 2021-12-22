@@ -30,7 +30,7 @@
       </tr>
     </thead>
     <tbody>
-      @foreach($donorlist as $key=>$item)
+      @foreach($userlist as $key=>$item)
       <tr>
         <th scope="row">{{$key+1}}</th>
         <td>{{$item->name}}</td>
@@ -42,7 +42,7 @@
         <td>{{$item->occupation}}</td>
         <td><img src="{{url('/uploads/donors/'.$item->image)}}" style="border-radius: 4px;" width= "100px;" alt="donor image"> </td>
         <td>
-          <a class="btn btn-primary" href="{{route('view.donation',$item->id)}}">View</a><br><br>
+          <a class="btn btn-primary" href="{{route('view.donorprofile',$item->id)}}">View</a><br><br>
         <a class="btn btn-danger" href="{{route('delete.donorprofile',$item->id)}}">Delete</a>
         </td>
         

@@ -53,5 +53,11 @@ class HomeController extends Controller
         // $crisislist = Cause::all();
         // return view('admin.cause_details',compact('crisislist'));
     }
+
+    public function DonationDetails()
+    {
+        $donationlist=Donation::with('category')->get();
+        return view('website.pages.donation-details',compact('donationlist'));
+    }
     
 }
