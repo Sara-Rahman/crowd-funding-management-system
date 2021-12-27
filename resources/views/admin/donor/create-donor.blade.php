@@ -27,8 +27,8 @@
         <div class="form-group">
           <label for="name" style="font-size:20px;"><b>Full Name</label></b>
           <input type="text" class="form-control" id="name"  placeholder="Enter Full Name" name="name">
-         
         </div>
+        
         <div class="form-group">
           <label for="email" style="font-size:20px;"><b>Email Address</label></b>
           <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
@@ -81,13 +81,12 @@
           <div class="form-group">
             <label for="occupation" style="font-size:20px;"><b>Occupation</label></b>
             <input type="text" class="form-control" id="occupation"  placeholder="Enter Occupation" name="occupation">
-           
+
           </div>
           <div class="form-group">
             <label for="occupation" style="font-size:20px;"><b>Password</label></b>
             <input type="password" name="password" class="form-control" id="occupation"  placeholder="Enter Occupation" name="occupation">
-           
-          </div>
+                    </div>
 
           <div class="mb-3">
             <label for="donor_image" class="form-label" style="font-size:20px;"><b>Insert Image</b></label>

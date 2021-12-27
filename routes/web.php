@@ -83,6 +83,8 @@ Route::get('/create/cause', [AdminController::class, 'CreateCause'])->name('crea
 Route::get('/show/cause',[AdminController::class,'ShowCause'])->name('show.cause');
 Route::post('/store/cause',[AdminController::class, 'StoreCause'])->name('store.cause');
 Route::get('/cause/view/details/{cause_id}',[AdminController::class,'CauseView'])->name('view.cause');
+Route::get('/cause/edit/{cause_id}',[AdminController::class,'CauseEdit'])->name('cause.edit');
+Route::put('/cause/update/{cause_id}',[AdminController::class,'CauseUpdate'])->name('cause.update');
 Route::get('/cause/delete/{cause_id}',[AdminController::class,'CauseDelete'])->name('delete.cause');
 
 

@@ -73,14 +73,56 @@ class AdminController extends Controller
         Cause::find($cause_id)->delete();
         return redirect()->back()->with('success',"Cause has been deleted.");
     }
-    public function Payment()
+    public function CauseEdit($cause_id)
     {
-        return view('admin.payment');
+        $cause=Cause::find($cause_id);
+        $categorylist=Category::all();
+
+        return view('admin.edit-cause',compact('cause','categorylist'));
+
     }
-    public function CreatePayment()
+
+   
+    public function CauseUpdate(Request $request,$cause_id)
     {
-        return view('admin.create-payment');
+
+
+        $cause=Cause::find($cause_id);
+
+//        Product::where('column','value')->udpate([
+//            'column'=>'request form field name'
+//        ]);
+
+        $image_name=$cause->image;
+//              step 1: check image exist in this request.
+        if($request->hasFile('cause_image'))
+        {
+            // step 2: generate file name
+            $image_name=date('Ymdhis') .'.'. $request->file('cause_image')->getClientOriginalExtension();
+
+            //step 3 : store into project directory
+
+            $request->file('cause_image')->storeAs('/causes',$image_name);
+
+        }
+
+
+        $cause->update([
+            // field name from db || field name from form
+            'name'=>$request->name,
+            'category_id'=>$request->category,
+            'details'=>$request->details,
+            'location'=>$request->location,
+            'phn_number'=>$request->phn_number,
+            'amount'=>$request->amount,
+            'raised_amount'=>$request->raised_amount,
+            'image'=>$image_name,
+
+        ]);
+        return redirect()->route('cause')->with('success','Cause Updated Successfully.');
+
     }
+   
 
     
 
