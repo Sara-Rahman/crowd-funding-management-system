@@ -1,5 +1,7 @@
 @extends('master')
 @section('content')
+
+<div id="CauseToPrint">
 <h1>Cause Details</h1>
 <hr>
 
@@ -13,8 +15,21 @@
 <p><b>Raised Amount: {{$cause->raised_amount}}</b></p>
 <p>
     <img src="{{url('/uploads/causes/'.$cause->image)}}" style="border-radius:4px" width="200px" alt="cause image">
-
 </p>
+
+</div>
+
+<button class="btn btn-primary" type="submit" onClick="PrintDiv('CauseToPrint');" value="Print">Print</button>
 
     
 @endsection
+
+<script language="javascript">
+    function PrintDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+    </script>

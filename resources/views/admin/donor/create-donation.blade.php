@@ -37,13 +37,27 @@
   @endif
      
 
-    <form action="{{route('store.donation')}}" method="POST">
+    <form action="{{route('store.donation', $cause->id)}}" method="POST">
       @csrf
+      {{-- <div class="form-group">
+        <label for="cause_id" style="font-size:20px;"><b>Cause ID</label></b>
+        <select name="cause_id" class="form-control">
+          <option>Select Cause ID</option>
+    
+          @foreach ($crisislist as $item)
+    
+    
+          <option value="{{$item->id}}">{{$item->id}}</option>
+          @endforeach
+        </select>
+     
+      </div> --}}
+
         <div class="form-group">
           <label for="name" style="font-size:20px;"><b>Full Name</label></b>
           <input type="text" class="form-control" id="name"  placeholder="Enter Full Name" name="name">
-         
-        </div>
+          </div>
+
         <div class="form-group">
           <label for="email" style="font-size:20px;"><b>Email Address</label></b>
           <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
@@ -63,7 +77,7 @@
         </div>
 
         
-        <div class="form-group">
+        {{-- <div class="form-group">
           <label for="category" style="font-size:20px;"><b>Select Cause Category</label></b>
           <select name="category" class="form-control">
             <option>Select Cause Category</option>
@@ -75,7 +89,7 @@
             @endforeach
           </select>
        
-        </div>
+        </div> --}}
 
     <div class="form-group">
       <label for="amount" style="font-size:20px;"><b>Donation Amount</label></b>

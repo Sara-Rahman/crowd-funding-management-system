@@ -29,6 +29,7 @@
     <link href="{{url('Backend/css/lib/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{url('Backend/css/lib/helper.css')}}" rel="stylesheet">
     <link href="{{url('Backend/css/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>

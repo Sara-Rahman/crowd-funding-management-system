@@ -44,6 +44,7 @@
 
                         @if(auth()->user())
                         <!-- Button trigger modal -->
+                        {{-- <a class="btn btn-info" href="#" style="text-decoration: none"> {{auth()->user()->name}}</a> --}}
                         <a class="btn_1" href="{{route('details.donation')}}" style="text-decoration: none">Donations of {{auth()->user()->name}}</a>
 
                         <a href="{{route('donor.logout')}}" class="btn btn-success">{{auth()->user()->name}} | Logout</a>

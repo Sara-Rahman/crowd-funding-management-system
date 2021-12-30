@@ -26,10 +26,10 @@ class HomeController extends Controller
         return view('admin.donor.create-donor');
     }
 
-    public function CreateDonation()
+    public function CreateDonation($id)
     {
-        $categorylist = Category::all();
-        return view('admin.donor.create-donation',compact('categorylist'));
+        $cause = Cause::find($id);
+        return view('admin.donor.create-donation',compact('cause'));
 
     }
 
@@ -56,8 +56,9 @@ class HomeController extends Controller
 
     public function DonationDetails()
     {
-        $donationlist=Donation::with('category')->get();
+        $donationlist=Donation::all();
         return view('website.pages.donation-details',compact('donationlist'));
     }
+    
     
 }

@@ -13,7 +13,7 @@
                             <p>Fish isn't thing there a god whales fruit gathering the second so
                                 third beginning open multiply in land multiply Saw saw lesser tree
                                 fom image his made heaven.</p>
-                                <a href="{{route('create.donation')}}" class="btn_2" style="text-decoration: none">Start Donation</a>
+                                {{-- <a href="{{route('create.donation',)}}" class="btn_2" style="text-decoration: none">Start Donation</a> --}}
                             </div>
                         </div>
                     </div>

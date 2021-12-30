@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Models\Cause;
 use App\Models\Donation;
 use App\Models\Volunteer;
-use App\Models\Category;
+// use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,10 +46,11 @@ use App\Models\Category;
 //HomeController
 
 //Donor
-Route::get('/create/donation', [HomeController::class, 'CreateDonation'])->name('create.donation');
+Route::get('/create/donation/{id}', [HomeController::class, 'CreateDonation'])->name('create.donation');
 Route::get('/details/donation',[HomeController::class,'DonationDetails'])->name('details.donation');
 // Route::get('/create/donor',[HomeController::class,'CreateDonor'])->name('create.donor');
 Route::get('/cause/details/{cause_id}',[HomeController::class,'CauseDetails'])->name('cause.details');
+
 
 
 //volunteer
@@ -91,7 +92,7 @@ Route::get('/cause/delete/{cause_id}',[AdminController::class,'CauseDelete'])->n
 
 //For DonorController
 Route::get('/donation', [DonorController::class, 'Donation'])->name('donation');
-Route::post('/store/donation',[DonorController::class, 'StoreDonation'])->name('store.donation');
+Route::post('/store/donation/{id}',[DonorController::class, 'StoreDonation'])->name('store.donation');
 Route::get('/donorprofile', [UserController::class, 'DonorProfile'])->name('donor.profile');
 // Route::get('/create/donor',[DonorController::class,'CreateDonor'])->name('create.donor');
 // Route::post('store/donor',[DonorController::class,'StoreDonor'])->name('store.donor');
@@ -100,6 +101,7 @@ Route::get('/view/donation/{donation_id}',[DonorController::class,'DonationView'
 Route::get('/delete/donation/{donation_id}',[DonorController::class,'DonationDelete'])->name('delete.donation');
 Route::get('/view/donorprofile/{donor_id}',[UserController::class,'DonorView'])->name('view.donorprofile');
 Route::get('/delete/donorprofile/{donor_id}',[UserController::class,'DonorDelete'])->name('delete.donorprofile');
+Route::post('/update/donation/status/{donation_id}',[DonorController::class,'UpdateDonationStatus'])->name('update.donation.status');
 
 //For VolunteerController
 Route::get('/volunteerprofile',[VolunteerController::class, 'VolunteerProfile'])->name('volunteer.profile');

@@ -19,8 +19,9 @@ class CreateDonationsTable extends Migration
             $table->string('email');
             $table->string('address');
             $table->double('phn_number');
-            $table->string('category_id');
+            $table->unsignedBigInteger('cause_id');
             $table->double('amount');
+            $table->string('status')->default('0');
             $table->timestamps();
         });
     }
@@ -35,3 +36,4 @@ class CreateDonationsTable extends Migration
         Schema::dropIfExists('donations');
     }
 }
+

@@ -6,24 +6,26 @@ use App\Models\User;
 use App\Models\Donor;
 use App\Models\Category;
 use App\Models\Donation;
+
 use Illuminate\Http\Request;
 
 class DonorController extends Controller
 {
     public function Donation()
     {
-        $donationlist=Donation::with('category')->get();
+        $donationlist=Donation::all();
+        
         return view('admin.donor.donation',compact('donationlist'));
     }
 
-    public function StoreDonation(Request $req)
+    public function StoreDonation($id)
     {
         //dd($req->all());
-        $req->validate([
+        request()->validate([
             'name'=>'required',
             'email'=>'required',
             'phn_number'=>'required',
-            'category'=>'required',
+            // 'category'=>'required',
             'amount'=>'required',
 
 
@@ -32,12 +34,12 @@ class DonorController extends Controller
         
 
        Donation::create([
-            'name'=>$req->name,
-            'email'=>$req->email,
-            'address'=>$req->address,
-            'phn_number'=>$req->phn_number,
-            'category_id'=>$req->category,
-            'amount'=>$req->amount,
+            'name'=>request()->name,
+            'email'=>request()->email,
+            'address'=>request()->address,
+            'phn_number'=>request()->phn_number,
+            'cause_id'=>$id,
+            'amount'=>request()->amount,
 
 
        ]);
@@ -99,7 +101,7 @@ class DonorController extends Controller
 
     //     ]);
     //     return redirect()->back()->with('success','Donor has registered successfully.');
-    // }
+    // } b
 
         
     
@@ -120,6 +122,17 @@ class DonorController extends Controller
         Donation::find($donation_id)->delete();
         return redirect()->back()->with('success','Donation info has been deleted');
 
+    }
+
+    public function UpdateDonationStatus($donation_id)
+    {
+        //dd($donation_id);
+        $data = Donation::where('id',$donation_id)->first();
+        //dd($data->all());
+        $data->update([
+            'status'=>request()->status
+        ]);
+        return redirect()->back();
     }
     // public function DonorView($donor_id)
     // {

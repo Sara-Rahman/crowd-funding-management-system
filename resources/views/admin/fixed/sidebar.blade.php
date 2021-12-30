@@ -47,7 +47,7 @@
                     </ul>
                 </li>
 
-                <li><a class="sidebar-sub-toggle" ><i class="ti-user"></i> Crisis Category <span
+                <li><a class="sidebar-sub-toggle" ><i class="ti-user"></i> Cause Category <span
                     class="sidebar-collapse-icon ti-angle-down"></span></a>
             <ul>
                 <li><a href="{{route('category.list')}}">Category List</a></li>

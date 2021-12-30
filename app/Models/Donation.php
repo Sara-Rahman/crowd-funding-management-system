@@ -9,9 +9,14 @@ class Donation extends Model
 {
     use HasFactory;
     protected $guarded=[];
-    public function category()
+    // public function category()
+    // {
+    //     return $this->belongsTo(Category::class);
+    //     //crisis->category_id,id
+    // }
+    public function cause()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Cause::class,'cause_id','id');
         //crisis->category_id,id
     }
 }
