@@ -13,6 +13,9 @@
   @endif
 
  <a href="{{route('create.donor')}}"><button type="button" class="btn btn-primary">Create Donor</button></a><br><br>
+
+
+
  <table class="table table-light" style="width:80%">
     <thead>
       <tr>

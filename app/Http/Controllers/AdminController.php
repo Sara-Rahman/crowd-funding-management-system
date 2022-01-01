@@ -12,9 +12,17 @@ class AdminController extends Controller
 {
     public function Cause()
     {
-         $crisislist=Cause::with('category')->get();
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $crisislist = Cause::with('category')
+                ->where('name','LIKE','%'.$key.'%')
+                ->get();
+            return view('admin.cause',compact('crisislist','key')); 
+        }
+        $crisislist=Cause::with('category')->get();
        
-        return view('admin.cause',compact('crisislist'));
+        return view('admin.cause',compact('crisislist','key'));
     }
 
     public function CreateCause()

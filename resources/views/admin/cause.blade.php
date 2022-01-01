@@ -14,6 +14,25 @@
 
  <a href="{{route('create.cause')}}"><button type="button" class="btn btn-primary">Create Cause</button></a><br><br>
 
+ <form action="{{route('cause')}}" method="GET">
+  <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+          <input value="{{$key}}" type="text" placeholder="Search" name="search" class="form-control">
+      </div>
+      <div class="col-md-4">
+          <button type="submit" class="btn btn-success">Search</button><br><br>
+      </div>
+  </div>
+  </form>
+
+  @if($key)
+  <h5>
+       Searching for: {{$key}}<br>
+       Found: {{$crisislist->count()}}
+  </h5>
+@endif
+
  <table class="table table-light" style="width:90%">
   <thead>
     <tr>

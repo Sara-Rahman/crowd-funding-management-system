@@ -61,6 +61,7 @@ class UserController extends Controller
 
     public function DonorProfile()
     {
+        
         $userlist = User::all();
         return view('admin.donor.donor-profile',compact('userlist'));
     }
