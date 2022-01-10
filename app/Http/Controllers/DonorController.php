@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use App\Models\Donor;
@@ -20,11 +21,20 @@ class DonorController extends Controller
 
     public function StoreDonation($id)
     {
+        // $image_name=null;
+        //     //step 1: check image exist in this request.
+        //     if($req->hasFile('donor_image'))
+        //      // step 2: generate file name
+        //     {
+        //         $image_name=date('Ymdhis').'.'. $req->file('donor_image')->getClientOriginalExtension();
+        //          //step 3 : store into project directory
+        //         $req->file('donor_image')->storeAs('/donors',$image_name);
+        //     }
         //dd($req->all());
         request()->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'phn_number'=>'required',
+            'payment_method'=>'required',
+            'transaction_id'=>'required',
+            // 'cause_id'=>'required',
             // 'category'=>'required',
             'amount'=>'required',
 
@@ -34,10 +44,11 @@ class DonorController extends Controller
         
 
        Donation::create([
-            'name'=>request()->name,
-            'email'=>request()->email,
-            'address'=>request()->address,
-            'phn_number'=>request()->phn_number,
+            'donor_id'=>Auth::user()->id,
+            'payment_method'=>request()->payment_method,
+            'transaction_id'=>request()->transaction_id,
+            'receipt_image'=>request()->receipt_image,
+            'remark'=>request()->remark,
             'cause_id'=>$id,
             'amount'=>request()->amount,
 

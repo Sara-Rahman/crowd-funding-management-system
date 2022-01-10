@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class CreateDonationsTable extends Migration
 {
@@ -15,11 +16,12 @@ class CreateDonationsTable extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('address');
-            $table->double('phn_number');
+            $table->integer('donor_id')->nullable();
+            $table->string('payment_method');
+            $table->integer('transaction_id');
+            $table->string('receipt_image')->nullable();
             $table->unsignedBigInteger('cause_id');
+            $table->string('remark');
             $table->double('amount');
             $table->string('status')->default('0');
             $table->timestamps();

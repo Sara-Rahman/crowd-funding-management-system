@@ -1,3 +1,4 @@
+@if(auth()->user())
 @extends('website.master')
 
 @section('content')
@@ -53,26 +54,29 @@
      
       </div> --}}
 
-        <div class="form-group">
-          <label for="name" style="font-size:20px;"><b>Full Name</label></b>
-          <input type="text" class="form-control" id="name"  placeholder="Enter Full Name" name="name">
-          </div>
+        {{-- <div class="form-group">
+          <label for="donor_id" style="font-size:20px;"><b>Donor ID</label></b>
+          <input type="text" class="form-control" id="donor_id"  placeholder="Enter Donor ID" name="donor_id">
+          </div> --}}
 
-        <div class="form-group">
-          <label for="email" style="font-size:20px;"><b>Email Address</label></b>
-          <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
-          <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <label for="payment_method" style="font-size:20px;"><b>Choose Payment Method</label></b>
+          <select name="payment_method" class="form-control">
+            <option>Select Payment Method</option>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Bkash">Bkash</option>
+            <option value="Nagad">Nagad</option>
+          </select>
         </div>
 
         <div class="form-group">
-          <label for="address" style="font-size:20px;"><b>Address</label></b>
-          <input type="text" class="form-control" id="address"  placeholder="Enter Address" name="address">
+          <label for="transaction_id" style="font-size:20px;"><b>Transaction ID</label></b>
+          <input type="number" class="form-control" id="transaction_id"  placeholder="Enter Transaction ID" name="transaction_id">
          
         </div>
 
         <div class="form-group">
-          <label for="phn_number" style="font-size:20px;"><b>Phone Number</label></b>
-          <input type="number" class="form-control" id="phn_number"  placeholder="Enter Phone Number" name="phn_number">
+          <label for="reciept_image" style="font-size:20px;"><b>Receipt</label></b>
+          <input type="file" class="form-control" id="receipt_image"  placeholder="Enter Receipt" name="reciept_image">
          
         </div>
 
@@ -90,6 +94,12 @@
           </select>
        
         </div> --}}
+
+        <div class="form-group">
+          <label for="remark" style="font-size:20px;"><b>Remark</label></b>
+          <input type="text" class="form-control" id="remark"  placeholder="Enter Remark" name="remark">
+         
+        </div>
 
     <div class="form-group">
       <label for="amount" style="font-size:20px;"><b>Donation Amount</label></b>
@@ -117,4 +127,5 @@
  
      
 @endsection
+@endif
   

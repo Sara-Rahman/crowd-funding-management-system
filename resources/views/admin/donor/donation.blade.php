@@ -14,13 +14,13 @@
 <table class="table table-light" style="width:80%">
     <thead>
       <tr>
-        <th scope="col">ID</th>
+        <th scope="col">Donor ID</th>
         <th scope="col">Cause ID</th>
         <th scope="col">Cause Name</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Address</th>
-        <th scope="col">Contact Number</th>
+        <th scope="col">Payment Method</th>
+        <th scope="col">Transaction ID</th>
+        <th scope="col">Receipt</th>
+        <th scope="col">Remark</th>
         {{-- <th scope="col">Cause Type</th> --}}
         <th scope="col">Donation Amount</th>
         <th scope="col">Status</th>
@@ -31,12 +31,13 @@
       @foreach($donationlist as $key=>$item)
       <tr>
         <th scope="row">{{$key+1}}</th>
+        <td>{{$item->donor_id}}</td>
         <td>{{optional($item->cause)->id}}</td> 
         <td>{{optional($item->cause)->name}}</td> 
-        <td>{{$item->name}}</td>
-        <td>{{$item->email}}</td>
-        <td>{{$item->address}}</td>
-        <td>{{$item->phn_number}}</td>
+        <td>{{$item->payment_method}}</td>
+        <td>{{$item->transaction_id}}</td>
+        <td>{{$item->reciept}}</td>
+        <td>{{$item->phn_remark}}</td>
         {{-- <td>{{optional($item->category)->name}}</td>  --}}
         <td>{{$item->amount}}</td>
         {{-- <td>}</td> --}}

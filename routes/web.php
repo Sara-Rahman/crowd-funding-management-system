@@ -64,7 +64,7 @@ Route::get('/login',[AdminUserController::class,'login'])->name('admin.login');
 Route::post('/checkin',[AdminUserController::class,'checkIn'])->name('admin.checkin');
 
 //middleware added
-Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
+Route::group(['prefix'=>'admin','middleware'=>'auth','admin'],function (){
     Route::get('/', function () {
         return view('master');
     })->name('home');

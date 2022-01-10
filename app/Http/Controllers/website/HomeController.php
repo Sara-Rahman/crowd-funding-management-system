@@ -48,8 +48,18 @@ class HomeController extends Controller
     public function CauseDetails($cause_id)
     {
         $cause=Cause::find($cause_id);
+        $donations = Donation::
+        where('status','1')
+        ->where('cause_id',$cause_id)
+        ->get();
+        
+
+        // // where([
+        //     ['status','1'],
+        //     ['cause_id',$cause_id]
+        // ])->get();dd($donations);
         // return view('admin.cause_details',compact('cause'));
-        return view('website.pages.cause_details',compact('cause'));
+        return view('website.pages.cause_details',compact('cause','donations'));
         // $crisislist = Cause::all();
         // return view('admin.cause_details',compact('crisislist'));
     }
