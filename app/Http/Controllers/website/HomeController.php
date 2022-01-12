@@ -54,7 +54,7 @@ class HomeController extends Controller
         ->get();
         
 
-        // // where([
+        // // where([w
         //     ['status','1'],
         //     ['cause_id',$cause_id]
         // ])->get();dd($donations);

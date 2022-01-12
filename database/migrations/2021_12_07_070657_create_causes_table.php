@@ -22,12 +22,13 @@ class CreateCausesTable extends Migration
             $table->string('location');
             $table->double('phn_number');
             $table->double('amount');
-            $table->double('raised_amount');
+            $table->double('raised_amount')->nullable();
            
             $table->timestamps();
            
         });
     }
+    
 
     /**
      * Reverse the migrations.

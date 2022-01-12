@@ -9,7 +9,7 @@
  @if(session()->has('success'))
                   <p class="alert alert-success">
                     {{session()->get('success')}}
-                  </p>
+                  </p> 
   @endif
 
  <a href="{{route('create.cause')}}"><button type="button" class="btn btn-primary">Create Cause</button></a><br><br>
@@ -60,7 +60,8 @@
       <td>{{$item->location}}</td>
       <td>{{$item->phn_number}}</td>
       <td>{{$item->amount}}</td>
-      <td>{{$item->raised_amount}}</td>
+      <td>{{$item->donation->sum('amount')}}</td>
+
       <td><img src="{{url('/uploads/causes/'.$item->image)}}" style="border-radius:4px" width="100px" alt="cause image"></td>
       <td>
         <a class="btn btn-primary" href="{{route('view.cause',$item->id)}}">View</a><br><br>

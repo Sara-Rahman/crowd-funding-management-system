@@ -15,5 +15,10 @@ class Cause extends Model
         return $this->belongsTo(Category::class);
         //crisis->category_id,id
     }
+    public function donation()
+    {
+        return $this->hasMany(Donation::class);
+
+    }
     }
 

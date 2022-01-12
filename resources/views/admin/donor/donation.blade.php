@@ -14,6 +14,7 @@
 <table class="table table-light" style="width:80%">
     <thead>
       <tr>
+        <th scope="col">ID</th>
         <th scope="col">Donor ID</th>
         <th scope="col">Cause ID</th>
         <th scope="col">Cause Name</th>
@@ -53,11 +54,14 @@
         <a class="btn btn-primary" href="{{route('view.donation',$item->id)}}">View</a><br><br>
         <a class="btn btn-danger" href="{{route('delete.donation',$item->id)}}">Delete</a><br><br>
         
+        @if($item->status!=1)
+
         <form action="{{route('update.donation.status',$item->id)}}" method="POST">
           @csrf
           <div class="form-group">
             <button class="btn btn-primary" name="status" value="1">Approve</button>
         </form>
+        @endif
         </td>
        
       </tr>

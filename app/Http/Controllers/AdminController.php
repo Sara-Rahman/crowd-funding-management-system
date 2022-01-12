@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 //use App\Models\Crisis;
 use App\Models\Category;
 use App\Models\Cause;
+use App\Models\Donation;
 
 
 class AdminController extends Controller
@@ -20,7 +21,11 @@ class AdminController extends Controller
                 ->get();
             return view('admin.cause',compact('crisislist','key')); 
         }
-        $crisislist=Cause::with('category')->get();
+        // $donationlist=Donation::with('donation')->where('amount')->get();
+        // dd($donationlist);
+        // $donationlist=Donation::find($id);
+        $crisislist=Cause::with(['category','donation'])->get();
+     
        
         return view('admin.cause',compact('crisislist','key'));
     }
@@ -61,6 +66,7 @@ class AdminController extends Controller
             'amount'=>$request->amount,
             'raised_amount'=>$request->raised_amount,
             'image'=>$image_name,
+           
            
 
 

@@ -81,12 +81,11 @@
       
     </div>
 
-    <div class="form-group">
+    {{-- <div class="form-group">
       <label for="raised_amount" style="font-size:20px;"><b>Raised Amount</label></b>
       <input type="number" class="form-control" id="raised_amount" placeholder="Enter Target Amount" name="raised_amount">
-     
-      
-    </div>
+     </div> --}}
+
     <div class="mb-3">
       <label for="cause_image" class="form-label" style="font-size:20px;"><b>Insert Image</b></label>
       <input class="form-control" type="file" id="cause_image" name="cause_image">
