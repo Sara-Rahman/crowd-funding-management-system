@@ -136,6 +136,11 @@ class AdminController extends Controller
         return redirect()->route('cause')->with('success','Cause Updated Successfully.');
 
     }
+
+    public function AssignVolunteer()
+    {
+        return view('admin.assign-volunteer');
+    }
    
 
     

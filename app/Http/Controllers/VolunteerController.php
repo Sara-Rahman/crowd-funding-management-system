@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Volunteer;
 use App\Models\Cause;
+use App\Models\User;
 
 class VolunteerController extends Controller
 {
@@ -49,10 +50,15 @@ class VolunteerController extends Controller
 
 
         ]);
-
-        Volunteer::create([
-
+        $last_user=User::create([
             'name'=>$req->name,
+            'email'=>$req->email,
+            'password'=>bcrypt($req->pass),
+            'role'=>'volunteer',
+        ]);
+       
+        Volunteer::create([
+            'name'=>$last_user->id,   
             'email'=>$req->email,
             'city'=>$req->city,
             'address'=>$req->address,
@@ -61,9 +67,9 @@ class VolunteerController extends Controller
             'occupation'=>$req->occupation,
             'education'=>$req->education,
             'phn_number'=>$req->phn_number,
+            // 'password'=>$req->pass,
             'image'=>$image_name,
-
-
+            
         ]);
         return redirect()->back()->with('success','Volunteer has registered successfully.');
     }

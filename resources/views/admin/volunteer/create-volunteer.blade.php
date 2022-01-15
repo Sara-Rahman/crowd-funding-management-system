@@ -102,6 +102,12 @@
          
         </div>
 
+        <div class="form-group">
+          <label for="occupation" style="font-size:20px;"><b>Password</label></b>
+          <input type="password" name="pass" class="form-control" id="occupation"  placeholder="Enter Occupation" name="occupation">
+                  </div>
+
+
 
        
 

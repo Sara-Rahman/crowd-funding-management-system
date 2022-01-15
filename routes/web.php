@@ -55,7 +55,7 @@ Route::get('/cause/details/{cause_id}',[HomeController::class,'CauseDetails'])->
 
 //volunteer
 Route::get('/create/volunteer',[VolunteerController::class,'CreateVolunteer'])->name('create.volunteer');
-
+Route::post('/store/volunteer',[VolunteerController::class,'StoreVolunteer'])->name('store.volunteer');
 
 
 
@@ -64,7 +64,7 @@ Route::get('/login',[AdminUserController::class,'login'])->name('admin.login');
 Route::post('/checkin',[AdminUserController::class,'checkIn'])->name('admin.checkin');
 
 //middleware added
-Route::group(['prefix'=>'admin','middleware'=>'auth','admin'],function (){
+Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function (){
     Route::get('/', function () {
         return view('master');
     })->name('home');
@@ -87,6 +87,7 @@ Route::get('/cause/view/details/{cause_id}',[AdminController::class,'CauseView']
 Route::get('/cause/edit/{cause_id}',[AdminController::class,'CauseEdit'])->name('cause.edit');
 Route::put('/cause/update/{cause_id}',[AdminController::class,'CauseUpdate'])->name('cause.update');
 Route::get('/cause/delete/{cause_id}',[AdminController::class,'CauseDelete'])->name('delete.cause');
+Route::get('/assign/volunteer',[AdminController::class,'AssignVolunteer'])->name('assign.volunteer');
 
 
 
@@ -106,7 +107,7 @@ Route::post('/update/donation/status/{donation_id}',[DonorController::class,'Upd
 //For VolunteerController
 Route::get('/volunteerprofile',[VolunteerController::class, 'VolunteerProfile'])->name('volunteer.profile');
 // Route::get('/create/volunteer',[VolunteerController::class,'CreateVolunteer'])->name('create.volunteer');
-Route::post('/store/volunteer',[VolunteerController::class,'StoreVolunteer'])->name('store.volunteer');
+
 Route::get('/view/volunteerprofile/{volunteer_id}',[VolunteerController::class,'VolunteerView'])->name('view.volunteer');
 Route::get('/delete/volunteerprofile/{volunteer_id}',[VolunteerController::class,'VolunteerDelete'])->name('delete.volunteer');
 Route::get('/distribution',[VolunteerController::class,'Distribution'])->name('distribution');

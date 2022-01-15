@@ -16,7 +16,7 @@ class Donation extends Model
     // }
     public function cause()
     {
-        return $this->belongsTo(Cause::class,'cause_id','id');
+        return $this->belongsTo(Cause::class,'cause_                                                                                id','id');
         //crisis->category_id,id
     }
 }
