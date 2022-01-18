@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Cause;
 //use App\Models\Crisis;
 use App\Models\Category;
-use App\Models\Cause;
 use App\Models\Donation;
+use Illuminate\Http\Request;
+use App\Models\AssignVolunteer;
+use Illuminate\Support\Facades\Auth;
 
 
 class AdminController extends Controller
@@ -137,11 +140,46 @@ class AdminController extends Controller
 
     }
 
-    public function AssignVolunteer()
+    public function AssignVolunteer($cause_id)
     {
-        return view('admin.assign-volunteer');
+
+    $cause=Cause::find($cause_id);
+    $userlist=User::where('role','volunteer')->get();
+    return view('admin.assign-volunteer',compact('userlist','cause'));
     }
-   
+
+    public function storeAssignVolunteer(Request $request,$cause_id)
+    {
+        // dd($request->all());
+        // dd($cause_id);
+        // AssignVolunteer::create([
+            foreach($request->volunteer_name as $name){
+                AssignVolunteer::create([
+                    'volunteer_id'=>$name,
+                    'cause_id'=>$cause_id
+                ]);
+
+            }
+            return redirect()->back();
+            
+            // 'volunteer_id'=>Auth::user()->id,
+            // 'volunteer_name'=>$request->volunteer_name,
+            // 'cause_id'=>$request->cause_id
+            
+           
+        
+
+        // ]);
+
+
+
+    }
+
+
+
+
+
+
 
     
 

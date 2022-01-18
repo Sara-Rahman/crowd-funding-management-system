@@ -13,8 +13,7 @@
   @endif
 
  <a href="{{route('create.cause')}}"><button type="button" class="btn btn-primary">Create Cause</button></a><br><br>
- <a href="{{route('assign.volunteer')}}"><button type="button" class="btn btn-primary">Assign Volunteer</button></a><br><br>
- <a href="#"><button type="button" class="btn btn-info">View Volunteer</button></a><br><br>
+ 
 
  <form action="{{route('cause')}}" method="GET">
   <div class="row">
