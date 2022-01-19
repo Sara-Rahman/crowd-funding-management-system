@@ -153,6 +153,7 @@ class AdminController extends Controller
         // dd($request->all());
         // dd($cause_id);
         // AssignVolunteer::create([
+            
             foreach($request->volunteer_name as $name){
                 AssignVolunteer::create([
                     'volunteer_id'=>$name,
@@ -173,6 +174,16 @@ class AdminController extends Controller
 
 
 
+    }
+
+    public function viewAssignVolunteer($cause_id)
+    {
+        // dd($cause_id);
+        $cause=Cause::find($cause_id);
+        // dd($cause);
+        $view=AssignVolunteer::with(['volunteer','bringCause'])->get();
+       
+        return view('admin.assign-volunteer-list',compact('view','cause'));
     }
 
 
