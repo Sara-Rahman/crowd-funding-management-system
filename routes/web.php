@@ -33,6 +33,7 @@ use App\Models\Volunteer;
 //website route
 //Route::get('/',[HomeController::class,'ShowCrisis']);
 
+//WEBSITE
  Route::get('/',[HomeController::class,'Home'])->name('website');
  
  //user controller
@@ -47,6 +48,9 @@ use App\Models\Volunteer;
 
 //Donor
 Route::get('/create/donation/{id}', [HomeController::class, 'CreateDonation'])->name('create.donation');
+//For DonorController
+
+Route::post('/store/donation/{id}',[DonorController::class, 'StoreDonation'])->name('store.donation');
 Route::get('/details/donation',[HomeController::class,'DonationDetails'])->name('details.donation');
 // Route::get('/create/donor',[HomeController::class,'CreateDonor'])->name('create.donor');
 Route::get('/cause/details/{cause_id}',[HomeController::class,'CauseDetails'])->name('cause.details');
@@ -92,10 +96,8 @@ Route::post('/assign/volunteer/post/{cause_id}',[AdminController::class,'storeAs
 Route::get('/assign/volunteer/view/{cause_id}',[AdminController::class,'viewAssignVolunteer'])->name('view.assign.volunteer');
 
 
-
-//For DonorController
+//for DonorController
 Route::get('/donation', [DonorController::class, 'Donation'])->name('donation');
-Route::post('/store/donation/{id}',[DonorController::class, 'StoreDonation'])->name('store.donation');
 Route::get('/donorprofile', [UserController::class, 'DonorProfile'])->name('donor.profile');
 // Route::get('/create/donor',[DonorController::class,'CreateDonor'])->name('create.donor');
 // Route::post('store/donor',[DonorController::class,'StoreDonor'])->name('store.donor');

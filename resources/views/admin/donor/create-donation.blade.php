@@ -66,7 +66,7 @@
             <option value="Bkash">Bkash</option>
             <option value="Nagad">Nagad</option>
           </select>
-        </div>
+      
 
         <div class="form-group">
           <label for="transaction_id" style="font-size:20px;"><b>Transaction ID</label></b>
@@ -114,9 +114,11 @@
      
     <button type="submit" class="button btn-submit">Submit</button>
      
-    </div>
+  
    
-</form>   
+</form> 
+</div>  
+
 <br> 
 </body>
 </html>

@@ -15,12 +15,14 @@ class DonorController extends Controller
     public function Donation()
     {
         $donationlist=Donation::all();
-        
+        // dd($donationlist);
         return view('admin.donor.donation',compact('donationlist'));
     }
 
     public function StoreDonation($id)
     {
+        // dd("ok");
+        // dd(request()->all());
         // $image_name=null;
         //     //step 1: check image exist in this request.
         //     if($req->hasFile('donor_image'))

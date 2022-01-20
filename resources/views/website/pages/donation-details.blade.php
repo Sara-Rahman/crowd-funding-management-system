@@ -9,10 +9,9 @@
         <th scope="col">ID</th>
         <th scope="col">Cause ID</th>
         <th scope="col">Cause Name</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Address</th>
-        <th scope="col">Contact Number</th>
+        <th scope="col">Payment Method</th>
+        <th scope="col">Transaction ID</th>
+        <th scope="col">Remark</th>
         {{-- <th scope="col">Cause Type</th> --}}
         <th scope="col">Donation Amount</th>
         <th scope="col">Status</th>
@@ -26,10 +25,9 @@
         <th scope="row">{{$key+1}}</th>
         <td>{{optional($item->cause)->id}}</td> 
         <td>{{optional($item->cause)->name}}</td>
-        <td>{{$item->name}}</td>
-        <td>{{$item->email}}</td>
-        <td>{{$item->address}}</td>
-        <td>{{$item->phn_number}}</td>
+        <td>{{$item->payment_method}}</td>
+        <td>{{$item->transaction_id}}</td>
+        <td>{{$item->remark}}</td>
         {{-- <td>{{optional($item->category)->name}}</td>  --}}
         <td>{{$item->amount}}</td>
         <td>

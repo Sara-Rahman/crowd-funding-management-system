@@ -76,7 +76,6 @@
 
         </style>
       
-        <title>SELECT222</title>
 
 
       
@@ -96,6 +95,18 @@
         </head>
 
       <body>
+        @if(session()->has('success'))
+<p class="alert alert-success">
+  {{session()->get('success')}}
+</p>
+@endif
+
+@if(session()->has('error'))
+<p class="alert alert-danger">
+  {{session()->get('error')}}
+</p>
+@endif
+
         <form action="{{route('store.assign.volunteer',$cause->id)}}" method="POST">
           @csrf
         <div class="container">
@@ -110,9 +121,13 @@
               @endforeach
               
             </select>
-            
-
             <button class="btn btn-success" type="submit">Assign</button>
+          </div>
+        </div>
+           
+          
+            <a href="{{route('view.assign.volunteer',$cause->id)}}">
+              <button type="button" class="btn btn-info">View Volunteer</button></a>
             
           </div>
         </div>
@@ -126,11 +141,7 @@
 			allowClear: true,
 			tags: true 
 		});
-
-		
-	
-
-
+    
         </script>
       </body>
       </html>

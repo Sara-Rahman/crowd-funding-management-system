@@ -144,36 +144,46 @@ class AdminController extends Controller
     {
 
     $cause=Cause::find($cause_id);
-    $userlist=User::where('role','volunteer')->get();
+    $assignedVolunteer = AssignVolunteer::where('cause_id',$cause_id)->get();
+    // dd($assignedVolenteer);
+    $assigned = $assignedVolunteer->pluck('volunteer_id');
+    $userlist=User::where('role','volunteer')->whereNotIn('id',$assigned)->get();
     return view('admin.assign-volunteer',compact('userlist','cause'));
     }
 
     public function storeAssignVolunteer(Request $request,$cause_id)
     {
-        // dd($request->all());
+        // dd($request->volunteer_name);
         // dd($cause_id);
         // AssignVolunteer::create([
             
             foreach($request->volunteer_name as $name){
+                // dd($name);
+                // $assignedVolenteer = User::where('id','!=',$name)->get();
+                $assignedVolunteer = User::where([
+                    ['id','!=',$name],
+                    ['role','volunteer']
+                ])->get();
+                // dd($assignedVolenteer);
+                if($assignedVolunteer)
                 AssignVolunteer::create([
                     'volunteer_id'=>$name,
                     'cause_id'=>$cause_id
                 ]);
+                
+                else{  
+                return redirect()->back()->with('error','Volunteer is already assigned!');
+                }
+
 
             }
-            return redirect()->back();
+            
+            return redirect()->back()->with('success','Volunteer has been assigned successfully.');
             
             // 'volunteer_id'=>Auth::user()->id,
             // 'volunteer_name'=>$request->volunteer_name,
             // 'cause_id'=>$request->cause_id
-            
-           
-        
-
         // ]);
-
-
-
     }
 
     public function viewAssignVolunteer($cause_id)
