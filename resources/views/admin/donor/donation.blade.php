@@ -37,7 +37,8 @@
         <td>{{optional($item->cause)->name}}</td> 
         <td>{{$item->payment_method}}</td>
         <td>{{$item->transaction_id}}</td>
-        <td>{{$item->reciept}}</td>
+        <td><img src="{{url('/uploads/donations/'.$item->receipt_image)}}" style="border-radius:4px" width="100px" alt="receipt image"></td>
+
         <td>{{$item->phn_remark}}</td>
         {{-- <td>{{optional($item->category)->name}}</td>  --}}
         <td>{{$item->amount}}</td>

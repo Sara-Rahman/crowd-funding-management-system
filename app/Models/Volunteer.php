@@ -14,5 +14,9 @@ class Volunteer extends Model
    {
        return $this->belongsTo(User::class,'name','id');
    }
+   public function bringCause()
+   {
+       return $this->belongsTo(Cause::class,'cause_location','id');
+   }
 
 }

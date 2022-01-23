@@ -153,7 +153,7 @@
                                             <div class="col-xl-8">
                                                 <div class="section_tittle text-center">
                                                     <p>Donation shows Passion</p>
-                                                    <h2>Featured causes</h2>
+                                                    <h2 id="causes">Featured causes</h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -295,7 +295,7 @@
                                                                     </div>
                                                                     <div class="single_text">
                                                                         <div class="single_blog_text">
-                                                                            <h3>{{$item->name}}</h3>
+                                                                            <h3>{{$item->user->name}}</h3>
                                                                             <p>{{$item->city}}</p>
                                                                         </div>
                                                                     </div>
@@ -317,7 +317,7 @@
                                                         <div class="row justify-content-center">
                                                             <div class="col-xl-8">
                                                                 <div class="section_tittle text-center">
-                                                                    <p>OUr blog</p>
+                                                                    <p>Our blog</p>
                                                                     <h2>Every Single Update</h2>
                                                                 </div>
                                                             </div>

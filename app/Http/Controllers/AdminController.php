@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Cause;
 //use App\Models\Crisis;
+use App\Models\Report;
 use App\Models\Category;
 use App\Models\Donation;
 use Illuminate\Http\Request;
@@ -14,6 +15,14 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    public function dashboard()
+    {
+        $count['cause']=Cause::all()->count();
+        $count['donor']=User::where('role','user')->count();
+        $count['volunteer']=User::where('role','volunteer')->count();
+        $count['donation']=Donation::sum('amount');
+        return view('admin.fixed.dashboard',compact('count'));
+    }
     public function Cause()
     {
         $key=null;
@@ -194,6 +203,28 @@ class AdminController extends Controller
         $view=AssignVolunteer::with(['volunteer','bringCause'])->get();
        
         return view('admin.assign-volunteer-list',compact('view','cause'));
+    }
+
+
+
+
+
+
+    public function report()
+    {
+        $reports=[];
+        if(request()->has('fromdate'))
+        {
+            $from_date=request()->fromdate;
+            $to_date=request()->todate;
+            
+        
+        $reports=Donation::where('status','1')
+        ->whereDate('created_at','>=',$from_date)
+        ->whereDate('created_at','<=',$to_date)
+        ->get();
+        }
+        return view('admin.report',compact('reports'));
     }
 
 

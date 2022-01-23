@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers\website;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-//use App\Models\Crisis;
-use App\Models\Volunteer;
+use App\Models\User;
 use App\Models\Cause;
+//use App\Models\Crisis;
 use App\Models\Category;
 use App\Models\Donation;
+use App\Models\Volunteer;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
     public function Home()
     {
+        
         $crisislist=Cause::all();
         $volunteerlist=Volunteer::all();
         return view('website.fixed.home',compact('crisislist','volunteerlist'));
@@ -68,6 +70,11 @@ class HomeController extends Controller
     {
         $donationlist=Donation::all();
         return view('website.pages.donation-details',compact('donationlist'));
+    }
+    public function assignedVolunteerList()
+    {
+        $volunteer=User::where('id',auth()->user()->id)->first();
+        return view('website.pages.listof-assigned-volunteer',compact('volunteer'));
     }
     
     

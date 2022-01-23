@@ -38,7 +38,7 @@
   @endif
      
 
-    <form action="{{route('store.donation', $cause->id)}}" method="POST">
+    <form action="{{route('store.donation', $cause->id)}}" method="POST" enctype="multipart/form-data">
       @csrf
       {{-- <div class="form-group">
         <label for="cause_id" style="font-size:20px;"><b>Cause ID</label></b>
@@ -75,8 +75,8 @@
         </div>
 
         <div class="form-group">
-          <label for="reciept_image" style="font-size:20px;"><b>Receipt</label></b>
-          <input type="file" class="form-control" id="receipt_image"  placeholder="Enter Receipt" name="reciept_image">
+          <label for="receipt_image" style="font-size:20px;"><b>Receipt</label></b>
+          <input type="file" class="form-control" id="receipt_image"  placeholder="Enter Receipt" name="receipt_image">
          
         </div>
 

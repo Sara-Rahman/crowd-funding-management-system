@@ -11,14 +11,16 @@ class VolunteerController extends Controller
 {
     public function VolunteerProfile()
     {
-        $volunteerlist=Volunteer::all();
+      
+        //$volunteerlist=Volunteer::all();
+        $volunteerlist=Volunteer::with('bringCause')->get();
         return view('admin.volunteer.volunteer-profile',compact('volunteerlist'));
     }
 
     public function CreateVolunteer()
     {
-        $categorylist=Volunteer::all();
-        return view('admin.volunteer.create-volunteer',compact('categorylist'));
+        $crisislist=Cause::all();
+        return view('admin.volunteer.create-volunteer',compact('crisislist'));
     }
 
     public function StoreVolunteer(Request $req)
@@ -67,7 +69,7 @@ class VolunteerController extends Controller
             'occupation'=>$req->occupation,
             'education'=>$req->education,
             'phn_number'=>$req->phn_number,
-            // 'password'=>$req->pass,
+            'cause_location'=>$req->cause_location,
             'image'=>$image_name,
             
         ]);

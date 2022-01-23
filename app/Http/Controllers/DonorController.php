@@ -21,18 +21,12 @@ class DonorController extends Controller
 
     public function StoreDonation($id)
     {
-        // dd("ok");
-        // dd(request()->all());
-        // $image_name=null;
-        //     //step 1: check image exist in this request.
-        //     if($req->hasFile('donor_image'))
-        //      // step 2: generate file name
-        //     {
-        //         $image_name=date('Ymdhis').'.'. $req->file('donor_image')->getClientOriginalExtension();
-        //          //step 3 : store into project directory
-        //         $req->file('donor_image')->storeAs('/donors',$image_name);
-        //     }
-        //dd($req->all());
+        $image_name=null;
+        if(request()->hasFile('receipt_image'))
+        {
+            $image_name=date('Ymdhis').'.'.request()->file('receipt_image')->getClientOriginalExtension();
+            request()->file('receipt_image')->storeAs('/donations',$image_name);
+        }
         request()->validate([
             'payment_method'=>'required',
             'transaction_id'=>'required',
@@ -49,7 +43,7 @@ class DonorController extends Controller
             'donor_id'=>Auth::user()->id,
             'payment_method'=>request()->payment_method,
             'transaction_id'=>request()->transaction_id,
-            'receipt_image'=>request()->receipt_image,
+            'receipt_image'=>$image_name,
             'remark'=>request()->remark,
             'cause_id'=>$id,
             'amount'=>request()->amount,
@@ -126,7 +120,9 @@ class DonorController extends Controller
     public function DonationView($donation_id)
     {
           $donation= Donation::find($donation_id);
-          return view('admin.donor.donation_view',compact('donation'));
+          $userlist=User::where('role','user')->get();
+          
+          return view('admin.donor.donation_view',compact('donation','userlist'));
 
 
     }

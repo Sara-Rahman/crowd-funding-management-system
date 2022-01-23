@@ -19,7 +19,7 @@ class UserController extends Controller
         $userInfo=$req->except('_token');
 
         if(Auth::attempt($userInfo)){
-            return redirect()->route('home')->with('message','Login successful.');
+            return redirect()->route('admin.dashboard')->with('message','Login successful.');
         }
         return redirect()->back()->with('error','Invalid user credentials');
 

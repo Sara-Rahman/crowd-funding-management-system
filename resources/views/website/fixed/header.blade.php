@@ -16,9 +16,9 @@
                         </li>
                         
                         
-                    {{-- @if(auth()->user()->role=='volunteer') --}}
+                    
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Causes</a>
+                            <a class="nav-link" href="#causes">Causes</a>
                         </li>
                       
                         
@@ -51,8 +51,13 @@
                         
                         <!-- Button trigger modal -->
                         {{-- <a class="btn btn-info" href="#" style="text-decoration: none"> {{auth()->user()->name}}</a> --}}
+                        @if(auth()->user()->role=='user')
                         <a class="btn_1" href="{{route('details.donation')}}" style="text-decoration: none">Donations of {{auth()->user()->name}}</a>
+                        @endif
 
+                        @if(auth()->user()->role=='volunteer')
+                        <a class="btn_1" href="{{route('assigned.volunteer.list')}}" style="text-decoration: none">Assigned Causes</a>
+                        @endif
                         
 
                         <a href="{{route('donor.logout')}}" class="btn btn-success">{{auth()->user()->name}} | Logout</a>
@@ -113,3 +118,16 @@
         </form>
     </div>
 </div>
+
+
+
+{{-- <script>
+
+    document.querySelectorAll('a[href^="#"]').array.forEach(anchor => {
+        anchor.addEventListener("click",function(e){
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+                behavior:"smooth"
+            })
+        })
+    });
+</script> --}}

@@ -25,6 +25,7 @@ class CreateVolunteersTable extends Migration
             $table->string('occupation');
             $table->string('education');
             $table->double('phn_number');
+            $table->string('cause_location');
             $table->timestamps();
         });
     }

@@ -45,6 +45,7 @@ use App\Models\Volunteer;
 
 
 //HomeController
+Route::get('/assigned/volunteer/list', [HomeController::class, 'assignedVolunteerList'])->name('assigned.volunteer.list');
 
 //Donor
 Route::get('/create/donation/{id}', [HomeController::class, 'CreateDonation'])->name('create.donation');
@@ -75,6 +76,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function (){
 
     Route::get('/logout',[AdminUserController::class,'logout'])->name('admin.logout');
 
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
 // Route::get('/', function () {
 //     return view('master');
 // });
@@ -94,6 +97,8 @@ Route::get('/cause/delete/{cause_id}',[AdminController::class,'CauseDelete'])->n
 Route::get('/assign/volunteer/{cause_id}',[AdminController::class,'AssignVolunteer'])->name('assign.volunteer');
 Route::post('/assign/volunteer/post/{cause_id}',[AdminController::class,'storeAssignVolunteer'])->name('store.assign.volunteer');
 Route::get('/assign/volunteer/view/{cause_id}',[AdminController::class,'viewAssignVolunteer'])->name('view.assign.volunteer');
+Route::get('/report',[AdminController::class,'report'])->name('report');
+//Route::post('/showreport',[AdminController::class,'showReport'])->name('show.report');
 
 
 //for DonorController
@@ -121,4 +126,8 @@ Route::get('/distribution',[VolunteerController::class,'Distribution'])->name('d
 Route::get('/create/category',[CategoryController::class,'CreateCategory'])->name('create.category');
 Route::get('/category/list',[CategoryController::class,'CategoryList'])->name('category.list');
 Route::post('/store/category',[CategoryController::class,'StoreCategory'])->name('store.category');
+Route::get('/category/edit/{category_id}',[CategoryController::class,'editCategory'])->name('edit.category');
+Route::put('/category/update/{category_id}',[CategoryController::class,'updateCategory'])->name('update.category');
+Route::get('/category/delete/{category_id}',[CategoryController::class,'deleteCategory'])->name('delete.category');
+
 });

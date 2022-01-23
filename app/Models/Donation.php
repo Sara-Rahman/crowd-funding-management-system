@@ -19,4 +19,9 @@ class Donation extends Model
         return $this->belongsTo(Cause::class,'cause_id','id');
         //crisis->category_id,id
     }
+    public function bringUser()
+    {
+        return $this->belongsTo(Cause::class,'name','id');
+        //crisis->category_id,id
+    }
 }

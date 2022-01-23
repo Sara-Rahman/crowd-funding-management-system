@@ -103,6 +103,18 @@
         </div>
 
         <div class="form-group">
+          <label for="cause_location" style="font-size:20px;"><b>Select Cause Location</label></b>
+          <select name="cause_location" class="form-control">
+            <option>Available Cause Location</option>
+      
+            @foreach ($crisislist as $item)
+            <option value="{{$item->id}}">{{$item->location}}</option>
+            @endforeach
+          </select>
+       
+        </div>
+
+        <div class="form-group">
           <label for="occupation" style="font-size:20px;"><b>Password</label></b>
           <input type="password" name="pass" class="form-control" id="occupation"  placeholder="Enter Occupation" name="occupation">
                   </div>

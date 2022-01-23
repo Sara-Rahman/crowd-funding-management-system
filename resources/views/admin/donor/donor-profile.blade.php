@@ -12,7 +12,7 @@
                   </p>
   @endif
 
- <a href="{{route('create.donor')}}"><button type="button" class="btn btn-primary">Create Donor</button></a><br><br>
+ {{-- <a href="{{route('create.donor')}}"><button type="button" class="btn btn-primary">Create Donor</button></a><br><br> --}}
 
 
 

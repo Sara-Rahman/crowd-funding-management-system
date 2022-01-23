@@ -5,14 +5,8 @@
                 <div class="logo"><a href="index.html">
                         <!-- <img src="assets/images/logo.png" alt="" /> --><span>Radiant Foundation</span></a></div>
                 <li class="label">Main</li>
-                <li><a class="sidebar-sub-toggle" ><i class="ti-home"></i> Dashboard <span
-                            {{-- class="badge badge-primary">2</span> <span --}}
-                            class=""></span></a>
-                    {{-- <ul>
-                        <li><a href="index.html">Dashboard 1</a></li>
-                        <li><a href="index1.html">Dashboard 2</a></li>
-                    </ul> --}}
-                </li>
+                <li><a href="{{route('admin.dashboard')}}"><i class="ti-home"></i>Dashboard</a></li>
+                    
 
                 <li class="label">Apps</li>
                 <li><a class="sidebar-sub-toggle"><i class="ti-user"></i> Admin <span
@@ -20,7 +14,7 @@
                     <ul>
                         <li><a href="{{route('cause')}}">Causes</a></li>
                         {{-- <li><a href="/crisis">Crisis</a></li> --}}
-                        <li><a href="/">Report</a></li>
+                        <li><a href="{{route('report')}}">Report</a></li>
                     </ul>
                 </li>
 

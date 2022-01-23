@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Create New Crisis Category</h1>
+<h1>Edit Cause Category</h1>
 <hr>
 @if(session()->has('success'))
 <p class="alert alert-success">
@@ -22,23 +22,23 @@
 </div>
 @endif
 
-<form action="{{route('store.category')}}" method="POST">
+<form action="{{route('update.category',$category->id)}}" method="POST">
+    @method('PUT')
   @csrf
 
 
     
       <div class="form-group">
         <label for="name" style="font-size:20px;"><b>Category Name</label></b>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Catagory Name">
+        <input type="text" class="form-control" id="name" value="{{$category->name}}" name="name" placeholder="Enter Catagory Name">
       </div>
 
   
           <div class="form-group">
             <label for="name" style="font-size:20px;"><b>Category Details</label></b>
-            <input type="text" class="form-control" id="details" name="details" placeholder="Enter Category Details">
+            <input type="text" class="form-control" id="details" value="{{$category->details}}" name="details" placeholder="Enter Category Details">
             </div>
       <button type="submit" class="btn btn-success">Submit</button>
-</form>
       
   
   
