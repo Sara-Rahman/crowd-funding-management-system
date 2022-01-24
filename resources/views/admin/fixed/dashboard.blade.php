@@ -58,28 +58,29 @@
                   </div>
               </div>
             </div>
-            <div class="col-sm-12 col-md-12 col-xxl-6 col-xl-4 col-lg-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Product Sold</h4>
-                        <div class="card-action">
-                            <div class="dropdown custom-dropdown">
-                                <div data-toggle="dropdown">
-                                    <i class="ti-more-alt"></i>
-                                </div>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">Option 1</a>
-                                    <a class="dropdown-item" href="#">Option 2</a>
-                                    <a class="dropdown-item" href="#">Option 3</a>
-                                </div>
-                            </div>
+
+            <div class="row">
+                <div class="col-md-6 grid-margin stretch-card">
+                  <div class="card tale-bg">
+                    <div class="card-people mt-auto">
+                      <img src="{{url('Backend/images/dashboard/people.svg')}}" alt="people">
+                      <div class="weather-info">
+                        <div class="d-flex">
+                          <div>
+                            <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
+                          </div>
+                          <div class="ml-2">
+                            <h4 class="location font-weight-normal">Dhaka</h4>
+                            <h6 class="font-weight-normal">Bangladesh</h6>
+                          </div>
                         </div>
+                      </div>
                     </div>
-                    <div class="card-body">
-                        <div class="chart py-4">
-                            <canvas id="sold-product"></canvas>
-                        </div>
-                    </div>
+                  </div>
                 </div>
-            </div>
+
+
+                
+        
+                   
               @endsection

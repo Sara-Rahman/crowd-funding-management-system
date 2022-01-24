@@ -39,12 +39,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about.html">About</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link " href="blog.html" id="navbarDropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 blog
                             </a>
                             
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>

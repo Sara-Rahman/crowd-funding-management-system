@@ -85,7 +85,7 @@
           </div>
           <div class="form-group">
             <label for="occupation" style="font-size:20px;"><b>Password</label></b>
-            <input type="password" name="password" class="form-control" id="occupation"  placeholder="Enter Occupation" name="occupation">
+            <input type="password" name="password" class="form-control" id="occupation"  placeholder="Enter Password" name="occupation">
                     </div>
 
           <div class="mb-3">

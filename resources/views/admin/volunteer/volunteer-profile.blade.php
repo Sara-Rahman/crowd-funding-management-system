@@ -4,7 +4,7 @@
 
 
 <div class="container">
- <h1>Voluteer Register</h1><br>
+ <h1>Voluteer List</h1><br>
  <form action="#" method="GET">
   <div class="row">
       <div class="col-md-4"></div>

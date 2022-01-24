@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<h1>Create Donation</h1>
+<h1>Donation</h1>
 <hr>
 @if(session()->has('success'))
                   <p class="alert alert-success">

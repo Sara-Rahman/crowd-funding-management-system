@@ -4,7 +4,7 @@
 
 <div class="container">
 
- <h1>Donor Register</h1>
+ <h1>Donor List</h1>
  <form action="#" method="GET">
   <div class="row">
       <div class="col-md-4"></div>
