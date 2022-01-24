@@ -2,9 +2,20 @@
 
 @section('content')
 
-
+<div class="container">
 
  <h1>Donor Register</h1>
+ <form action="#" method="GET">
+  <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+          <input value="" type="text" placeholder="Search" name="search" class="form-control">
+      </div>
+      <div class="col-md-4">
+          <button type="submit" class="btn btn-success">Search</button><br><br>
+      </div>
+  </div>
+  </form>
  <hr>
  @if(session()->has('success'))
                   <p class="alert alert-success">
@@ -46,6 +57,7 @@
         <td><img src="{{url('/uploads/donors/'.$item->image)}}" style="border-radius: 4px;" width= "100px;" alt="donor image"> </td>
         <td>
           <a class="btn btn-primary" href="{{route('view.donorprofile',$item->id)}}">View</a><br><br>
+          <a class="btn btn-info" href="{{route('edit.donor',$item->id)}}">Edit</a><br><br>
         <a class="btn btn-danger" href="{{route('delete.donorprofile',$item->id)}}">Delete</a>
         </td>
         
@@ -54,4 +66,5 @@
     </tbody>
     
   </table>
+</div>
  @endsection

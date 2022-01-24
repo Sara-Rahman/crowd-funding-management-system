@@ -1,6 +1,7 @@
 @extends('master')
 @section('content')
 <div class="container">
+  <div id="ReportToPrint">
     <h1>Report</h1>
     <hr>
 
@@ -35,9 +36,11 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Cause</th>
-            <th scope="col">Donors</th>
-            <th scope="col">Volunteers</th>
+            <th scope="col">Donor ID</th>
+            <th scope="col">Transaction ID</th>
+            <th scope="col">Remarks</th>
+            <th scope="col">Cause Name</th>
+            <th scope="col">Cause Details</th>
             <th scope="col">Donation</th>
            
           </tr>
@@ -46,10 +49,10 @@
           @foreach($reports as $key=>$report)
           <tr>
             <th scope="row">{{$key+1}}</th>
-            <td>{{$report->id}}</td>   
+           
             <td>{{$report->donor_id}}</td>
             <td>{{$report->transaction_id}}</td>
-            <td>{{$report->remarks}}</td>
+            <td>{{$report->remark}}</td>
             <td>{{$report->cause->name}}</td>
             <td>{{$report->cause->details}}</td>
             <td>{{$report->amount}}</td>
@@ -60,8 +63,18 @@
         
       </table>
     </div>
+  </div>
+  <button class="btn btn-primary" type="submit" onClick="PrintDiv('ReportToPrint');" value="Print">Print</button>
 
 
 
-
+    <script language="javascript">
+      function PrintDiv(divName) {
+          var printContents = document.getElementById(divName).innerHTML;
+          var originalContents = document.body.innerHTML;
+          document.body.innerHTML = printContents;
+          window.print();
+          document.body.innerHTML = originalContents;
+      }
+      </script>
 @endsection

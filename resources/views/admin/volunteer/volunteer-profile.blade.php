@@ -3,8 +3,19 @@
 @section('content')
 
 
-
+<div class="container">
  <h1>Voluteer Register</h1><br>
+ <form action="#" method="GET">
+  <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+          <input value="" type="text" placeholder="Search" name="search" class="form-control">
+      </div>
+      <div class="col-md-4">
+          <button type="submit" class="btn btn-success">Search</button><br><br>
+      </div>
+  </div>
+  </form>
  <hr>
  
  @if(session()->has('success'))
@@ -14,7 +25,7 @@
   @endif
 
  {{-- <a href="{{route('create.volunteer')}}"><button type="button" class="btn btn-primary">Create Volunteer</button></a><br><br> --}}
-
+ 
  <table class="table table-light" style="width:80%">
     <thead>
       <tr>
@@ -51,6 +62,7 @@
         <td><img src="{{url('/uploads/volunteers/'.$item->image)}}" style="border-radius:4px" width="100px" alt="volunteer image"></td>
         <td>
           <a class="btn btn-primary" href="{{route('view.volunteer',$item->id)}}">View</a><br><br>
+          <a class="btn btn-info" href="{{route('edit.volunteer',$item->id)}}">Edit</a><br><br>
           <a class="btn btn-danger" href="{{route('delete.volunteer',$item->id)}}">Delete</a>
         </td>
 
@@ -61,4 +73,5 @@
     </tbody>
     
   </table>
+</div>
  @endsection

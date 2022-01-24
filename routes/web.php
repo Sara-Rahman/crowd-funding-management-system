@@ -98,7 +98,7 @@ Route::get('/assign/volunteer/{cause_id}',[AdminController::class,'AssignVolunte
 Route::post('/assign/volunteer/post/{cause_id}',[AdminController::class,'storeAssignVolunteer'])->name('store.assign.volunteer');
 Route::get('/assign/volunteer/view/{cause_id}',[AdminController::class,'viewAssignVolunteer'])->name('view.assign.volunteer');
 Route::get('/report',[AdminController::class,'report'])->name('report');
-//Route::post('/showreport',[AdminController::class,'showReport'])->name('show.report');
+
 
 
 //for DonorController
@@ -110,13 +110,16 @@ Route::get('/donorprofile', [UserController::class, 'DonorProfile'])->name('dono
 Route::get('/view/donation/{donation_id}',[DonorController::class,'DonationView'])->name('view.donation');
 Route::get('/delete/donation/{donation_id}',[DonorController::class,'DonationDelete'])->name('delete.donation');
 Route::get('/view/donorprofile/{donor_id}',[UserController::class,'DonorView'])->name('view.donorprofile');
+Route::get('/donor/edit/{volunteer_id}',[UserController::class,'DonorEdit'])->name('edit.donor');
+Route::put('/dono/update/{volunteer_id}',[UserController::class,'DonorUpdate'])->name('update.donor');
 Route::get('/delete/donorprofile/{donor_id}',[UserController::class,'DonorDelete'])->name('delete.donorprofile');
 Route::post('/update/donation/status/{donation_id}',[DonorController::class,'UpdateDonationStatus'])->name('update.donation.status');
 
 //For VolunteerController
 Route::get('/volunteerprofile',[VolunteerController::class, 'VolunteerProfile'])->name('volunteer.profile');
 // Route::get('/create/volunteer',[VolunteerController::class,'CreateVolunteer'])->name('create.volunteer');
-
+Route::get('/volunteer/edit/{volunteer_id}',[VolunteerController::class,'VolunteerEdit'])->name('edit.volunteer');
+Route::put('/volunteer/update/{volunteer_id}',[VolunteerController::class,'uVolunteerUpdate'])->name('update.volunteer');
 Route::get('/view/volunteerprofile/{volunteer_id}',[VolunteerController::class,'VolunteerView'])->name('view.volunteer');
 Route::get('/delete/volunteerprofile/{volunteer_id}',[VolunteerController::class,'VolunteerDelete'])->name('delete.volunteer');
 Route::get('/distribution',[VolunteerController::class,'Distribution'])->name('distribution');

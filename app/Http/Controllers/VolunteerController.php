@@ -81,6 +81,54 @@ class VolunteerController extends Controller
         return view('admin.volunteer.volunteer-profile-view',compact('volunteer'));
 
     }
+    public function VolunteerEdit($volunteer_id)
+    {
+        $volunteer=Volunteer::find($volunteer_id);
+        return view('admin.volunteer.edit-volunteer',compact('volunteer'));
+
+    }
+    public function VolunteerUpdate(Request $req,$volunteer_id)
+    {
+
+
+        $volunteer=Cause::find($volunteer_id);
+
+//        Product::where('column','value')->udpate([
+//            'column'=>'request form field name'
+//        ]);
+
+        $image_name=$volunteer->image;
+//              step 1: check image exist in this request.
+        if($req->hasFile('volunteer_image'))
+        {
+            // step 2: generate file name
+            $image_name=date('Ymdhis') .'.'. $req->file('volunteer_image')->getClientOriginalExtension();
+
+            //step 3 : store into project directory
+
+            $req->file('volunteer_image')->storeAs('/volunteers',$image_name);
+
+        }
+
+
+        $volunteer->update([
+            // field name from db || field name from form
+              
+            'email'=>$req->email,
+            'city'=>$req->city,
+            'address'=>$req->address,
+            'gender'=>$req->gender,
+            'age'=>$req->age,
+            'occupation'=>$req->occupation,
+            'education'=>$req->education,
+            'phn_number'=>$req->phn_number,
+            'cause_location'=>$req->cause_location,
+            'image'=>$image_name,
+            
+        ]);
+        return redirect()->route('volunteer.profile')->with('success','Volunteer Updated Successfully.');
+
+    }
     public function VolunteerDelete($volunteer_id)
     {
         Volunteer::find($volunteer_id)->delete();

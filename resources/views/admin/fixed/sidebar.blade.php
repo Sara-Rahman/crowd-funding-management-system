@@ -37,7 +37,7 @@
                             class="sidebar-collapse-icon ti-angle-down"></span></a>
                     <ul>
                         <li><a href="{{route('volunteer.profile')}}">Volunteer Profile</a></li>
-                        <li><a href="{{route('distribution')}}">Distribution</a></li>
+                        {{-- <li><a href="{{route('distribution')}}">Distribution</a></li> --}}
                     </ul>
                 </li>
 
@@ -55,8 +55,7 @@
 
 
                 
-                <li><a href="#"><i class="ti-email"></i> Email</a></li>
-                <li><a href="#"><i class="ti-user"></i> Profile</a></li>
+    
                 
               
            

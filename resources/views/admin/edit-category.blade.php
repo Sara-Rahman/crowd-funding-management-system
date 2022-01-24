@@ -38,7 +38,7 @@
             <label for="name" style="font-size:20px;"><b>Category Details</label></b>
             <input type="text" class="form-control" id="details" value="{{$category->details}}" name="details" placeholder="Enter Category Details">
             </div>
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success">Update</button>
       
   
   
