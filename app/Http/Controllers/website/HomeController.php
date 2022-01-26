@@ -28,12 +28,12 @@ class HomeController extends Controller
         return view('admin.donor.create-donor');
     }
 
-    public function CreateDonation($id)
-    {
-        $cause = Cause::find($id);
-        return view('admin.donor.create-donation',compact('cause'));
+    // public function CreateDonation($id)
+    // {
+    //     $cause = Cause::find($id);
+    //     return view('admin.donor.create-donation',compact('cause'));
 
-    }
+    // }
 
     public function CreateVolunteer()
     {

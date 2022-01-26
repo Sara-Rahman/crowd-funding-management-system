@@ -1,16 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DonorController;
-use App\Http\Controllers\VolunteerController;
-use App\Http\Controllers\website\HomeController;
-use App\Http\Controllers\website\UserController;
-use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Models\Cause;
 use App\Models\Donation;
 use App\Models\Volunteer;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DonorController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\VolunteerController;
+// use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\website\HomeController;
+use App\Http\Controllers\website\UserController;
+use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 // use App\Models\Category;
 
 /*
@@ -134,3 +136,17 @@ Route::put('/category/update/{category_id}',[CategoryController::class,'updateCa
 Route::get('/category/delete/{category_id}',[CategoryController::class,'deleteCategory'])->name('delete.category');
 
 });
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2/{id}', [SslCommerzPaymentController::class, 'exampleHostedCheckout'])->name('payment');
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END

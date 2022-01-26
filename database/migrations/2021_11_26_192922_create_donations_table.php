@@ -17,13 +17,15 @@ class CreateDonationsTable extends Migration
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->integer('donor_id')->nullable();
-            $table->string('payment_method');
-            $table->integer('transaction_id');
-            $table->string('receipt_image')->nullable();
-            $table->unsignedBigInteger('cause_id');
-            $table->string('remark');
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('transaction_id')->nullable();
+            $table->unsignedBigInteger('cause_id')->nullable();
             $table->double('amount');
             $table->string('status')->default('0');
+            $table->string('currency')->nullable();
             $table->timestamps();
         });
     }

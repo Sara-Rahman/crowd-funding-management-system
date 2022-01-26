@@ -24,6 +24,6 @@ foreach($donations as $donation){
         <img src="{{url('/uploads/causes/',$cause->image)}}" style="border-radius:4px" width="200px" alt="cause image">
     
     </p>
-    <a href="{{route('create.donation',$cause->id)}}"><button type="button" class="btn_1">Donate Now</button></a><br><br>
+    <a href="{{route('payment',$cause->id)}}"><button type="button" class="btn_1">Donate Now</button></a><br><br>
 </div>
 @endsection
