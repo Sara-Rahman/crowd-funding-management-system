@@ -19,22 +19,25 @@ class SslCommerzPaymentController extends Controller
     public function exampleHostedCheckout($id)
     {
         $cause = Cause::find($id);
+        
         return view('admin.payment.exampleHosted',compact('cause'));
     }
 
     public function index(Request $request)
     {
+        
        
-   
         # Here you have to receive all the order data to initate the payment.
         # Let's say, your oder transaction informations are saving in a table called "orders"
         # In "orders" table, order unique identity is "transaction_id". "status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
-
         $post_data = array();
         $post_data['total_amount'] = $request->amount; # You cant not pay less than 10
         $post_data['currency'] = "BDT";
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
-        $post_data['cause_id'] = $request->cause_id; // tran_id must be unique
+        $post_data['cause_id'] = $request->cause_id;
+        $post_data['donor_id'] = $request->donor_id;
+         // tran_id must be unique
+         // tran_id must be unique
 
         # CUSTOMER INFORMATION
         $post_data['cus_name'] = $request->name;
@@ -68,7 +71,6 @@ class SslCommerzPaymentController extends Controller
         $post_data['value_b'] = "ref002";
         $post_data['value_c'] = "ref003";
         $post_data['value_d'] = "ref004";
-
         #Before  going to initiate the payment order status need to insert or update as Pending.
         $update_product = DB::table('donations')
             ->where('transaction_id', $post_data['tran_id'])
@@ -76,6 +78,7 @@ class SslCommerzPaymentController extends Controller
                 'name' => $post_data['cus_name'],
                 'email' => $post_data['cus_email'],
                 'cause_id' => $post_data['cause_id'],
+                'donor_id'=>$post_data['donor_id'],
                 'phone' => $post_data['cus_phone'],
                 'amount' => $post_data['total_amount'],
                 'status' => 'Pending',
@@ -103,6 +106,7 @@ dd($e->getMessage());
     public function payViaAjax(Request $request)
     {
 
+       
         # Here you have to receive all the order data to initate the payment.
         # Lets your oder trnsaction informations are saving in a table called "orders"
         # In orders table order uniq identity is "transaction_id","status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
@@ -173,6 +177,7 @@ dd($e->getMessage());
 
     public function success(Request $request)
     {
+       
        return view('admin.payment.payment-success');
 
         $tran_id = $request->input('tran_id');

@@ -76,6 +76,11 @@
                 <input type="hidden" value="{{ csrf_token() }}" name="_token" />
                 <div class="row">
                     <input type="hidden" value="{{$cause->id}}" name="cause_id">
+                    @if(auth()->user())
+                    <input type="hidden" value="{{auth()->user()->id}}" name="donor_id">
+                    @endif
+                   
+
                     <div class="col-md-12 mb-3">
                         <label for="firstName">Full name</label>
                         <input type="text" name="name" class="form-control" id="customer_name" placeholder=""
