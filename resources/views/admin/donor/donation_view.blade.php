@@ -3,10 +3,9 @@
    <h1>Donation List</h1> 
    <hr>
 
-   <p><b>Payment Method: {{$donation->payment_method}}</b></p>
    {{-- <p><b>Donor Name: {{$donation->bringUser->name}}</b></p> --}}
    <p><b>Transaction ID: {{$donation->transaction_id}}</b></p>
-   <p><b>Remarks: {{$donation->remark}}</b></p>
+  
    <p><b>Cause Type: {{optional($donation->cause)->name}}</b></p>
    <p><b>Donation Amount: {{$donation->amount}}<b></p>
  

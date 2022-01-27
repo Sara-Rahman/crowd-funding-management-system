@@ -53,8 +53,11 @@
         <i class="checkmark">✓</i>
       </div>
         <h1>Success</h1> 
+        {{-- @if(auth()->user())
+        <input type="hidden" value="{{auth()->user()->id}}" name="donor_id">
+        @endif --}}
         <p>We received your donation request;<br/> we'll be in touch shortly!</p>
-        <a href=""><p class="profile">Back to your profile <i class="far fa-arrow-alt-circle-right"></i></p></a>
+        <a href="{{route('details.donation')}}"><p class="profile">Back to your profile <i class="far fa-arrow-alt-circle-right"></i></p></a>
       </div>
     </body>
 </html>

@@ -133,16 +133,16 @@ class DonorController extends Controller
 
     }
 
-    public function UpdateDonationStatus($donation_id)
-    {
-        //dd($donation_id);
-        $data = Donation::where('id',$donation_id)->first();
-        //dd($data->all());
-        $data->update([
-            'status'=>request()->status
-        ]);
-        return redirect()->back();
-    }
+    // public function UpdateDonationStatus($donation_id)
+    // {
+    //     //dd($donation_id);
+    //     $data = Donation::where('id',$donation_id)->first();
+    //     //dd($data->all());
+    //     $data->update([
+    //         'status'=>request()->status
+    //     ]);
+    //     return redirect()->back();
+    // }
     // public function DonorView($donor_id)
     // {
     //     $donor=Donor::find($donor_id);

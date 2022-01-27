@@ -18,9 +18,7 @@
         <th scope="col">Donor ID</th>
         <th scope="col">Cause ID</th>
         <th scope="col">Cause Name</th>
-        <th scope="col">Donor Name</th>
-        <th scope="col">Donor Email</th>
-        <th scope="col">Donor Phone</th>
+       
         <th scope="col">Transaction ID</th>
        
         {{-- <th scope="col">Cause Type</th> --}}
@@ -33,38 +31,36 @@
       @foreach($donationlist as $key=>$item)
       <tr>
         <th scope="row">{{$key+1}}</th>
-        <td>{{$item->user()->id}}</td>
+        <td>{{$item->id}}</td>
         <td>{{optional($item->cause)->id}}</td> 
         <td>{{optional($item->cause)->name}}</td> 
-        <td>{{$item->name}}</td>
-        <td>{{$item->email}}</td>
-        <td>{{$item->phone}}</td>
+       
         <td>{{$item->transaction_id}}</td>
-        <td><img src="{{url('/uploads/donations/'.$item->receipt_image)}}" style="border-radius:4px" width="100px" alt="receipt image"></td>
+        {{-- <td><img src="{{url('/uploads/donations/'.$item->receipt_image)}}" style="border-radius:4px" width="100px" alt="receipt image"></td> --}}
 
         {{-- <td>{{optional($item->category)->name}}</td>  --}}
         <td>{{$item->amount}}</td>
         {{-- <td>}</td> --}}
         <td>
-          
-          @if ($item->status==0)
+          {{$item->status}}
+          {{-- @if ($item->status==0)
             <a class="btn btn-warning" href="#">Pending</a>
           @else($item->status==1)
           <a class="btn btn-success" href="#">Approved</a>
-          @endif
+          @endif --}}
         </td>
         <td>
         <a class="btn btn-primary" href="{{route('view.donation',$item->id)}}">View</a><br><br>
         <a class="btn btn-danger" href="{{route('delete.donation',$item->id)}}">Delete</a><br><br>
         
-        @if($item->status!=1)
+        {{-- @if($item->status!=1)
 
         <form action="{{route('update.donation.status',$item->id)}}" method="POST">
           @csrf
           <div class="form-group">
             <button class="btn btn-primary" name="status" value="1">Approve</button>
         </form>
-        @endif
+        @endif --}}
         </td>
        
       </tr>

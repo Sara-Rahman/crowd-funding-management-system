@@ -177,8 +177,9 @@ dd($e->getMessage());
 
     public function success(Request $request)
     {
+        // dd($request->all());
        
-       return view('admin.payment.payment-success');
+    //    return view('admin.payment.payment-success');
 
         $tran_id = $request->input('tran_id');
         $amount = $request->input('amount');
@@ -202,9 +203,9 @@ dd($e->getMessage());
                 */
                 $update_product = DB::table('donations')
                     ->where('transaction_id', $tran_id)
-                    ->update(['status' => 'Processing']);
+                    ->update(['status' => 'Success']);
 
-                echo "<br >Transaction is successfully Completed";
+                    return view('admin.payment.payment-success');
             } else {
                 /*
                 That means IPN did not work or IPN URL was not set in your merchant panel and Transation validation failed.

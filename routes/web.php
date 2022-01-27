@@ -55,6 +55,7 @@ Route::get('/create/donation/{id}', [HomeController::class, 'CreateDonation'])->
 
 Route::post('/store/donation/{id}',[DonorController::class, 'StoreDonation'])->name('store.donation');
 Route::get('/details/donation',[HomeController::class,'DonationDetails'])->name('details.donation');
+Route::get('/profile/donor',[HomeController::class,'profileOfDonor'])->name('profile.donor');
 // Route::get('/create/donor',[HomeController::class,'CreateDonor'])->name('create.donor');
 Route::get('/cause/details/{cause_id}',[HomeController::class,'CauseDetails'])->name('cause.details');
 
@@ -99,6 +100,7 @@ Route::get('/cause/delete/{cause_id}',[AdminController::class,'CauseDelete'])->n
 Route::get('/assign/volunteer/{cause_id}',[AdminController::class,'AssignVolunteer'])->name('assign.volunteer');
 Route::post('/assign/volunteer/post/{cause_id}',[AdminController::class,'storeAssignVolunteer'])->name('store.assign.volunteer');
 Route::get('/assign/volunteer/view/{cause_id}',[AdminController::class,'viewAssignVolunteer'])->name('view.assign.volunteer');
+// Report
 Route::get('/report',[AdminController::class,'report'])->name('report');
 
 
@@ -115,7 +117,7 @@ Route::get('/view/donorprofile/{donor_id}',[UserController::class,'DonorView'])-
 Route::get('/donor/edit/{volunteer_id}',[UserController::class,'DonorEdit'])->name('edit.donor');
 Route::put('/dono/update/{volunteer_id}',[UserController::class,'DonorUpdate'])->name('update.donor');
 Route::get('/delete/donorprofile/{donor_id}',[UserController::class,'DonorDelete'])->name('delete.donorprofile');
-Route::post('/update/donation/status/{donation_id}',[DonorController::class,'UpdateDonationStatus'])->name('update.donation.status');
+// Route::post('/update/donation/status/{donation_id}',[DonorController::class,'UpdateDonationStatus'])->name('update.donation.status');
 
 //For VolunteerController
 Route::get('/volunteerprofile',[VolunteerController::class, 'VolunteerProfile'])->name('volunteer.profile');

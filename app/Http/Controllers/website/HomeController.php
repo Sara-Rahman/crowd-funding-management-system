@@ -20,6 +20,14 @@ class HomeController extends Controller
         $volunteerlist=Volunteer::all();
         return view('website.fixed.home',compact('crisislist','volunteerlist'));
     }
+    public function profileOfDonor()
+    {
+      
+        
+        $user=User::where('id',auth()->user()->id)->first();
+    
+        return view('website.pages.profile-donor',compact('user'));
+    }
 
 
 
@@ -68,9 +76,13 @@ class HomeController extends Controller
 
     public function DonationDetails()
     {
-        $donationlist=Donation::all();
+         $donationlist=Donation::where('donor_id',auth()->user()->id)->get();
+         
+         
         return view('website.pages.donation-details',compact('donationlist'));
     }
+
+    
     public function assignedVolunteerList()
     {
         $volunteer=User::where('id',auth()->user()->id)->first();
