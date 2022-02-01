@@ -20,14 +20,31 @@ class HomeController extends Controller
         $volunteerlist=Volunteer::all();
         return view('website.fixed.home',compact('crisislist','volunteerlist'));
     }
+
+
     public function profileOfDonor()
     {
-      
-        
         $user=User::where('id',auth()->user()->id)->first();
-    
         return view('website.pages.profile-donor',compact('user'));
     }
+
+    public function update(Request $request)
+    {
+        // dd($request->all());
+        $id = auth()->user()->id;
+        $user = User::find($id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->address = $request->input('address');
+        $user->city = $request->input('city');
+        $user->phn_number = $request->input('phn_number');
+        $user->gender = $request->input('gender');
+        $user->occupation = $request->input('occupation');
+        $user->image = $request->input('donor_image');
+        $user->save();
+        return redirect()->route('profile.donor');
+    }
+
 
 
 
@@ -35,6 +52,8 @@ class HomeController extends Controller
     {
         return view('admin.donor.create-donor');
     }
+
+   
 
     // public function CreateDonation($id)
     // {
@@ -59,7 +78,7 @@ class HomeController extends Controller
     {
         $cause=Cause::find($cause_id);
         $donations = Donation::
-        where('status','1')
+        where('status','Success')
         ->where('cause_id',$cause_id)
         ->get();
         
@@ -76,6 +95,7 @@ class HomeController extends Controller
 
     public function DonationDetails()
     {
+        // dd(auth()->user());
          $donationlist=Donation::where('donor_id',auth()->user()->id)->get();
          
          

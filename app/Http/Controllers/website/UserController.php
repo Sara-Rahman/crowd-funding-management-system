@@ -31,7 +31,7 @@ class UserController extends Controller
        // dd($req->all());
         $req->validate([
             'name'=>'required',
-            'email'=>'required',
+            'email'=>'email:rfc,dns',
             'address'=>'required',
             'city'=>'required',
             'occupation'=>'required',
@@ -62,7 +62,7 @@ class UserController extends Controller
     public function DonorProfile()
     {
         
-        $userlist = User::all();
+        $userlist = User::paginate(3);
         return view('admin.donor.donor-profile',compact('userlist'));
     }
 

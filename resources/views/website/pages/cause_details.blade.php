@@ -24,6 +24,8 @@ foreach($donations as $donation){
         <img src="{{url('/uploads/causes/',$cause->image)}}" style="border-radius:4px" width="200px" alt="cause image">
     
     </p>
+    @if($cause->amount!=$total)
     <a href="{{route('payment',$cause->id)}}"><button type="button" class="btn_1">Donate Now</button></a><br><br>
+    @endif
 </div>
 @endsection

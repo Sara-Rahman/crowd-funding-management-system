@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Throwable;
 use App\Models\Cause;
+use App\Mail\TestMail;
+use App\Models\Donation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use App\Library\SslCommerz\SslCommerzNotification;
 
 class SslCommerzPaymentController extends Controller
@@ -72,9 +75,8 @@ class SslCommerzPaymentController extends Controller
         $post_data['value_c'] = "ref003";
         $post_data['value_d'] = "ref004";
         #Before  going to initiate the payment order status need to insert or update as Pending.
-        $update_product = DB::table('donations')
-            ->where('transaction_id', $post_data['tran_id'])
-            ->updateOrInsert([
+        $update_product = Donation::where('transaction_id', $post_data['tran_id'])
+            ->updateOrCreate([
                 'name' => $post_data['cus_name'],
                 'email' => $post_data['cus_email'],
                 'cause_id' => $post_data['cause_id'],
@@ -177,7 +179,8 @@ dd($e->getMessage());
 
     public function success(Request $request)
     {
-        // dd($request->all());
+        // dd(auth()->user());
+         //dd($request->all());
        
     //    return view('admin.payment.payment-success');
 
@@ -187,7 +190,7 @@ dd($e->getMessage());
 
         $sslc = new SslCommerzNotification();
 
-        #Check order status in order tabel against the transaction id or order id.
+        #Check order status in order table against the transaction id or order id.
         $order_detials = DB::table('donations')
             ->where('transaction_id', $tran_id)
             ->select('transaction_id', 'status', 'currency', 'amount')->first();
@@ -204,8 +207,13 @@ dd($e->getMessage());
                 $update_product = DB::table('donations')
                     ->where('transaction_id', $tran_id)
                     ->update(['status' => 'Success']);
-
+                    $details =[
+                        'title' => 'Email from admin',
+                        'body' => 'Your payment has been successful'
+                    ];
+                    Mail::to(auth()->user()->email)->send(new TestMail($details));
                     return view('admin.payment.payment-success');
+                   
             } else {
                 /*
                 That means IPN did not work or IPN URL was not set in your merchant panel and Transation validation failed.
@@ -241,7 +249,12 @@ dd($e->getMessage());
             $update_product = DB::table('donations')
                 ->where('transaction_id', $tran_id)
                 ->update(['status' => 'Failed']);
-            echo "Transaction is Falied";
+                $details =[
+                    'title' => 'Email from admin',
+                    'body' => 'Unfortunately your payment is not received. Please try again'
+                ];
+                Mail::to(auth()->user()->email)->send(new TestMail($details));
+            return view('admin.payment.payment-fail');
         } else if ($order_detials->status == 'Processing' || $order_detials->status == 'Complete') {
             echo "Transaction is already Successful";
         } else {

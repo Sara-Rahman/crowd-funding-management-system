@@ -38,7 +38,7 @@
             <th scope="col">ID</th>
             <th scope="col">Donor ID</th>
             <th scope="col">Transaction ID</th>
-            <th scope="col">Remarks</th>
+           
             <th scope="col">Cause Name</th>
             <th scope="col">Cause Details</th>
             <th scope="col">Donation</th>
@@ -46,16 +46,19 @@
           </tr>
         </thead>
         <tbody>
+          {{-- @dd($reports) --}}
           @foreach($reports as $key=>$report)
           <tr>
             <th scope="row">{{$key+1}}</th>
            
             <td>{{$report->donor_id}}</td>
             <td>{{$report->transaction_id}}</td>
-            <td>{{$report->remark}}</td>
+            
             <td>{{$report->cause->name}}</td>
             <td>{{$report->cause->details}}</td>
             <td>{{$report->amount}}</td>
+            {{-- <td>{{$report->name}}</td>
+            <td>{{$report->location}}</td> --}}
           
           </tr>
           @endforeach

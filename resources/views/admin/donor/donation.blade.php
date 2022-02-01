@@ -36,18 +36,12 @@
         <td>{{optional($item->cause)->name}}</td> 
        
         <td>{{$item->transaction_id}}</td>
-        {{-- <td><img src="{{url('/uploads/donations/'.$item->receipt_image)}}" style="border-radius:4px" width="100px" alt="receipt image"></td> --}}
 
-        {{-- <td>{{optional($item->category)->name}}</td>  --}}
         <td>{{$item->amount}}</td>
-        {{-- <td>}</td> --}}
+        
         <td>
           {{$item->status}}
-          {{-- @if ($item->status==0)
-            <a class="btn btn-warning" href="#">Pending</a>
-          @else($item->status==1)
-          <a class="btn btn-success" href="#">Approved</a>
-          @endif --}}
+          
         </td>
         <td>
         <a class="btn btn-primary" href="{{route('view.donation',$item->id)}}">View</a><br><br>
@@ -68,6 +62,7 @@
     </tbody>
     
   </table>
+  {{$donationlist->links()}}
 
   
 @endsection

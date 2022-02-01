@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MailController;
 use App\Models\Cause;
 use App\Models\Donation;
 use App\Models\Volunteer;
@@ -55,7 +56,11 @@ Route::get('/create/donation/{id}', [HomeController::class, 'CreateDonation'])->
 
 Route::post('/store/donation/{id}',[DonorController::class, 'StoreDonation'])->name('store.donation');
 Route::get('/details/donation',[HomeController::class,'DonationDetails'])->name('details.donation');
+
+// update donor profile on website
 Route::get('/profile/donor',[HomeController::class,'profileOfDonor'])->name('profile.donor');
+Route::put('/profile/update',[HomeController::class,'update'])->name('update.donor');
+
 // Route::get('/create/donor',[HomeController::class,'CreateDonor'])->name('create.donor');
 Route::get('/cause/details/{cause_id}',[HomeController::class,'CauseDetails'])->name('cause.details');
 
@@ -115,7 +120,7 @@ Route::get('/view/donation/{donation_id}',[DonorController::class,'DonationView'
 Route::get('/delete/donation/{donation_id}',[DonorController::class,'DonationDelete'])->name('delete.donation');
 Route::get('/view/donorprofile/{donor_id}',[UserController::class,'DonorView'])->name('view.donorprofile');
 Route::get('/donor/edit/{volunteer_id}',[UserController::class,'DonorEdit'])->name('edit.donor');
-Route::put('/dono/update/{volunteer_id}',[UserController::class,'DonorUpdate'])->name('update.donor');
+Route::put('/dono/update/{volunteer_id}',[UserController::class,'DonorUpdate'])->name('update.volunteer');
 Route::get('/delete/donorprofile/{donor_id}',[UserController::class,'DonorDelete'])->name('delete.donorprofile');
 // Route::post('/update/donation/status/{donation_id}',[DonorController::class,'UpdateDonationStatus'])->name('update.donation.status');
 
@@ -152,3 +157,6 @@ Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
 
 Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 //SSLCOMMERZ END
+
+// for sending mail
+Route::get('/send-email',[SslCommerzPaymentController::class, 'success']);

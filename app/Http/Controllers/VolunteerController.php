@@ -43,11 +43,11 @@ class VolunteerController extends Controller
 
         $req->validate([
             'name'=>'required',
-            'email'=>'required',
+            'email'=>'email:rfc,dns',
             'address'=>'required',
             'age'=>'required',
             'occupation'=>'required',
-            'phn_number'=>'required',
+            'phn_number'=>'required|digits:11',
             
 
 

@@ -14,7 +14,7 @@ class DonorController extends Controller
 {
     public function Donation()
     {
-        $donationlist=Donation::all();
+        $donationlist=Donation::paginate(3);
         // dd($donationlist);
         return view('admin.donor.donation',compact('donationlist'));
     }
@@ -104,7 +104,6 @@ class DonorController extends Controller
     //         'password'=>bcrypt($req->password),
     //         'image'=>$image_name,
           
-
 
     //     ]);
     //     return redirect()->back()->with('success','Donor has registered successfully.');

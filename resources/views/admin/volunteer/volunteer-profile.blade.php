@@ -46,6 +46,7 @@
     </thead>
     <tbody>
       @foreach($volunteerlist as $key=>$item)
+   
       <tr>
         <th scope="row">{{$key+1}}</th>
         <td>{{$item->name}}</td>
@@ -73,5 +74,7 @@
     </tbody>
     
   </table>
+
+
 </div>
  @endsection

@@ -43,7 +43,7 @@ class AdminController extends Controller
     }
 
     public function CreateCause()
-    {
+    {                             
         $categorylist = Category::all();
         return view('admin.create-cause',compact('categorylist'));
     }
@@ -212,17 +212,22 @@ class AdminController extends Controller
 
     public function report()
     {
+
+        // $reports=Donation::all();
+     
+
         $reports=[];
+        
         if(request()->has('fromdate'))
         {
             $from_date=request()->fromdate;
             $to_date=request()->todate;
-            
         
-        $reports=Donation::where('status','1')
+        $reports=Donation::where('status','Success')
         ->whereDate('created_at','>=',$from_date)
         ->whereDate('created_at','<=',$to_date)
         ->get();
+        // $reports=Donation::whereBetween('created_at',[request()->$from_date,request()->to_date])->get();
         }
         return view('admin.report',compact('reports'));
     }

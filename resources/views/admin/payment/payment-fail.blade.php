@@ -10,7 +10,7 @@
         background: #EBF0F5;
       }
         h1 {
-          color: #88B04B;
+          color: red;
           font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
           font-weight: 900;
           font-size: 40px;
@@ -26,13 +26,16 @@
             text-decoration: none;
         }
       .checkmark {
-        color: #9ABC66;
+        color: red;
         font-size: 100px;
         line-height: 200px;
         margin-left:-15px;
       }
       i{
         color: #9ABC66;
+      }
+      .checkmark{
+        color: red;
       }
       .profile{
         color: #9ABC66;
@@ -50,11 +53,11 @@
     <body>
       <div class="card">
       <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-        <i class="checkmark">✓</i>
+        <i class="checkmark">✕</i>
       </div>
         <h1>Failed</h1> 
         <p>Unfortunately we haven't received your donation request;<br/> please try again!</p>
-        <a href=""><p class="profile">Back to your profile <i class="far fa-arrow-alt-circle-right"></i></p></a>
+        <a href="{{route('details.donation')}}"><p class="profile">Back to your profile <i class="far fa-arrow-alt-circle-right"></i></p></a>
       </div>
     </body>
 </html>

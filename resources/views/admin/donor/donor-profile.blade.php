@@ -66,5 +66,7 @@
     </tbody>
     
   </table>
+  {{$userlist->links()}}
+
 </div>
  @endsection

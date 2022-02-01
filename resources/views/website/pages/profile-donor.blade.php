@@ -15,7 +15,7 @@
 
 .form-control:focus {
     box-shadow: none;
-    border-color: #BA68C8
+    border-color: #339e7b
 }
 
 .profile-button {
@@ -25,11 +25,11 @@
 }
 
 .profile-button:hover {
-    background: #682773
+    background: #168f4c
 }
 
 .profile-button:focus {
-    background: #682773;
+    background: #277340;
     box-shadow: none
 }
 
@@ -43,25 +43,27 @@
     cursor: pointer
 }
 
+
 .labels {
     font-size: 11px
 }
 
-.add-experience:hover {
-    background: #BA68C8;
-    color: #fff;
-    cursor: pointer;
-    border: solid 1px #BA68C8
-}
+
 </style>
 <body>
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+    <form action="{{route('update.donor')}}" method="POST">
+        @method('PUT')
+        @csrf
+        <div class="row">
+        <div class="col-md-3 border-right ms-5">
+            <div class="card shadow-lg mt-5 d-flex flex-column align-items-center text-center p-3 py-5">
                 {{-- <img class="rounded-circle mt-5" width="150px" src="{{url('/uploads/donors/'.$user->image)}}"> --}}
-                <img class="rounded-circle mt-5" width="150px" src="{{url('/uploads/donors/'.$user->image)}}"><span class="font-weight-bold">{{auth()->user()->name}}</span><span class="text-black-50">{{auth()->user()->email}}</span><span> </span></div>
+                <img class="figure-img img-fluid rounded" width="100%" height="100%" src="{{url('/uploads/donors/'.$user->image)}}"><span class="font-weight-bold">{{auth()->user()->name}}</span><span class="text-black-50">{{auth()->user()->email}}</span><span>  
+                    <input class="form-control" type="file" name="donor_image" id="donor_image"></span></div>
+               
         </div>
-        <div class="col-md-5 border-right">
+        <div class="col-md-5 ms-5 border-right">
+            
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h4 class="text-center">Profile Settings</h4>
@@ -99,11 +101,12 @@
                     </div>
                    
                 <div class="mt-5 text-center">
-                    <button class="btn btn-success profile-button" type="button">Save Profile</button></div>
+                    <button class="btn btn-success profile-button" type="submit">Save Profile</button></div>
             </div>
         </div>
        
     </div>
+</form>
 </div>
 </div>
 </div>
