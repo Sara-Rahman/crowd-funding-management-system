@@ -310,12 +310,14 @@ input:-internal-autofill-selected {
 
 .btn_3 {
     border: 1px solid #e9ebec;
-    color: #14182d !important
+    color: #14182d !important;
+    text-decoration: none;
 }
 
 .btn_3:hover {
     background-color: #00c424 !important;
     color: #fff !important
+
 }
 
 .btn_2 {
@@ -333,7 +335,8 @@ input:-internal-autofill-selected {
     border: 1px solid #00c424;
     border-radius: 2px;
     font-family: "Roboto", sans-serif;
-    border-radius: 50px
+    border-radius: 50px;
+    text-decoration: none;
 }
 
 .btn_2:hover {

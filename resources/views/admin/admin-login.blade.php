@@ -18,6 +18,7 @@
         height: 320px;
         border: 1px solid #201f1f;
         background-color: #e9dcdc;
+        
     }
     #login .container #login-row #login-column #login-box #login-form {
         padding: 20px;

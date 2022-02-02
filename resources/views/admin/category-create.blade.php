@@ -1,8 +1,9 @@
 @extends('master')
 
 @section('content')
+<div class="container">
 
-<h1>Create New Crisis Category</h1>
+<h1>Create New Cause Category</h1>
 <hr>
 @if(session()->has('success'))
 <p class="alert alert-success">
@@ -40,7 +41,7 @@
       <button type="submit" class="btn btn-success">Submit</button>
 </form>
       
-  
+</div>
   
     
 @endsection

@@ -3,7 +3,7 @@
 @section('content')
 
 
-
+<div class="container">
  <h1>Causes List</h1><br>
 
  @if(session()->has('success'))
@@ -80,4 +80,5 @@
   </tbody>
   
 </table>
+</div>
 @endsection

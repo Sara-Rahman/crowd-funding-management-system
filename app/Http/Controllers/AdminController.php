@@ -23,6 +23,8 @@ class AdminController extends Controller
         $count['donation']=Donation::sum('amount');
         return view('admin.fixed.dashboard',compact('count'));
     }
+
+    
     public function Cause()
     {
         $key=null;
@@ -201,6 +203,7 @@ class AdminController extends Controller
         $cause=Cause::find($cause_id);
         // dd($cause);
         $view=AssignVolunteer::with(['volunteer','bringCause'])->get();
+    //    dd($view);
        
         return view('admin.assign-volunteer-list',compact('view','cause'));
     }

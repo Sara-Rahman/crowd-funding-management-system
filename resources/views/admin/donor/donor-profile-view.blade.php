@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+<div class="container">
     <h1>Donor Profile List</h1>
     <hr>
     
@@ -11,8 +12,9 @@
     <p><b>Contact Number: {{$donor->phn_number}}</b></p>
     <p><b>Gender: {{$donor->gender}}</b></p>
     <p><b>Occupation: {{$donor->occupation}}</b></p>
-    <p><b>Donation Amount: {{$donor->amount}}<b></p>
+    {{-- <p><b>Donation Amount: {{$donor->amount}}<b></p> --}}
         <p>
         <td><img src="{{url('/uploads/donors/'.$donor->image)}}" style="border-radius:4px" width="100px" alt="cause image"></td>
         </p>
+    </div>
 @endsection

@@ -5,17 +5,7 @@
 <div class="container">
 
  <h1>Donor List</h1>
- <form action="#" method="GET">
-  <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-          <input value="" type="text" placeholder="Search" name="search" class="form-control">
-      </div>
-      <div class="col-md-4">
-          <button type="submit" class="btn btn-success">Search</button><br><br>
-      </div>
-  </div>
-  </form>
+
  <hr>
  @if(session()->has('success'))
                   <p class="alert alert-success">
@@ -25,7 +15,24 @@
 
  {{-- <a href="{{route('create.donor')}}"><button type="button" class="btn btn-primary">Create Donor</button></a><br><br> --}}
 
+ <form action="{{route('donor.profile')}}" method="GET">
+  <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+          <input value="{{$key}}" type="text" placeholder="Search" name="search" class="form-control">
+      </div>
+      <div class="col-md-4">
+          <button type="submit" class="btn btn-success">Search</button><br><br>
+      </div>
+  </div>
+  </form>
 
+  @if($key)
+  <h5>
+       Searching for: {{$key}}<br>
+       Found: {{$userlist->count()}}
+  </h5>
+@endif
 
  <table class="table table-light" style="width:80%">
     <thead>
@@ -66,7 +73,7 @@
     </tbody>
     
   </table>
-  {{$userlist->links()}}
+  {{-- {{$userlist->links()}} --}}
 
 </div>
  @endsection

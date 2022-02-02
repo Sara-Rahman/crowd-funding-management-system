@@ -10,9 +10,7 @@
                     <div class="banner_text_iner">
                         <h1>Bless others with
                             your gift</h1>
-                            <p>Fish isn't thing there a god whales fruit gathering the second so
-                                third beginning open multiply in land multiply Saw saw lesser tree
-                                fom image his made heaven.</p>
+                            <p>There are so many ways now that people contribute through the Internet. We vet all of our contributions, and when something doesn't meet our requirements or a donation exceeds the amount that's allowed by the law, we return it.</p>
                                 {{-- <a href="{{route('create.donation',)}}" class="btn_2" style="text-decoration: none">Start Donation</a> --}}
                             </div>
                         </div>
@@ -40,8 +38,7 @@
                                     <img src="{{url('Frontend/img/icon/feature_1.svg')}}" alt="">
                                     <h4>Give Donation</h4>
                                 </div>
-                                <p>Our his abundantly subdue she'd night own of two two his deasons face you place can upon
-                                    letter.</p>
+                                <p>It’s easier to take than to give. It’s nobler to give than to take. The thrill of taking lasts a day. The thrill of giving lasts a lifetime.</p>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +94,7 @@
                                                 <p>Our his abundantly subdue she'd night own of two two his herb seasons
                                                     face you hesea placees can't upon dominion make beginning fowl waters
                                                     seasons in also moveth hand beginning living face kind beginning from asid</p>
-                                                    <a href="#" class="btn_2">learn more</a>
+                                                    {{-- <a href="#" class="btn_2">learn more</a> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -117,28 +114,28 @@
                                                     <img src="{{url('Frontend/img/icon/feature_1.svg')}}" alt="">
                                                     <div class="single_counter_text">
                                                         <p>Total Collection</p>
-                                                        <span class="count">58,9672412</span>
+                                                        <span class="count">{{$count['donation']}}</span>
                                                     </div>
                                                 </div>
                                                 <div class="single_counter d-flex">
                                                     <img src="{{url('Frontend/img/icon/feature_2.svg')}}" alt="">
                                                     <div class="single_counter_text">
-                                                        <p>Helped People</p>
-                                                        <span class="count">58,9672412</span>
+                                                        <p>Total Causes</p>
+                                                        <span class="count">{{$count['cause']}}</span>
                                                     </div>
                                                 </div>
                                                 <div class="single_counter d-flex">
                                                     <img src="{{url('Frontend/img/icon/feature_3.svg')}}" alt="">
                                                     <div class="single_counter_text">
-                                                        <p>Total Volunteer</p>
-                                                        <span class="count">58,9672412</span>
+                                                        <p>Total Donors</p>
+                                                        <span class="count">{{$count['donor']}}</span>
                                                     </div>
                                                 </div>
                                                 <div class="single_counter d-flex">
                                                     <img src="{{url('Frontend/img/icon/feature_4.svg')}}" alt="">
                                                     <div class="single_counter_text">
-                                                        <p>Successed Mission</p>
-                                                        <span class="count">58,967</span>
+                                                        <p>Total Volunteers</p>
+                                                        <span class="count">{{$count['volunteer']}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,6 +184,8 @@
                                                    
                                                 </div>
                                                 @endforeach
+
+                                                <a href="{{route('donor.view.expense')}}" type="button" class="btn_2">View Expenses</a>
 
 
                                                 {{-- <div class="col-sm-6 col-lg-4 col-xl-4">
@@ -276,6 +275,7 @@
 
                                                             
                                                             @foreach($volunteerlist as $key=>$item)
+                                                            
 
 
 
@@ -285,6 +285,7 @@
                                                             <div class="col-sm-6 col-lg-3">
                                                                 <div class="single_blog_item">
                                                                     <div class="single_blog_img">
+                                                                        
                                                                         <img  src="{{url('uploads/volunteers/'.$item->image)}}" alt="volunteer">
                                                                         <div class="social_icon">
                                                                             <a href="#"> <i class="ti-facebook"></i> </a>
@@ -312,7 +313,7 @@
                                                 </section>
                                                 
                                                 
-                                                <section class="blog_part padding_bottom">
+                                                {{-- <section class="blog_part padding_bottom">
                                                     <div class="container">
                                                         <div class="row justify-content-center">
                                                             <div class="col-xl-8">
@@ -389,7 +390,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </section>
+                                                </section> --}}
                                                 
                                                 
                                                 {{-- <section class="client_part padding_bottom">

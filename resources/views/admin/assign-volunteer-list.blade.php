@@ -12,7 +12,7 @@
                   </p> 
   @endif
 
- <a href="{{route('create.cause')}}"><button type="button" class="btn btn-primary">Create Cause</button></a><br><br>
+ {{-- <a href="{{route('create.cause')}}"><button type="button" class="btn btn-primary">Create Cause</button></a><br><br> --}}
  
 
  
@@ -30,9 +30,14 @@
   </thead>
   <tbody>
     @foreach($view as $key=>$item)
+   
     <tr>
       <th scope="row">{{$key+1}}</th>
-      <td>{{$item->volunteer->user->name}}</td>
+      <td>
+          @foreach ($item->volunteer as $users)
+            <p style="color: #868e96">{{$users->user->name}}</p>
+          @endforeach
+      </td>
       {{-- relationtionship --}}
       <td>{{$item->bringCause->name}}</td>
       <td>{{$item->bringCause->location}}</td>

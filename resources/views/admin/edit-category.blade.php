@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-
+<div class="container">
 <h1>Edit Cause Category</h1>
 <hr>
 @if(session()->has('success'))
@@ -41,6 +41,6 @@
       <button type="submit" class="btn btn-success">Update</button>
       
   
-  
+      <div class="container">
     
 @endsection

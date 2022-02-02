@@ -12,6 +12,7 @@ use App\Http\Controllers\VolunteerController;
 // use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\website\HomeController;
 use App\Http\Controllers\website\UserController;
+use App\Http\Controllers\website\ExpenseController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 // use App\Models\Category;
@@ -47,10 +48,11 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
  Route::get('/donor/logout',[UserController::class,'DonorLogout'])->name('donor.logout');
 
 
-//HomeController
-Route::get('/assigned/volunteer/list', [HomeController::class, 'assignedVolunteerList'])->name('assigned.volunteer.list');
+//HomeController update Volunteer profile
+Route::get('/profile/volunteer/list', [HomeController::class, 'profileOfVolunteer'])->name('profile.volunteer.list');
+Route::post('/profile/update/volunteer',[HomeController::class,'updateProfileVolunteer'])->name('update.volunteer.profile');
 
-//Donor
+//Donor registration form
 Route::get('/create/donation/{id}', [HomeController::class, 'CreateDonation'])->name('create.donation');
 //For DonorController
 
@@ -59,7 +61,12 @@ Route::get('/details/donation',[HomeController::class,'DonationDetails'])->name(
 
 // update donor profile on website
 Route::get('/profile/donor',[HomeController::class,'profileOfDonor'])->name('profile.donor');
+// Route::get('/profile/donor',[HomeController::class,'profileOfDonor2'])->name('profile.donor2');
 Route::put('/profile/update',[HomeController::class,'update'])->name('update.donor');
+//update donor password
+Route::get('/update/pass/donor',[HomeController::class,'updatePassDonor'])->name('update.pass.donor');
+Route::post('/store/update/pass/donor',[HomeController::class,'storePasswordform'])->name('store.pass.donor');
+
 
 // Route::get('/create/donor',[HomeController::class,'CreateDonor'])->name('create.donor');
 Route::get('/cause/details/{cause_id}',[HomeController::class,'CauseDetails'])->name('cause.details');
@@ -70,6 +77,30 @@ Route::get('/cause/details/{cause_id}',[HomeController::class,'CauseDetails'])->
 Route::get('/create/volunteer',[VolunteerController::class,'CreateVolunteer'])->name('create.volunteer');
 Route::post('/store/volunteer',[VolunteerController::class,'StoreVolunteer'])->name('store.volunteer');
 
+
+//update volunteer pass
+Route::get('/update/pass/volunteer',[HomeController::class,'updatePassVolunteer'])->name('update.pass.volunteer');
+Route::post('/store/update/pass/volunteer',[HomeController::class,'storePasswordformVolunteer'])->name('store.pass.volunteer');
+
+
+//Assigned volunteer list
+Route::get('/assigned/list/profile',[HomeController::class,'AssignedList'])->name('assigned.list');
+
+
+//create and store expenses
+Route::get('/create/expense/{id}',[VolunteerController::class,'createExpense'])->name('create.expense');
+Route::post('/store/expense',[VolunteerController::class,'storeExpense'])->name('store.expense');
+
+//view expense
+Route::get('vol/view/expense/{id}',[VolunteerController::class,'volViewExpense'])->name('vol.view.expense');
+
+
+//contact us
+Route::get('/contact',[HomeController::class,'Contact'])->name('contact');
+
+
+//Expense controller
+Route::get('/view/expenses/donor',[ExpenseController::class,'viewExpense'])->name('donor.view.expense');
 
 
 // ADMIN
@@ -119,8 +150,8 @@ Route::get('/donorprofile', [UserController::class, 'DonorProfile'])->name('dono
 Route::get('/view/donation/{donation_id}',[DonorController::class,'DonationView'])->name('view.donation');
 Route::get('/delete/donation/{donation_id}',[DonorController::class,'DonationDelete'])->name('delete.donation');
 Route::get('/view/donorprofile/{donor_id}',[UserController::class,'DonorView'])->name('view.donorprofile');
-Route::get('/donor/edit/{volunteer_id}',[UserController::class,'DonorEdit'])->name('edit.donor');
-Route::put('/dono/update/{volunteer_id}',[UserController::class,'DonorUpdate'])->name('update.volunteer');
+Route::get('/donor/edit/{donor_id}',[UserController::class,'DonorEdit'])->name('edit.donor');
+Route::put('/donor/update/{donor_id}',[UserController::class,'DonorUpdate'])->name('update.donor.profile');
 Route::get('/delete/donorprofile/{donor_id}',[UserController::class,'DonorDelete'])->name('delete.donorprofile');
 // Route::post('/update/donation/status/{donation_id}',[DonorController::class,'UpdateDonationStatus'])->name('update.donation.status');
 

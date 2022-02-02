@@ -61,9 +61,15 @@ class UserController extends Controller
 
     public function DonorProfile()
     {
-        
-        $userlist = User::paginate(3);
-        return view('admin.donor.donor-profile',compact('userlist'));
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $userlist = User::where('name','LIKE','%'.$key.'%')
+                ->get();
+            return view('admin.donor.donor-profile',compact('userlist','key')); 
+        }
+        $userlist = User::where('role','user')->get();
+        return view('admin.donor.donor-profile',compact('userlist','key'));
     }
 
 
@@ -146,7 +152,7 @@ class UserController extends Controller
     
             
         ]);
-        return redirect()->route('cause')->with('success','Cause Updated Successfully.');
+        return redirect()->route('donor.profile')->with('success','Donor Updated Successfully.');
 
     }
     public function DonorDelete($donor_id)

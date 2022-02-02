@@ -51,9 +51,14 @@
 
 </style>
 <body>
-    <form action="{{route('update.donor')}}" method="POST">
+    <form action="{{route('update.donor')}}" method="POST" enctype="multipart/form-data">
         @method('PUT')
         @csrf
+        @if(session()->has('success'))
+                  <p class="alert alert-success">
+                    {{session()->get('success')}}
+                  </p> 
+  @endif
         <div class="row">
         <div class="col-md-3 border-right ms-5">
             <div class="card shadow-lg mt-5 d-flex flex-column align-items-center text-center p-3 py-5">
@@ -94,11 +99,15 @@
                     <div class="col-md-12">
                         <label for="occupation" style="font-size:20px;"><b>Occupation</label></b>
                         <input type="text" value="{{auth()->user()->occupation}}" class="form-control" id="occupation"  placeholder="Enter Occupation" name="occupation">
-                    </div>
-                    <div class="col-md-12">
+                    </div><br>
+                    {{-- <div class="col-md-12">
                         <label for="occupation" style="font-size:20px;"><b>Password</label></b>
                         <input type="password" name="password" class="form-control" id="occupation"  placeholder="Enter Password" name="occupation">
+                    </div> --}}
+                      <div class="col-md-12">
+                        <a href="{{route('update.pass.donor')}}" type="button" class="btn btn-success">Update Password</a>
                     </div>
+                   
                    
                 <div class="mt-5 text-center">
                     <button class="btn btn-success profile-button" type="submit">Save Profile</button></div>

@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+<div class="container">
     <h1><b>Donor Registration Form</b></h1>
     <hr>
 
@@ -22,7 +23,7 @@
   @endif
     
 
-    <form action="{{route('update.donor',$donor->id)}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('update.donor.profile',$donor->id)}}" method="POST" enctype="multipart/form-data">
         @method('PUT')
       @csrf
         <div class="form-group">
@@ -77,7 +78,7 @@
 
 
         
-        <button type="submit" class="btn btn-success">Register</button>
+        <button type="submit" class="btn btn-success">Update</button>
       
         {{-- <div class="form-group">
             <p><b>Already have an account? </b><a href="#"><button type="submit" class="btn btn-info">Sign In</button></a>.</p>
@@ -85,4 +86,5 @@
    --}}
   
 </form> 
+</div>
 @endsection

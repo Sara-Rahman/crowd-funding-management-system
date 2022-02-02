@@ -12,9 +12,10 @@ class AssignVolunteer extends Model
 
     public function volunteer()
     {
-        return $this->belongsTo(Volunteer::class,'volunteer_id','id');
+        return $this->hasMany(Volunteer::class,'name','volunteer_id');
         //crisis->category_id,id
     }
+    
     public function bringCause()
     {
         return $this->belongsTo(Cause::class,'cause_id','id');

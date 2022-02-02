@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-
+<div class="container">
 <div id="CauseToPrint">
 <h1>Cause Details</h1>
 <hr>
@@ -22,7 +22,7 @@
 
 <button class="btn btn-primary" type="submit" onClick="PrintDiv('CauseToPrint');" value="Print">Print</button>
 
-    
+</div> 
 @endsection
 
 <script language="javascript">

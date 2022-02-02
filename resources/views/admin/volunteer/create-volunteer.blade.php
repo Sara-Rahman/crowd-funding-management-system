@@ -3,7 +3,7 @@
 @section('content')
 
 
-
+<div class="container">
     <h1><b>Volunteer Registration Form</b></h1>
    
     <hr>
@@ -145,6 +145,7 @@
       
   
 </form> 
+</div>
   
 
   

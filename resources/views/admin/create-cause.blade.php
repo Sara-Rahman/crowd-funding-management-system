@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('content')
+<div class="container">
 <h1>Create Cause</h1>
 <hr>
 
@@ -94,6 +95,7 @@
 
    
     
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success mb-3">Submit</button>
   </form>
+</div>
 @endsection

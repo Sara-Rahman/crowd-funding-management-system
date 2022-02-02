@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Volunteer;
-use App\Models\Cause;
 use App\Models\User;
+use App\Models\Cause;
+use App\Models\Expense;
+use App\Models\Volunteer;
+use Illuminate\Http\Request;
+use App\Models\AssignVolunteer;
+use PhpParser\Node\Expr\Assign;
+use Illuminate\Support\Facades\Auth;
 
 class VolunteerController extends Controller
 {
@@ -135,10 +139,42 @@ class VolunteerController extends Controller
         return redirect()->back()->with('success','Volunteer profile has been deleted.');
     }
 
-    public function Distribution()
+    
+    public function createExpense($id)
     {
-        $crisislist=Cause::with('category')->get();
-        $volunteerlist=Volunteer::all();
-        return view('admin.volunteer.distribution',compact('crisislist','volunteerlist'));
+        $cause = AssignVolunteer::find($id);
+
+      //  dd($cause);
+        return view('website.pages.expenses.create-expense',compact('cause'));
     }
+
+    public function storeExpense(Request $req)
+    {
+        // dd($req->all());
+       
+        Expense::create([
+               
+            'cause_id'=>$req->cause_id,
+            'volunteer_id'=>Auth::user()->id,
+            'ref_id'=>$req->ref_id,
+            'details'=>$req->details,
+            'amount'=>$req->amount,
+
+        ]);
+        return redirect()->back()->with('success','Expenses have been added successfully');
+        
+    }
+
+    public function volViewExpense()
+    {
+        $expense_view=Expense::where('volunteer_id',auth()->user()->id)->get();
+        return view('website.pages.expenses.expense-list',compact('expense_view'));
+    }
+
+    // public function Distribution()
+    // {
+    //     $crisislist=Cause::with('category')->get();
+    //     $volunteerlist=Volunteer::all();
+    //     return view('admin.volunteer.distribution',compact('crisislist','volunteerlist'));
+    // }
 }

@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+<div class="container">
     
     <html lang="en">
       <head>
@@ -132,6 +133,7 @@
           </div>
         </div>
         </form>
+      </div>
         <script>
           
 		$(".js-select2").select2({
@@ -145,5 +147,5 @@
         </script>
       </body>
       </html>
-
+    
 @endsection

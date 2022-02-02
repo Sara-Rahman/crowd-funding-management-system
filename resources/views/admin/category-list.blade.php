@@ -1,5 +1,6 @@
 @extends('master')
 @section('content')
+<div class="container">
     <h1>Category</h1>
 
     @if(session()->has('success'))
@@ -38,4 +39,5 @@
       
 
     </div>
+  </div>
 @endsection

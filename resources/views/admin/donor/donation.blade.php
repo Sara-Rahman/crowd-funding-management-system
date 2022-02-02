@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('content')
+<div class="container">
 <h1>Donation</h1>
 <hr>
 @if(session()->has('success'))
@@ -9,7 +10,24 @@
                   </p>
   @endif
 {{-- <a href="{{route('create.donation',$donationlist->id)}}"><button class="btn btn-primary">Create Donation</button></a> --}}
+<form action="{{route('donation')}}" method="GET">
+  <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+          <input value="{{$key}}" type="text" placeholder="Search" name="search" class="form-control">
+      </div>
+      <div class="col-md-4">
+          <button type="submit" class="btn btn-success">Search</button><br><br>
+      </div>
+  </div>
+  </form>
 
+  @if($key)
+  <h5>
+       Searching for: {{$key}}<br>
+       Found: {{$donationlist->count()}}
+  </h5>
+@endif
 
 <table class="table table-light" style="width:80%">
     <thead>
@@ -18,6 +36,10 @@
         <th scope="col">Donor ID</th>
         <th scope="col">Cause ID</th>
         <th scope="col">Cause Name</th>
+        <th scope="col">Donor Name</th>
+        <th scope="col">Donor Email</th>
+        <th scope="col">Donor Phone</th>
+        
        
         <th scope="col">Transaction ID</th>
        
@@ -34,6 +56,9 @@
         <td>{{$item->id}}</td>
         <td>{{optional($item->cause)->id}}</td> 
         <td>{{optional($item->cause)->name}}</td> 
+        <td>{{$item->name}}</td> 
+        <td>{{$item->email}}</td> 
+        <td>{{$item->phone}}</td> 
        
         <td>{{$item->transaction_id}}</td>
 
@@ -62,7 +87,7 @@
     </tbody>
     
   </table>
-  {{$donationlist->links()}}
+  {{-- {{$donationlist->links()}} --}}
 
-  
+</div>
 @endsection

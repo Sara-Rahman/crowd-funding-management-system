@@ -46,7 +46,7 @@
                             
                         </li> --}}
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="{{route('contact')}}">Contact</a>
                         </li>
 
                         @if(auth()->user())
@@ -60,7 +60,7 @@
                         @endif
 
                         @if(auth()->user()->role=='volunteer')
-                        <a class="btn_1" href="{{route('assigned.volunteer.list')}}" style="text-decoration: none">Assigned Causes</a>
+                        <a class="btn_1" href="{{route('profile.volunteer.list')}}" style="text-decoration: none">Profile of {{auth()->user()->name}}</a>
                         @endif
                         
 

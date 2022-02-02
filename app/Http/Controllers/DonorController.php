@@ -14,9 +14,16 @@ class DonorController extends Controller
 {
     public function Donation()
     {
-        $donationlist=Donation::paginate(3);
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $donationlist = Donation::where('id','LIKE','%'.$key.'%')
+                ->get();
+            return view('admin.donor.donation',compact('donationlist','key')); 
+        }
+        $donationlist=Donation::all();
         // dd($donationlist);
-        return view('admin.donor.donation',compact('donationlist'));
+        return view('admin.donor.donation',compact('donationlist','key'));
     }
 
     public function StoreDonation($id)
