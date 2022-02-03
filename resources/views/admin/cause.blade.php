@@ -70,7 +70,8 @@
       <td>
         <a class="btn btn-primary" href="{{route('view.cause',$item->id)}}">View</a><br><br>
         <a class="btn btn-info" href="{{route('cause.edit',$item->id)}}">Edit</a><br><br>
-        <a class="btn btn-danger" href="{{route('delete.cause',$item->id)}}">Delete</a>
+        <a class="btn btn-danger" href="{{route('delete.cause',$item->id)}}">Delete</a><br><br>
+        <a class="btn btn-primary" href="{{route('view.cause.expense',$item->id)}}">View Expense</a>
     </td>
      
      

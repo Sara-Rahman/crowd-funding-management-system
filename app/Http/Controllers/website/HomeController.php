@@ -282,6 +282,7 @@ class HomeController extends Controller
         // dd($cause);
         
         $view=AssignVolunteer::with(['volunteer','bringCause'])->where('volunteer_id',auth()->user()->id)->get();
+        // dd($view);
         return view('website.pages.assigned-list',compact('view'));
     }
     

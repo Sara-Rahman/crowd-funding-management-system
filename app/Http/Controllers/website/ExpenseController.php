@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
-    public function viewExpense()
+    public function viewExpense($cause_id)
     {
-        $data=Expense::all();
+        $data=Expense::with('expenseUser')->where('cause_id',$cause_id)->get();
+    // dd($data);
         return view('website.pages.view-expense',compact('data'));
     }
 }

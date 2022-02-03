@@ -159,25 +159,38 @@
                                             {{-- CAUSES --}}
 
                                             @foreach($crisislist as $key=>$item)
+
+                                            @php 
+                                            $target=$item->amount;
+                                            $raised=$item->donation->sum('amount');
+
+                                            $percentage=100*$raised/$target;
+                                        
+                                            @endphp
+
                                             <div class="col-sm-6 col-lg-4 col-xl-4">                                                
                                                 <div class="single-home-passion">
                                                     <div class="card">
-                                                        <img src="{{url('uploads/causes/'.$item->image)}}" class="card-img-top" alt="blog">
+                                                        
+                                                        <img src="{{url('uploads/causes/'.$item->image)}}" style="max-width: 100%;" alt="blog">
+                                                       
                                                         <div class="card-body">
                                                             <a href="passion.html">
                                                                 <h5 class="card-title">{{$item->name}}</h5>
                                                                 </a>
                                                                 <div class="skill">
-                                                                    <div class="skill-bar skill11 wow slideInLeft animated">
-                                                                        <span class="skill-count11">75%</span>
+                                                                    <div style="width:{{$percentage}}%" class="skill-bar wow slideInLeft animated">
+                                                                        <span class="skill-count11">{{$percentage}}%</span>
                                                                     </div>
                                                                 </div>
                                                                 <ul>
-                                                                    <li><img src="{{url('Frontend/img/icon/passion_1.svg')}}" alt=""> Goal: {{$item->amount}}</li>
-                                                                    <li><img src="{{url('Frontend/img/icon/passion_2.svg')}}" alt="">Raised Amount: {{$item->donation->sum('amount')}}</li>
-                                                                    <li><img src="{{url('Frontend/img/icon/passion_1.svg')}}" alt=""> Remaining Amount: {{$item->amount-$item->donation->sum('amount')}}</li>
+                                                                    <li><img src="{{url('Frontend/img/icon/passion_1.svg')}}" alt=""> Goal: {{$item->amount}} .BDT</li>
+                                                                    <li><img src="{{url('Frontend/img/icon/passion_2.svg')}}" alt="">Raised Amount: {{$item->donation->sum('amount')}} .BDT</li>
+                                                                    <li><img src="{{url('Frontend/img/icon/passion_1.svg')}}" alt=""> Remaining Amount: {{$item->amount-$item->donation->sum('amount')}} .BDT</li>
                                                                 </ul>
                                                                 <a href="{{route('cause.details',$item->id)}}" class="btn_3">read more</a>
+
+                                                                <a href="{{route('donor.view.expense',$item->id)}}" type="button" class="btn_2">View Expenses</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -185,7 +198,7 @@
                                                 </div>
                                                 @endforeach
 
-                                                <a href="{{route('donor.view.expense')}}" type="button" class="btn_2">View Expenses</a>
+                                                
 
 
                                                 {{-- <div class="col-sm-6 col-lg-4 col-xl-4">
@@ -282,11 +295,11 @@
                                                             {{-- VOLUNTEERS --}}
 
 
-                                                            <div class="col-sm-6 col-lg-3">
+                                                            <div class="col-sm-6 col-lg-4">
                                                                 <div class="single_blog_item">
-                                                                    <div class="single_blog_img">
+                                                                    <div class="single_blog_img" style="height: 233px;">
                                                                         
-                                                                        <img  src="{{url('uploads/volunteers/'.$item->image)}}" alt="volunteer">
+                                                                        <img style="width: 100%; height: 100%;" src="{{url('uploads/volunteers/'.$item->image)}}" alt="volunteer">
                                                                         <div class="social_icon">
                                                                             <a href="#"> <i class="ti-facebook"></i> </a>
                                                                             <a href="#"> <i class="ti-twitter-alt"></i> </a>

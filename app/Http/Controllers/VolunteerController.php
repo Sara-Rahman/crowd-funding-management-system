@@ -8,6 +8,7 @@ use App\Models\Expense;
 use App\Models\Volunteer;
 use Illuminate\Http\Request;
 use App\Models\AssignVolunteer;
+use App\Models\Donation;
 use PhpParser\Node\Expr\Assign;
 use Illuminate\Support\Facades\Auth;
 
@@ -141,28 +142,41 @@ class VolunteerController extends Controller
 
     
     public function createExpense($id)
-    {
+    {  
         $cause = AssignVolunteer::find($id);
-
+        $donation=Donation::where('cause_id',$cause->cause_id)->get();
+        $expense=Expense::where('cause_id',$cause->cause_id)->get();
+    //    dd($cause);
+        $available=$donation->sum('amount')-$expense->sum('amount');
       //  dd($cause);
-        return view('website.pages.expenses.create-expense',compact('cause'));
+        return view('website.pages.expenses.create-expense',compact('cause','available'));
     }
 
     public function storeExpense(Request $req)
     {
         // dd($req->all());
+        $donation=Donation::where('cause_id',$req->cause_id)->get();
+        $expense=Expense::where('cause_id',$req->cause_id)->get();
        
-        Expense::create([
+        $available=$donation->sum('amount')-$expense->sum('amount');
+      
+        if($available>0 && $req->amount<=$available)
+        {
+            Expense::create([
                
-            'cause_id'=>$req->cause_id,
-            'volunteer_id'=>Auth::user()->id,
-            'ref_id'=>$req->ref_id,
-            'details'=>$req->details,
-            'amount'=>$req->amount,
+                'cause_id'=>$req->cause_id,
+                'volunteer_id'=>Auth::user()->id,
+                'ref_id'=>$req->ref_id,
+                'details'=>$req->details,
+                'amount'=>$req->amount,
+    
+            ]);
+            return redirect()->back()->with('success','Expenses have been added successfully');
+            
+        }
+        return redirect()->back()->with('success','Insufficient balance.');
 
-        ]);
-        return redirect()->back()->with('success','Expenses have been added successfully');
-        
+     
     }
 
     public function volViewExpense()

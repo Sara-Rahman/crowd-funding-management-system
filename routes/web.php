@@ -100,7 +100,7 @@ Route::get('/contact',[HomeController::class,'Contact'])->name('contact');
 
 
 //Expense controller
-Route::get('/view/expenses/donor',[ExpenseController::class,'viewExpense'])->name('donor.view.expense');
+Route::get('/view/expenses/donor/{id}',[ExpenseController::class,'viewExpense'])->name('donor.view.expense');
 
 
 // ADMIN
@@ -136,6 +136,13 @@ Route::get('/cause/delete/{cause_id}',[AdminController::class,'CauseDelete'])->n
 Route::get('/assign/volunteer/{cause_id}',[AdminController::class,'AssignVolunteer'])->name('assign.volunteer');
 Route::post('/assign/volunteer/post/{cause_id}',[AdminController::class,'storeAssignVolunteer'])->name('store.assign.volunteer');
 Route::get('/assign/volunteer/view/{cause_id}',[AdminController::class,'viewAssignVolunteer'])->name('view.assign.volunteer');
+
+//expense
+Route::get('/cause/expense/{cause_id}',[AdminController::class,'viewCauseExpense'])->name('view.cause.expense');
+Route::get('/edit/cause/expense/{cause_id}',[AdminController::class,'editCauseExpense'])->name('edit.cause.expense');
+Route::put('/update/cause/expense/{cause_id}',[AdminController::class,'updateCauseExpense'])->name('update.cause.expense');
+Route::get('/delete/cause/expense/{cause_id}',[AdminController::class,'deleteCauseExpense'])->name('delete.cause.expense');
+
 // Report
 Route::get('/report',[AdminController::class,'report'])->name('report');
 

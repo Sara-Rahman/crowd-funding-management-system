@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Cause;
 //use App\Models\Crisis;
 use App\Models\Report;
+use App\Models\Expense;
 use App\Models\Category;
 use App\Models\Donation;
 use Illuminate\Http\Request;
@@ -101,6 +102,7 @@ class AdminController extends Controller
         Cause::find($cause_id)->delete();
         return redirect()->back()->with('success',"Cause has been deleted.");
     }
+    
     public function CauseEdit($cause_id)
     {
         $cause=Cause::find($cause_id);
@@ -149,6 +151,44 @@ class AdminController extends Controller
         ]);
         return redirect()->route('cause')->with('success','Cause Updated Successfully.');
 
+    }
+
+    //view expense for specific cause
+
+    public function viewCauseExpense($cause_id)
+    {
+        $cause_expense=Expense::where('cause_id',$cause_id)->get();
+        return view('admin.cause-expense',compact('cause_expense'));
+    }
+    //edit expense for specific cause
+
+    public function editCauseExpense($cause_id)
+    {
+        $cause_expense=Expense::find($cause_id);
+        //dd($cause_expense);
+        return view('admin.edit-cause-expense',compact('cause_expense'));
+
+    }
+
+    public function updateCauseExpense(Request $req,$cause_id)
+    {
+        $cause_expense=Expense::find($cause_id);
+
+        $cause_expense->update([
+               
+            'cause_id'=>$req->cause_id,
+            'ref_id'=>$req->ref_id,
+            'details'=>$req->details,
+            'amount'=>$req->amount,
+
+        ]);
+        return redirect()->back()->with('success','Expenses have been updated successfully');
+    }
+
+    public function deleteCauseExpense($cause_id)
+    {
+        Expense::find($cause_id)->delete();
+        return redirect()->back()->with('success',"Cause has been deleted.");
     }
 
     public function AssignVolunteer($cause_id)

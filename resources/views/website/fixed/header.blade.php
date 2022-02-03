@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg navbar-light">
                 {{-- <a class="navbar-brand" href="index-2.html"> <img src="{{url('Frontend/img/xlogo.png.pagespeed.ic.Lfr6LQKlW0.png')}}" alt="logo"> </a> --}}
-                <a class="navbar-brand" href="index-2.html" style="background-color: white" ><img src="{{url('Frontend/img/rad.png')}}" alt="logo">Radiant Foundation </a>
+                <a  class="navbar-brand" href="index-2.html" style="background-color: white" ><img style="width: 50px;" src="{{url('Frontend/img/rad.png')}}" alt="logo">Radiant Foundation </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="ti-menu"></span>
                 </button>
@@ -97,7 +97,7 @@
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Donor Login</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Login Please</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

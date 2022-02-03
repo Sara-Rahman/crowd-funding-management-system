@@ -1,11 +1,10 @@
-@extends('website.master')
+@extends('master')
 
 @section('content')
 
 
 <div class="container">
-    <h1><b>Add Expenses </b></h1>
-    <h1><b>Available Balance: {{$available}} .BDT </b></h1>
+    <h1><b>Edit Expenses </b></h1>
    
     <hr>
 
@@ -28,23 +27,24 @@
   @endif
     
 
-    <form action="{{route('store.expense')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('update.cause.expense',$cause_expense->id)}}" method="POST" enctype="multipart/form-data">
+        @method('PUT')
       @csrf
-      <input type="hidden" value="{{$cause->cause_id}}" name="cause_id">
+      {{-- <input type="hidden" value="{{$cause->cause_id}}" name="cause_id"> --}}
         <div class="form-group">
           <label for="ref_id" style="font-size:20px;"><b>Voucher ID</b></label>
-          <input type="number" class="form-control" id="ref_id"  placeholder="Enter Reference ID" name="ref_id">
+          <input type="text" class="form-control" value="{{$cause_expense->ref_id}}" id="ref_id"  placeholder="Enter Voucher ID" name="ref_id">
          
         </div>
         <div class="form-group">
           <label for="details" style="font-size:20px;"><b>Expense Details</label></b>
-          <input type="text" class="form-control" id="details" placeholder="Enter Expense Details" name="details">
+          <input type="text" class="form-control" id="details" value="{{$cause_expense->details}}" placeholder="Enter Expense Details" name="details">
          
         </div>
 
         <div class="form-group">
             <label for="amount" style="font-size:20px;"><b>Amount</label></b>
-            <input type="number" class="form-control" id="city"  placeholder="Enter Amount" name="amount">
+            <input type="number" class="form-control" id="city" value="{{$cause_expense->amount}}"  placeholder="Enter Amount" name="amount">
            
           </div>
 

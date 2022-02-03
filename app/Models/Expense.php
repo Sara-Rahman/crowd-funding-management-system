@@ -22,13 +22,13 @@ class Expense extends Model
     {
         return $this->belongsTo(Cause::class,'cause_id','id');
     }
-    public function expenseVolunteer()
-    {
-        return $this->belongsTo(Cause::class,'name','volunteer_id');
-    }
     public function expenseUser()
     {
-        return $this->belongsTo(User::class,'name','id');
+        return $this->belongsTo(User::class,'volunteer_id','id');
+    }
+    public function volunteer()
+    {
+        return $this->belongsTo(Volunteer::class,'name','id');
     }
 }
 

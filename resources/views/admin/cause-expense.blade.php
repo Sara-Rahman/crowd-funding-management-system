@@ -1,9 +1,9 @@
-@extends('website.master')
+@extends('master')
 
 @section('content')
 
 
-
+<div class="container"> 
  <h1>Expenses List</h1><br>
 
  @if(session()->has('success'))
@@ -21,31 +21,34 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      {{-- <th scope="col">Cause ID</th> --}}
+      <th scope="col">Cause ID</th>
       <th scope="col">Cause Name</th>
-      <th scope="col">Volunteer Name</th>
       <th scope="col">Expense Details</th>
       <th scope="col">Expense Amount</th>
       <th scope="col">Created</th>
+      <th scope="col">Action</th>
     
      
 
     </tr>
   </thead>
   <tbody>
-    @foreach($data as $key=>$item)
-  
+    @foreach($cause_expense as $key=>$item)
+   
     <tr>
       <th scope="row">{{$key+1}}</th>
-      {{-- <td>{{$item->expenseCause->id}}</td>  --}} 
+      <td>{{$item->expenseCause->id}}</td> 
       <td>{{$item->expenseCause->name}}</td> 
-      <td>{{$item->expenseUser->name}}</td>
-      {{-- <td>{{$item->volunteer_id}}</td>  --}}
       <td>{{$item->details}}</td>
       <td>{{$item->amount}}</td>
       <td>{{$item->created_at->diffforhumans()}}</td>
      
       {{-- <td>{{$item->bringCause->location}}</td> --}}
+     <td> 
+         <a class="btn btn-primary" href="{{route('edit.cause.expense',$item->id)}}">Edit</a><br><br>
+     <a class="btn btn-danger" href="{{route('delete.cause.expense',$item->id)}}">Delete</a>
+    </td>
+
      
       
 
@@ -58,4 +61,5 @@
   </tbody> 
   
 </table>
+</div>
 @endsection
