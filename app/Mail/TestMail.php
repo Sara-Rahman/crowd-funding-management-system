@@ -29,6 +29,6 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Test Mail from Admin')->view('admin.emails.TestMail');
+        return $this->subject('Mail from Radiant Foundation')->view('admin.emails.TestMail');
     }
 }

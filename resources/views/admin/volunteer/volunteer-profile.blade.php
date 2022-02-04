@@ -9,7 +9,7 @@
   <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
-          <input value="" type="text" placeholder="Search" name="search" class="form-control">
+          <input value="{{$key}}" type="text" placeholder="Search" name="search" class="form-control">
       </div>
       <div class="col-md-4">
           <button type="submit" class="btn btn-success">Search</button><br><br>
@@ -49,7 +49,7 @@
    
       <tr>
         <th scope="row">{{$key+1}}</th>
-        <td>{{$item->name}}</td>
+        <td>{{$item->user->name}}</td>
         <td>{{$item->email}}</td>
         <td>{{$item->city}}</td>
         <td>{{$item->address}}</td>

@@ -55,12 +55,12 @@
                         <!-- Button trigger modal -->
                         {{-- <a class="btn btn-info" href="#" style="text-decoration: none"> {{auth()->user()->name}}</a> --}}
                         @if(auth()->user()->role=='user')
-                        <a class="btn_1" href="{{route('details.donation')}}" style="text-decoration: none">Donations of {{auth()->user()->name}}</a>
-                        <a class="btn_1" href="{{route('profile.donor')}}" style="text-decoration: none">Profile of {{auth()->user()->name}}</a>
+                        <a class="btn_1" href="{{route('details.donation')}}" style="text-decoration: none">Your Donations</a>
+                        <a class="btn_1" href="{{route('profile.donor')}}" style="text-decoration: none">Your Profile</a>
                         @endif
 
                         @if(auth()->user()->role=='volunteer')
-                        <a class="btn_1" href="{{route('profile.volunteer.list')}}" style="text-decoration: none">Profile of {{auth()->user()->name}}</a>
+                        <a class="btn_1" href="{{route('profile.volunteer.list')}}" style="text-decoration: none">Your Profile </a>
                         @endif
                         
 

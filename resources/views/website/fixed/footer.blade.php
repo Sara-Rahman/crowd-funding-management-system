@@ -4,11 +4,9 @@
     <div class="row justify-content-between">
     <div class="col-sm-6 col-md-4 col-xl-3">
     <div class="single-footer-widget footer_1">
-    <a href="index-2.html"> <img src="{{url('Frontend/img/xlogo.png.pagespeed.ic.Lfr6LQKlW0.png')}}" alt=""> </a>
-    <p>But when shot real her. Chamber her one visite removal six
-    sending himself boys scot band exquisite existend anilas Give,
-    that likeness do isn't air earth seas had cattle tree. Give, that
-    likeness isn't air earth seas had
+    {{-- <a href="index-2.html" style="text-decoration: none; font-weight:700; color:white;"> Radiant Foundation </a> --}}
+    <h4>Radiant Foundation</h4>
+    <p>The measure of life is not its duration, but its donation
     </p>
     </div>
     </div>

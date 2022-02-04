@@ -71,7 +71,7 @@
             </ul>
         </div> --}}
         <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Billing address</h4>
+           
             <form action="{{ url('/pay') }}" method="POST" class="needs-validation">
                 <input type="hidden" value="{{ csrf_token() }}" name="_token" />
                 <div class="row">
@@ -83,8 +83,8 @@
 
                     <div class="col-md-12 mb-3">
                         <label for="firstName">Full name</label>
-                        <input type="text" name="name" class="form-control" id="customer_name" placeholder=""
-                               value="John Doe" required>
+                        <input type="text" name="name" class="form-control" id="customer_name" placeholder="Enter Your Name"
+                               required>
                         <div class="invalid-feedback">
                             Valid customer name is required.
                         </div>
@@ -97,8 +97,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">+88</span>
                         </div>
-                        <input type="text" name="phone" class="form-control" id="mobile" placeholder="Mobile"
-                               value="01711xxxxxx" required>
+                        <input type="text" name="phone" class="form-control" id="mobile" placeholder="Enter Mobile Number"
+                               required>
                         <div class="invalid-feedback" style="width: 100%;">
                             Your Mobile number is required.
                         </div>
@@ -108,7 +108,7 @@
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
                     <input type="email" name="email" class="form-control" id="email"
-                           placeholder="you@example.com" value="you@example.com" required>
+                           placeholder="you@example.com"  required>
                     <div class="invalid-feedback">
                         Please enter a valid email address for shipping updates.
                     </div>
@@ -116,8 +116,8 @@
 
                 <div class="mb-3">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St"
-                           value="93 B, New Eskaton Road" required>
+                    <input type="text" class="form-control" id="address" placeholder="Enter Address"
+                            required>
                     <div class="invalid-feedback">
                         Please enter your shipping address.
                     </div>
@@ -140,7 +140,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label for="state">State</label>
+                        <label for="state">City</label>
                         <select class="custom-select d-block w-100" id="state" required>
                             <option value="">Choose...</option>
                             <option value="Dhaka">Dhaka</option>
@@ -160,9 +160,8 @@
                 <hr class=" mb-4">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="same-address">
-                    <input type="text" placeholder="Enter Amount" name="amount" id="total_amount" required/><br>
-                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing
-                        address</label>
+                    <input type="text" class="form-control" placeholder="Enter Amount" name="amount" id="total_amount" required/><br>
+                    
                 </div>
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="save-info">
@@ -223,7 +222,7 @@
 
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Danger!</strong> Please Register or Login first.
+  <strong>Please Register or Login first!</strong> 
 </div>
 
 </body>

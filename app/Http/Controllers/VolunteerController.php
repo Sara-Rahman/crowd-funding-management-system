@@ -16,10 +16,17 @@ class VolunteerController extends Controller
 {
     public function VolunteerProfile()
     {
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $volunteerlist=Volunteer::where('id','LIKE','%'.$key.'%')
+                ->get();
+            return view('admin.volunteer.volunteer-profile',compact('volunteerlist','key'));
+        } 
       
         //$volunteerlist=Volunteer::all();
         $volunteerlist=Volunteer::with('bringCause')->get();
-        return view('admin.volunteer.volunteer-profile',compact('volunteerlist'));
+        return view('admin.volunteer.volunteer-profile',compact('volunteerlist','key'));
     }
 
     public function CreateVolunteer()

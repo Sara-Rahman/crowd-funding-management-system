@@ -50,7 +50,7 @@
                   <div class="stat-widget-two card-body">
                       <div class="stat-content">
                           <div class="stat-text">Total Donations</div>
-                          <div class="stat-digit"> <i class="fa fa-usd"></i>{{$count['donation']}}</div>
+                          <div class="stat-digit"> BDT</i> {{$count['donation']}}</div>
                       </div>
                       <div class="progress">
                           <div class="progress-bar progress-bar-danger w-65" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>

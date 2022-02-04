@@ -11,8 +11,8 @@
 <p><b>Description: {{$cause->details}}</b></p>
 <p><b>Location: {{$cause->location}}</b></p>
 <p><b>Contact Number: {{$cause->phn_number}}</b></p>
-<p><b>Target Amount: {{$cause->amount}}<b></p>
-<p><b>Raised Amount: {{$cause->donation->sum('amount')}}</b></p>
+<p><b>Target Amount: {{$cause->amount}} BDT<b></p>
+<p><b>Raised Amount: {{$cause->donation->sum('amount')}} BDT</b></p>
 <p>
     <img src="{{url('/uploads/causes/'.$cause->image)}}" style="border-radius:4px" width="200px" alt="cause image">
 </p>
