@@ -10,8 +10,8 @@
         
         <div class="container" style="display:flex;">
             <div class="form-group col-4">
-              <label for="fromdate" style="font-size:20px;"><b>From</label></b>
-              <input type="date" class="form-control" id="fromdate" name="fromdate" placeholder="From">
+                <label for="fromdate" style="font-size:20px;"><b>From</label></b>
+                <input type="date" class="form-control" id="fromdate" name="fromdate" placeholder="From">
             </div>
 
             <div class="form-group col-4">
@@ -19,7 +19,7 @@
                 <input type="date" class="form-control" id="todate" name="todate" placeholder="To">
             </div>
 
-            <div class="form-group col-4 mt-4">
+            <div class="d-print-none form-group col-4 mt-4">
             
                     <button type="submit" class="btn btn-success">Search</button><br><br>
             </div>
@@ -67,11 +67,10 @@
       </table>
     </div>
   </div>
-  <button class="btn btn-primary" type="submit" onClick="PrintDiv('ReportToPrint');" value="Print">Print</button>
+  {{-- <button class="btn btn-primary" type="submit" onClick="PrintDiv('ReportToPrint');" value="Print">Print</button> --}}
 
-
-
-    <script language="javascript">
+<button onclick="{window.print()}" class="d-print-none btn btn-primary">Print</button>
+    {{-- <script language="javascript">
       function PrintDiv(divName) {
           var printContents = document.getElementById(divName).innerHTML;
           var originalContents = document.body.innerHTML;
@@ -79,5 +78,5 @@
           window.print();
           document.body.innerHTML = originalContents;
       }
-      </script>
+      </script> --}}
 @endsection

@@ -14,7 +14,7 @@ use App\Http\Controllers\website\HomeController;
 use App\Http\Controllers\website\UserController;
 use App\Http\Controllers\website\ExpenseController;
 use App\Http\Controllers\SslCommerzPaymentController;
-use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\admin\UserController as AdminUserController;
 // use App\Models\Category;
 
 /*
